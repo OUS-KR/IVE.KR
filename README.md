@@ -50,6 +50,8 @@
   - 예제: [IVE.KR/yt/1ZX1vEDTfY4](https://ive.kr/yt/1ZX1vEDTfY4)
 - 유튜브 영상 + 시작 시간 옵션: `IVE.KR/{유튜브 영상 아이디}/{시작 시간}`
   - 예제: [IVE.KR/yt/1ZX1vEDTfY4/1m6s](https://ive.kr/yt/1ZX1vEDTfY4/1m6s)
+- 유튜브 영상 썸네일: `IVE.KR/yt/img/{유튜브 영상 아이디}`
+  - 예제: [IVE.KR/yt/img/1ZX1vEDTfY4](https://ive.kr/yt/img/1ZX1vEDTfY4)
 
 ## 주의사항
 
