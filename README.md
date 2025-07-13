@@ -52,6 +52,8 @@
   - 예제: [IVE.KR/yt/1ZX1vEDTfY4/1m6s](https://ive.kr/yt/1ZX1vEDTfY4/1m6s), [IVE.KR/yt/yebNIHKAC4A/56](https://ive.kr/yt/yebNIHKAC4A/56)
 - 유튜브 영상 썸네일: `IVE.KR/yt/img/{유튜브 영상 아이디}`
   - 예제: [IVE.KR/yt/img/1ZX1vEDTfY4](https://ive.kr/yt/img/1ZX1vEDTfY4), [IVE.KR/yt/img/yebNIHKAC4A](https://ive.kr/yt/img/yebNIHKAC4A)
+- 유튜브 채널 RSS: `IVE.KR/yt/rss/{유튜브 채널 아이디}`
+  - 예제: [IVE.KR/yt/rss/UC-Fnix71vRP64WXeo0ikd0Q](https://ive.kr/yt/rss/UC-Fnix71vRP64WXeo0ikd0Q)
 
 #### 마크다운 작성 시 사용 방법
 
