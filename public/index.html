@@ -1,0 +1,1151 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>-ive — ive.kr</title>
+  <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,600;0,9..144,800;0,9..144,900;1,9..144,300;1,9..144,600;1,9..144,900&family=DM+Sans:wght@300;400;500&family=Fira+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style type="text/tailwindcss">
+    @theme {
+      --color-emerald-50:#edfaf2;
+      --color-emerald-100:#d0f4e0;
+      --color-emerald-200:#a0e8c0;
+      --color-emerald-300:#64d498;
+      --color-emerald-400:#2aba70;
+      --color-emerald-500:#169652;
+      --color-emerald-600:#0c7240;
+      --color-emerald-700:#08502c;
+      --color-emerald-800:#053420;
+      --color-emerald-900:#031e12;
+      --color-emerald-950:#010f09;
+      --color-teal-200:#b0ecea;
+      --color-teal-300:#70dbd8;
+      --color-teal-400:#30c4c0;
+      --color-teal-500:#18a09c;
+      --color-teal-600:#0e7876;
+      --color-amber-200:#fdecc8;
+      --color-amber-300:#f8d490;
+      --color-amber-400:#f0b840;
+      --color-amber-500:#d49418;
+      --color-amber-600:#a87000;
+      --color-ink-700:#1a2020;
+      --color-ink-800:#101818;
+      --color-ink-900:#080e0e;
+      --color-ink-950:#040808;
+      --color-pearl-100:#f8faf8;
+      --color-pearl-200:#e4ece6;
+      --color-pearl-300:#c4d4c8;
+      --font-display:"Fraunces","Georgia",serif;
+      --font-mono:"Fira Mono","Courier New",monospace;
+      --font-body:"DM Sans",system-ui,sans-serif;
+    }
+
+    @layer base {
+      *,*::before,*::after { box-sizing:border-box; margin:0; padding:0; }
+      html {
+        background:#040808;
+        color:#c4d4c8;
+        font-family:var(--font-body);
+        scroll-behavior:smooth;
+        overflow-x:hidden;
+      }
+      body { min-height:100vh; position:relative; }
+      ::selection { background:rgba(22,150,82,.4); color:#d0f4e0; }
+      ::-webkit-scrollbar { width:4px; }
+      ::-webkit-scrollbar-track { background:#080e0e; }
+      ::-webkit-scrollbar-thumb { background:#169652; border-radius:2px; }
+    }
+
+    /* ── Canvas & Overlays ── */
+    #ive-canvas {
+      position:fixed; inset:0; z-index:0; pointer-events:none;
+    }
+    .leaf-vein {
+      position:fixed; inset:0; z-index:1; pointer-events:none;
+      background-image:
+        linear-gradient(rgba(22,150,82,.025) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(22,150,82,.025) 1px, transparent 1px);
+      background-size:72px 72px;
+    }
+    .nature-glow {
+      position:fixed; inset:0; z-index:2; pointer-events:none;
+      background:
+        radial-gradient(ellipse 62% 50% at 16% 25%,
+          rgba(22,150,82,.065) 0%, transparent 64%),
+        radial-gradient(ellipse 50% 62% at 84% 75%,
+          rgba(24,160,156,.05) 0%, transparent 64%),
+        radial-gradient(ellipse 42% 42% at 50% 50%,
+          rgba(212,148,24,.03) 0%, transparent 56%);
+      animation:nature-breathe 14s ease-in-out infinite alternate;
+    }
+    @keyframes nature-breathe {
+      0%   { opacity:.65; transform:scale(1); }
+      100% { opacity:1;   transform:scale(1.025); }
+    }
+    .vignette {
+      position:fixed; inset:0; z-index:3; pointer-events:none;
+      background:radial-gradient(
+        ellipse at 50% 50%,
+        transparent 37%,
+        rgba(4,8,8,.94) 100%
+      );
+    }
+
+    /* ── Site Wrapper ── */
+    .site-wrapper {
+      position:relative; z-index:10;
+      display:grid; grid-template-rows:auto 1fr auto; min-height:100vh;
+    }
+
+    /* ── Header ── */
+    .glass-header {
+      position:sticky; top:0; z-index:50;
+      backdrop-filter:blur(24px) saturate(1.5);
+      background:rgba(4,8,8,.8);
+      border-bottom:1px solid rgba(22,150,82,.16);
+    }
+    .logo-ive {
+      font-family:var(--font-display);
+      font-size:1.55rem; font-weight:900; letter-spacing:.04em;
+      font-style:italic;
+      color:#2aba70; text-decoration:none;
+      text-shadow:0 0 22px rgba(22,150,82,.6);
+      transition:color .2s;
+    }
+    .logo-ive:hover { color:#d0f4e0; }
+    .logo-ive span { color:rgba(100,212,152,.6); font-weight:300; }
+    .nav-link {
+      font-family:var(--font-display); font-size:.8rem;
+      font-style:italic; font-weight:600; letter-spacing:.08em;
+      color:#0c7240; text-decoration:none; transition:color .2s;
+    }
+    .nav-link:hover { color:#f0b840; }
+    .domain-badge {
+      font-family:var(--font-mono); font-size:.66rem;
+      letter-spacing:.1em; color:rgba(42,186,112,.75);
+      border:1px solid rgba(22,150,82,.28);
+      padding:.24rem .82rem; border-radius:2px;
+      background:rgba(22,150,82,.07);
+    }
+
+    /* ── Hero ── */
+    .hero-section {
+      position:relative; min-height:100vh;
+      display:flex; align-items:center; justify-content:center;
+      padding:8rem 1.5rem 6rem; overflow:hidden;
+    }
+    .hero-bg-text {
+      position:absolute; inset:0;
+      display:flex; align-items:center; justify-content:center;
+      font-family:var(--font-display);
+      font-size:clamp(9rem,24vw,22rem);
+      font-weight:900; font-style:italic; letter-spacing:.01em;
+      color:transparent;
+      -webkit-text-stroke:1px rgba(22,150,82,.07);
+      user-select:none; pointer-events:none;
+      animation:breathe-organic 11s ease-in-out infinite;
+    }
+    @keyframes breathe-organic {
+      0%,100% { opacity:.28; transform:scale(1)    rotate(-.2deg); }
+      50%      { opacity:.56; transform:scale(1.01) rotate(0deg);   }
+    }
+
+    /* Vine ring */
+    .vine-ring {
+      position:absolute; top:50%; left:50%;
+      transform:translate(-50%,-50%);
+      width:min(560px,80vw); height:min(560px,80vw);
+      border:1px solid rgba(22,150,82,.09); border-radius:50%;
+      pointer-events:none;
+      animation:spin-slow 55s linear infinite;
+    }
+    .vine-ring::before {
+      content:''; position:absolute; inset:28px;
+      border:1px dashed rgba(24,160,156,.07); border-radius:50%;
+      animation:spin-rev 34s linear infinite;
+    }
+    .vine-ring::after {
+      content:''; position:absolute; inset:70px;
+      border:1px solid rgba(212,148,24,.05); border-radius:50%;
+      animation:spin-slow 40s linear infinite reverse;
+    }
+    @keyframes spin-slow { to { transform:translate(-50%,-50%) rotate(360deg); } }
+    @keyframes spin-rev  { to { transform:rotate(-360deg); } }
+
+    .hero-content { position:relative; z-index:2; text-align:center; max-width:720px; }
+
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:.55rem;
+      font-family:var(--font-mono); font-size:.63rem;
+      letter-spacing:.18em; text-transform:uppercase;
+      color:#169652; border:1px solid rgba(22,150,82,.3);
+      padding:.34rem 1.1rem; border-radius:2px;
+      background:rgba(22,150,82,.08);
+      margin-bottom:2rem;
+    }
+    .hero-badge::before { content:'🌿'; font-size:.8em; }
+    .hero-badge::after  { content:'🌿'; font-size:.8em; }
+
+    /* The giant suffix */
+    .hero-suffix {
+      font-family:var(--font-display);
+      font-size:clamp(5.5rem,16vw,12rem);
+      font-weight:900; font-style:italic; letter-spacing:.01em;
+      line-height:1; margin-bottom:.7rem;
+      display:inline-block;
+    }
+    .hero-suffix .dash {
+      background:linear-gradient(135deg, #a0e8c0 0%, #64d498 40%, #2aba70 70%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      background-clip:text;
+      filter:drop-shadow(0 0 16px rgba(22,150,82,.5));
+    }
+    .hero-suffix .ive {
+      background:linear-gradient(135deg,
+        #fdecc8 0%, #f8d490 25%, #f0b840 55%, #d49418 100%);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent;
+      background-clip:text;
+      filter:drop-shadow(0 0 36px rgba(212,148,24,.65));
+    }
+
+    .hero-latin {
+      font-family:var(--font-mono); font-size:clamp(.76rem,1.6vw,.9rem);
+      color:rgba(24,160,156,.72); letter-spacing:.1em; margin-bottom:.4rem;
+    }
+    .hero-meaning {
+      font-family:var(--font-display); font-size:clamp(1rem,2.2vw,1.3rem);
+      font-weight:800; font-style:italic; letter-spacing:.04em;
+      color:#64d498; margin-bottom:.5rem;
+    }
+    .hero-quote {
+      font-family:var(--font-display); font-size:clamp(.95rem,1.9vw,1.15rem);
+      font-style:italic; font-weight:300;
+      color:rgba(196,212,200,.74);
+      margin-bottom:2.5rem; line-height:1.76;
+      border-left:2px solid rgba(22,150,82,.38);
+      padding-left:1.2rem; text-align:left;
+    }
+
+    /* Word-tendency pills */
+    .word-pills {
+      display:flex; flex-wrap:wrap; gap:.42rem;
+      justify-content:center; margin-bottom:2.5rem;
+    }
+    .word-pill {
+      font-family:var(--font-display); font-size:.7rem; font-weight:600;
+      font-style:italic; letter-spacing:.06em;
+      padding:.3rem .9rem; border-radius:2px;
+      border:1px solid rgba(22,150,82,.22);
+      color:#0c7240; background:rgba(22,150,82,.07);
+      transition:all .22s; cursor:default;
+    }
+    .word-pill:hover {
+      border-color:rgba(100,212,152,.5); color:#a0e8c0;
+      background:rgba(22,150,82,.15); transform:translateY(-1px);
+    }
+    .word-pill.amber {
+      border-color:rgba(212,148,24,.24); color:#a87000;
+      background:rgba(212,148,24,.07);
+    }
+    .word-pill.amber:hover {
+      border-color:rgba(240,184,64,.55); color:#f8d490;
+      background:rgba(212,148,24,.15);
+    }
+    .word-pill.teal {
+      border-color:rgba(24,160,156,.22); color:#0e7876;
+      background:rgba(24,160,156,.07);
+    }
+    .word-pill.teal:hover {
+      border-color:rgba(112,219,216,.5); color:#70dbd8;
+      background:rgba(24,160,156,.15);
+    }
+
+    .cta-btn {
+      display:inline-flex; align-items:center; gap:.65rem;
+      font-family:var(--font-display); font-size:.82rem; font-weight:800;
+      font-style:italic; letter-spacing:.08em;
+      text-decoration:none; padding:.9rem 2.5rem;
+      border:1px solid rgba(22,150,82,.46); border-radius:2px;
+      color:#2aba70; background:rgba(22,150,82,.1);
+      transition:all .28s;
+    }
+    .cta-btn:hover {
+      background:rgba(22,150,82,.24); border-color:#2aba70; color:#d0f4e0;
+      box-shadow:0 0 32px rgba(22,150,82,.38);
+    }
+    .scroll-indicator {
+      position:absolute; bottom:2rem; left:50%; transform:translateX(-50%);
+      font-family:var(--font-mono); font-size:.58rem;
+      letter-spacing:.15em; text-transform:uppercase;
+      color:rgba(12,114,64,.44);
+      display:flex; flex-direction:column; align-items:center; gap:.4rem;
+    }
+    .scroll-indicator::after {
+      content:''; width:1px; height:40px;
+      background:linear-gradient(to bottom, rgba(22,150,82,.45), transparent);
+      animation:scroll-grow 2.2s ease-in-out infinite;
+    }
+    @keyframes scroll-grow {
+      0%,100% { height:18px; opacity:.28; }
+      50%      { height:52px; opacity:.9;  }
+    }
+
+    /* ── Stats Row ── */
+    .stats-row {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      border-top:1px solid rgba(22,150,82,.13);
+      border-bottom:1px solid rgba(22,150,82,.13);
+      background:rgba(4,8,8,.72); backdrop-filter:blur(14px);
+    }
+    .stat-cell {
+      padding:2.2rem 1rem; text-align:center;
+      border-right:1px solid rgba(22,150,82,.1);
+    }
+    .stat-cell:last-child { border-right:none; }
+    .stat-value {
+      font-family:var(--font-display);
+      font-size:clamp(1.8rem,4vw,2.8rem);
+      font-weight:900; font-style:italic; color:#f0b840;
+      display:block; margin-bottom:.3rem;
+    }
+    .stat-label {
+      font-family:var(--font-mono); font-size:.6rem;
+      letter-spacing:.14em; color:#08502c; text-transform:uppercase;
+    }
+
+    /* ── Etymology Section ── */
+    .etym-section { padding:6rem 1.5rem; max-width:1100px; margin:0 auto; }
+    .section-eyebrow {
+      font-family:var(--font-mono); font-size:.63rem;
+      letter-spacing:.2em; color:#169652; text-transform:uppercase;
+      margin-bottom:.5rem;
+      display:flex; align-items:center; gap:.8rem;
+    }
+    .section-eyebrow::before { content:'🌿'; font-size:.8em; }
+    .section-title {
+      font-family:var(--font-display);
+      font-size:clamp(1.6rem,3.5vw,2.5rem);
+      font-weight:900; font-style:italic;
+      color:#e4ece6; margin-bottom:.6rem; line-height:1.12;
+    }
+    .section-desc {
+      font-family:var(--font-body); font-size:.92rem; font-weight:300;
+      color:#08502c; max-width:600px; margin-bottom:3rem; line-height:1.78;
+    }
+
+    /* Etymology timeline — organic card style */
+    .etym-timeline {
+      display:flex; flex-direction:column;
+      border:1px solid rgba(22,150,82,.14); overflow:hidden; max-width:820px;
+    }
+    .etym-row {
+      display:grid; grid-template-columns:175px 1fr;
+      background:rgba(4,8,8,.62); transition:background .3s;
+    }
+    .etym-row + .etym-row { border-top:1px solid rgba(22,150,82,.08); }
+    .etym-row:hover { background:rgba(22,150,82,.06); }
+    .etym-era {
+      padding:1.5rem 1.4rem;
+      display:flex; flex-direction:column; justify-content:center;
+      border-right:1px solid rgba(22,150,82,.1);
+    }
+    .etym-era-tag {
+      font-family:var(--font-mono); font-size:.56rem;
+      letter-spacing:.14em; color:#169652; text-transform:uppercase;
+      margin-bottom:.28rem;
+    }
+    .etym-era-form {
+      font-family:var(--font-display); font-size:1.1rem;
+      font-weight:800; font-style:italic; color:#f0b840;
+      letter-spacing:.02em;
+    }
+    .etym-body { padding:1.5rem 1.8rem; }
+    .etym-head {
+      font-family:var(--font-display); font-size:.85rem;
+      font-weight:700; font-style:italic;
+      color:#64d498; margin-bottom:.35rem; letter-spacing:.04em;
+    }
+    .etym-def {
+      font-family:var(--font-body); font-size:.84rem; font-weight:300;
+      color:#08502c; line-height:1.65;
+    }
+    .etym-ex {
+      font-family:var(--font-mono); font-size:.7rem;
+      color:rgba(42,186,112,.52); margin-top:.4rem; letter-spacing:.04em;
+    }
+
+    /* ── Tendency Gallery ── */
+    .gallery-section { padding:6rem 1.5rem; max-width:1200px; margin:0 auto; }
+    .gallery-grid {
+      display:grid;
+      grid-template-columns:repeat(auto-fill,minmax(200px,1fr));
+      gap:1px; border:1px solid rgba(22,150,82,.12); overflow:hidden;
+    }
+    .gallery-card {
+      padding:2rem 1.6rem; background:rgba(4,8,8,.62);
+      position:relative; overflow:hidden; transition:background .3s; cursor:default;
+    }
+    .gallery-card:hover { background:rgba(22,150,82,.07); }
+    .gallery-card::before {
+      content:''; position:absolute; top:0; left:0; right:0; height:2px;
+      background:linear-gradient(
+        to right, transparent,
+        var(--gc-color, rgba(22,150,82,.5)),
+        transparent
+      );
+      transform:scaleX(0); transition:transform .4s;
+    }
+    .gallery-card:hover::before { transform:scaleX(1); }
+    .gallery-tends {
+      font-family:var(--font-mono); font-size:.62rem;
+      color:var(--gc-color, #169652); display:block;
+      margin-bottom:.5rem; letter-spacing:.08em;
+    }
+    .gallery-word {
+      font-family:var(--font-display); font-size:1.12rem;
+      font-weight:900; font-style:italic;
+      color:var(--gc-color, #2aba70);
+      display:block; margin-bottom:.28rem; line-height:1.05;
+    }
+    .gallery-from {
+      font-family:var(--font-mono); font-size:.6rem;
+      color:rgba(22,150,82,.42); display:block; margin-bottom:.5rem;
+    }
+    .gallery-def {
+      font-family:var(--font-body); font-size:.78rem; font-weight:300;
+      color:#08502c; line-height:1.55;
+    }
+
+    /* ── Lexicon Box ── */
+    .lexicon-box {
+      max-width:780px; margin:0 auto 6rem;
+      border:1px solid rgba(22,150,82,.18);
+      background:rgba(4,8,8,.76);
+      backdrop-filter:blur(18px);
+      padding:2.5rem;
+    }
+    .lexicon-title {
+      font-family:var(--font-display); font-size:.7rem;
+      font-weight:700; font-style:italic; letter-spacing:.14em;
+      color:#2aba70; text-transform:uppercase;
+      margin-bottom:1.6rem;
+      display:flex; align-items:center; gap:.8rem;
+    }
+    .lexicon-title::before { content:'🌿'; font-size:.85em; }
+    .lexicon-row {
+      display:grid; grid-template-columns:120px 1fr;
+      gap:1rem; align-items:start;
+      padding:.9rem 0; border-bottom:1px solid rgba(22,150,82,.08);
+    }
+    .lexicon-row:last-child { border-bottom:none; }
+    .lexicon-key {
+      font-family:var(--font-mono); font-size:.6rem;
+      letter-spacing:.1em; color:#169652;
+      text-transform:uppercase; padding-top:.08rem;
+    }
+    .lexicon-val {
+      font-family:var(--font-body); font-size:.86rem; font-weight:300;
+      color:#0c7240; line-height:1.68;
+    }
+    .lexicon-val strong { color:#64d498; font-weight:500; }
+
+    /* ── Origin ── */
+    .origin-section {
+      padding:5rem 1.5rem; max-width:780px; margin:0 auto; text-align:center;
+    }
+    .origin-glyph {
+      font-family:var(--font-display); font-size:3.5rem; font-weight:900;
+      font-style:italic;
+      color:rgba(22,150,82,.28); margin-bottom:1rem; display:block;
+    }
+    .origin-title {
+      font-family:var(--font-display);
+      font-size:clamp(1.4rem,3vw,2rem);
+      font-weight:900; font-style:italic; color:#e4ece6; margin-bottom:1.2rem;
+    }
+    .origin-text {
+      font-family:var(--font-body); font-size:.92rem; font-weight:300;
+      color:#08502c; line-height:1.9; margin-bottom:1rem;
+    }
+    .origin-text em {
+      font-family:var(--font-display); font-style:italic; font-weight:700;
+      color:#f0b840;
+    }
+
+    /* ── Trio comparison (ous / ize / ive) ── */
+    .trio-section { padding:4rem 1.5rem; max-width:900px; margin:0 auto; }
+    .trio-title {
+      font-family:var(--font-display); font-size:clamp(1.2rem,2.5vw,1.6rem);
+      font-weight:900; font-style:italic; color:#e4ece6;
+      text-align:center; margin-bottom:.5rem;
+    }
+    .trio-sub {
+      font-family:var(--font-body); font-size:.85rem; font-weight:300;
+      color:#08502c; text-align:center; margin-bottom:2.5rem;
+    }
+    .trio-grid {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:1px; border:1px solid rgba(22,150,82,.12); overflow:hidden;
+    }
+    .trio-card {
+      padding:2rem 1.6rem; background:rgba(4,8,8,.62);
+      text-align:center; transition:background .3s;
+    }
+    .trio-card:hover { background:rgba(22,150,82,.06); }
+    .trio-suffix {
+      font-family:var(--font-display); font-size:2.5rem;
+      font-weight:900; font-style:italic;
+      color:var(--trio-color, #2aba70); display:block;
+      margin-bottom:.5rem;
+      filter:drop-shadow(0 0 10px var(--trio-shadow, rgba(22,150,82,.4)));
+    }
+    .trio-role {
+      font-family:var(--font-mono); font-size:.6rem;
+      letter-spacing:.12em; text-transform:uppercase;
+      color:var(--trio-color, #169652); display:block; margin-bottom:.4rem;
+    }
+    .trio-desc {
+      font-family:var(--font-body); font-size:.78rem; font-weight:300;
+      color:#08502c; line-height:1.55;
+    }
+    .trio-example {
+      font-family:var(--font-display); font-size:.9rem;
+      font-style:italic; color:rgba(100,212,152,.55);
+      display:block; margin-top:.6rem;
+    }
+
+    /* ── Contact ── */
+    .contact-section {
+      padding:7rem 1.5rem; text-align:center;
+      border-top:1px solid rgba(22,150,82,.1);
+    }
+    .contact-label {
+      font-family:var(--font-mono); font-size:.62rem;
+      letter-spacing:.2em; color:#169652;
+      text-transform:uppercase; margin-bottom:1rem;
+    }
+    .contact-title {
+      font-family:var(--font-display);
+      font-size:clamp(1.6rem,4vw,2.8rem);
+      font-weight:900; font-style:italic; color:#e4ece6; margin-bottom:.7rem;
+    }
+    .contact-sub {
+      font-family:var(--font-body); font-size:.9rem; font-weight:300;
+      color:#08502c; margin-bottom:2.5rem;
+    }
+    .contact-email {
+      display:inline-flex; align-items:center; gap:.7rem;
+      font-family:var(--font-mono); font-size:clamp(.8rem,1.8vw,.98rem);
+      letter-spacing:.1em; color:#2aba70;
+      text-decoration:none;
+      border:1px solid rgba(22,150,82,.3);
+      padding:1rem 2.6rem; border-radius:2px;
+      background:rgba(22,150,82,.07);
+      transition:all .28s;
+    }
+    .contact-email:hover {
+      background:rgba(22,150,82,.22); border-color:#2aba70; color:#d0f4e0;
+      box-shadow:0 0 32px rgba(22,150,82,.34);
+    }
+
+    /* ── Footer ── */
+    .site-footer {
+      border-top:1px solid rgba(22,150,82,.1);
+      padding:2rem 2.5rem;
+      display:flex; justify-content:space-between; align-items:center;
+      flex-wrap:wrap; gap:1rem;
+      background:rgba(4,8,8,.96);
+    }
+    .footer-copy {
+      font-family:var(--font-mono); font-size:.58rem;
+      letter-spacing:.12em; color:#053420; text-transform:uppercase;
+    }
+
+    /* ── Animations ── */
+    .fade-up {
+      opacity:0; transform:translateY(28px);
+      transition:opacity .78s ease, transform .78s ease;
+    }
+    .fade-up.visible { opacity:1; transform:translateY(0); }
+
+    @keyframes fade-in {
+      from { opacity:0; transform:translateY(18px); }
+      to   { opacity:1; transform:translateY(0); }
+    }
+    .hero-content > * { animation:fade-in .88s ease both; }
+    .hero-content > *:nth-child(1) { animation-delay:.1s; }
+    .hero-content > *:nth-child(2) { animation-delay:.26s; }
+    .hero-content > *:nth-child(3) { animation-delay:.42s; }
+    .hero-content > *:nth-child(4) { animation-delay:.58s; }
+    .hero-content > *:nth-child(5) { animation-delay:.74s; }
+    .hero-content > *:nth-child(6) { animation-delay:.90s; }
+    .hero-content > *:nth-child(7) { animation-delay:1.06s; }
+    .hero-content > *:nth-child(8) { animation-delay:1.22s; }
+  </style>
+</head>
+<body>
+
+<canvas id="ive-canvas"></canvas>
+<div class="leaf-vein"    aria-hidden="true"></div>
+<div class="nature-glow"  aria-hidden="true"></div>
+<div class="vignette"     aria-hidden="true"></div>
+
+<div class="site-wrapper">
+
+  <!-- ═══ HEADER ═══ -->
+  <header class="glass-header flex items-center justify-between px-8 py-5">
+    <a href="/" class="logo-ive"><span>-</span>ive</a>
+    <nav class="hidden sm:flex gap-10">
+      <a href="#etymology" class="nav-link">Etymology</a>
+      <a href="#gallery"   class="nav-link">Words</a>
+      <a href="#contact"   class="nav-link">Contact</a>
+    </nav>
+    <div class="domain-badge hidden sm:block">ive.kr</div>
+  </header>
+
+  <!-- ═══ MAIN ═══ -->
+  <main>
+
+    <!-- HERO -->
+    <section class="hero-section">
+      <div class="hero-bg-text" aria-hidden="true">-ive</div>
+      <div class="vine-ring"    aria-hidden="true"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge">The Suffix of Tendency</div>
+
+        <div class="hero-suffix" aria-label="-ive">
+          <span class="dash">-</span><span class="ive">ive</span>
+        </div>
+
+        <p class="hero-latin">from Latin -īvus · Old French -if / -ive · Middle English -ive</p>
+        <p class="hero-meaning">"tending to · having the quality of · inclined toward"</p>
+
+        <blockquote class="hero-quote">
+          "동사는 행동한다. 명사는 존재한다.<br>
+          그러나 <em>-ive</em>가 붙으면 — 그것은 <em>성질</em>이 된다, 방향이 된다, 본성이 된다."
+        </blockquote>
+
+        <div class="word-pills">
+          <span class="word-pill amber">creat·ive</span>
+          <span class="word-pill">innovat·ive</span>
+          <span class="word-pill teal">progress·ive</span>
+          <span class="word-pill amber">intuit·ive</span>
+          <span class="word-pill">express·ive</span>
+          <span class="word-pill teal">adapt·ive</span>
+          <span class="word-pill amber">decis·ive</span>
+          <span class="word-pill">inclus·ive</span>
+          <span class="word-pill teal">transform·ative</span>
+          <span class="word-pill amber">respons·ive</span>
+        </div>
+
+        <a href="#etymology" class="cta-btn">
+          <span>🌿 Explore the Nature</span>
+        </a>
+      </div>
+
+      <div class="scroll-indicator" aria-hidden="true">SCROLL</div>
+    </section>
+
+    <!-- STATS -->
+    <div class="stats-row fade-up">
+      <div class="stat-cell">
+        <span class="stat-value">315+</span>
+        <span class="stat-label">positive -ive words</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-value">-īvus</span>
+        <span class="stat-label">Latin origin</span>
+      </div>
+      <div class="stat-cell">
+        <span class="stat-value">∞</span>
+        <span class="stat-label">tendencies named</span>
+      </div>
+    </div>
+
+    <!-- ETYMOLOGY -->
+    <section id="etymology" class="etym-section fade-up">
+      <p class="section-eyebrow">Etymology</p>
+      <h2 class="section-title">The Lineage of <em>-ive</em></h2>
+      <p class="section-desc">
+        접미사 <strong>-ive</strong>는 라틴어의 완료 수동 분사에서 출발해, 프랑스어를 경유해 영어로 이식된 가장 우아한 형용사 형성 도구다. 그 성장의 계보를 따라간다.
+      </p>
+      <div class="etym-timeline">
+
+        <div class="etym-row">
+          <div class="etym-era">
+            <span class="etym-era-tag">Classical Latin</span>
+            <span class="etym-era-form">-īvus</span>
+          </div>
+          <div class="etym-body">
+            <p class="etym-head">The Root — Participial Adjective</p>
+            <p class="etym-def">라틴어 동사의 완료 수동 분사 어간에 결합해 형용사를 만들었다. "~하는 경향이 있는, ~하는 성질을 지닌"을 뜻했다. 의학·법률·철학 용어에 적극 활용되었다.</p>
+            <p class="etym-ex">activus (active) · nativus (native) · captivus (captive) · fugitivus (fugitive)</p>
+          </div>
+        </div>
+
+        <div class="etym-row">
+          <div class="etym-era">
+            <span class="etym-era-tag">Late Latin</span>
+            <span class="etym-era-form">-ivus</span>
+          </div>
+          <div class="etym-body">
+            <p class="etym-head">Expansion into New Domains</p>
+            <p class="etym-def">기독교 라틴어와 학술 라틴어에서 신학·철학 개념을 형용사화하는 데 광범위하게 사용되었다. 이 시기에 수십 개의 핵심 -ive 단어들이 형성되었다.</p>
+            <p class="etym-ex">passivus · expressivus · corrosivus · definitvus</p>
+          </div>
+        </div>
+
+        <div class="etym-row">
+          <div class="etym-era">
+            <span class="etym-era-tag">Old French</span>
+            <span class="etym-era-form">-if / -ive</span>
+          </div>
+          <div class="etym-body">
+            <p class="etym-head">The French Transformation</p>
+            <p class="etym-def">라틴어 -ivus가 고대 프랑스어에서 남성형 -if, 여성형 -ive로 분화되었다. 이 이중 형태가 중세 영어에 유입되면서 영어 -ive의 직접적 원형이 되었다.</p>
+            <p class="etym-ex">actif/active · créatif/créative · progressif/progressive</p>
+          </div>
+        </div>
+
+        <div class="etym-row">
+          <div class="etym-era">
+            <span class="etym-era-tag">Middle English</span>
+            <span class="etym-era-form">-ive / -yf</span>
+          </div>
+          <div class="etym-body">
+            <p class="etym-head">English Settlement</p>
+            <p class="etym-def">1066년 노르만 정복 이후 영어에 대량 유입되었다. 14~15세기 Chaucer 시대에 -ive 형태로 통일되며 영어 어휘의 핵심 층위를 형성했다.</p>
+            <p class="etym-ex">active · native · passive · creative · positive</p>
+          </div>
+        </div>
+
+        <div class="etym-row">
+          <div class="etym-era">
+            <span class="etym-era-tag">Modern English</span>
+            <span class="etym-era-form"><strong>-ive</strong></span>
+          </div>
+          <div class="etym-body">
+            <p class="etym-head">Living Productive Suffix</p>
+            <p class="etym-def">315개 이상의 긍정적 형용사를 포함하며, 기술·비즈니스·심리학·디자인 언어 전반에서 새로운 단어를 만드는 살아있는 접미사. -ous(충만함), -ize(행동)과 함께 영어 어휘 확장의 3대 축.</p>
+            <p class="etym-ex">innovative · transformative · adaptive · intuitive · inclusive · responsive</p>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- TENDENCY GALLERY -->
+    <section id="gallery" class="gallery-section fade-up">
+      <p class="section-eyebrow">The -ive Lexicon</p>
+      <h2 class="section-title">Words With <em>Tendency</em></h2>
+      <p class="section-desc">
+        동사나 명사에 <strong>-ive</strong>가 붙으면, 그 행동을 향한 자연스러운 경향·성질·방향이 탄생한다.
+      </p>
+      <div class="gallery-grid">
+        <div class="gallery-card" style="--gc-color:#f0b840;">
+          <span class="gallery-tends">create → ▸</span>
+          <span class="gallery-word">creative</span>
+          <span class="gallery-from">creare + -ive</span>
+          <p class="gallery-def">창조하는 경향 — tending to create; imaginative</p>
+        </div>
+        <div class="gallery-card" style="--gc-color:#2aba70;">
+          <span class="gallery-tends">innovate → ▸</span>
+          <span class="gallery-word">innovative</span>
+          <span class="gallery-from">innovare + -ive</span>
+          <p class="gallery-def">혁신하는 경향 — introducing new ideas</p>
+        </div>
+        <div class="gallery-card" style="--gc-color:#70dbd8;">
+          <span class="gallery-tends">progress → ▸</span>
+          <span class="gallery-word">progressive</span>
+          <span class="gallery-from">progredi + -ive</span>
+          <p class="gallery-def">전진하는 경향 — moving forward; favoring change</p>
+        </div>
+        <div class="gallery-card" style="--gc-color:#f8d490;">
+          <span class="gallery-tends">intuit → ▸</span>
+          <span class="gallery-word">intuitive</span>
+          <span class="gallery-from">intueri + -ive</span>
+          <p class="gallery-def">직관하는 경향 — perceived by intuition</p>
+        </div>
+        <div class="gallery-card" style="--gc-color:#64d498;">
+          <span class="gallery-tends">express → ▸</span>
+          <span class="gallery-word">expressive</span>
+          <span class="gallery-from">exprimere + -ive</span>
+          <p class="gallery-def">표현하는 경향 — effectively conveying feelings</p>
+        </div>
+        <div class="gallery-card" style="--gc-color:#30c4c0;">
+          <span class="gallery-tends">adapt → ▸</span>
+          <span class="gallery-word">adaptive</span>
+          <span class="gallery-from">adaptare + -ive</span>
+          <p class="gallery-def">적응하는 경향 — capable of adapting</p>
+        </div>
+        <div class="gallery-card" style="--gc-color:#f0b840;">
+          <span class="gallery-tends">decide → ▸</span>
+          <span class="gallery-word">decisive</span>
+          <span class="gallery-from">decidere + -ive</span>
+          <p class="gallery-def">결단하는 경향 — settling an issue conclusively</p>
+        </div>
+        <div class="gallery-card" style="--gc-color:#2aba70;">
+          <span class="gallery-tends">include → ▸</span>
+          <span class="gallery-word">inclusive</span>
+          <span class="gallery-from">includere + -ive</span>
+          <p class="gallery-def">포용하는 경향 — including everything; not excluding</p>
+        </div>
+        <div class="gallery-card" style="--gc-color:#70dbd8;">
+          <span class="gallery-tends">transform → ▸</span>
+          <span class="gallery-word">transformative</span>
+          <span class="gallery-from">transformare + -ive</span>
+          <p class="gallery-def">변혁하는 경향 — causing a major change</p>
+        </div>
+        <div class="gallery-card" style="--gc-color:#f8d490;">
+          <span class="gallery-tends">respond → ▸</span>
+          <span class="gallery-word">responsive</span>
+          <span class="gallery-from">respondere + -ive</span>
+          <p class="gallery-def">반응하는 경향 — reacting quickly and positively</p>
+        </div>
+        <div class="gallery-card" style="--gc-color:#64d498;">
+          <span class="gallery-tends">support → ▸</span>
+          <span class="gallery-word">supportive</span>
+          <span class="gallery-from">supportare + -ive</span>
+          <p class="gallery-def">지지하는 경향 — providing encouragement</p>
+        </div>
+        <div class="gallery-card" style="--gc-color:#f0b840;">
+          <span class="gallery-tends">construct → ▸</span>
+          <span class="gallery-word">constructive</span>
+          <span class="gallery-from">construere + -ive</span>
+          <p class="gallery-def">건설하는 경향 — serving a useful purpose</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- LEXICON BOX -->
+    <div class="lexicon-box fade-up px-6">
+      <p class="lexicon-title">IVE_PROFILE.log</p>
+      <div class="lexicon-row">
+        <span class="lexicon-key">Origin</span>
+        <span class="lexicon-val">
+          <strong>Latin -īvus</strong> (완료 수동 분사 + 형용사 접미사) → Old French <strong>-if/-ive</strong> → Middle English <strong>-ive</strong>. 라틴어 동사의 완료 어간에서 직접 파생.
+        </span>
+      </div>
+      <div class="lexicon-row">
+        <span class="lexicon-key">Function</span>
+        <span class="lexicon-val">
+          동사·명사에 결합해 <strong>"tending to, having the quality or nature of, performing or serving to perform"</strong>를 의미하는 형용사 형성. 행동의 가능성이 아닌, 그 행동을 향한 <em>성질·경향</em>을 포착한다.
+        </span>
+      </div>
+      <div class="lexicon-row">
+        <span class="lexicon-key">Variants</span>
+        <span class="lexicon-val">
+          <strong>-ative</strong> (creative, talkative), <strong>-itive</strong> (repetitive, competitive), <strong>-sive</strong> (expressive, responsive), <strong>-ctive</strong> (active, effective) — 앞에 오는 어간의 음소 패턴에 따라 형태가 변형된다.
+        </span>
+      </div>
+      <div class="lexicon-row">
+        <span class="lexicon-key">Siblings</span>
+        <span class="lexicon-val">
+          같은 뿌리에서 온 자매 언어들: 이탈리아어 <strong>-ivo</strong>, 스페인어 <strong>-ivo</strong>, 포르투갈어 <strong>-ivo</strong>, 프랑스어 <strong>-if/-ive</strong>. 로망스 언어군 전체에 걸쳐 살아있는 형용사 접미사.
+        </span>
+      </div>
+    </div>
+
+    <!-- TRIO COMPARISON -->
+    <section class="trio-section fade-up">
+      <h2 class="trio-title">The Suffix Trilogy</h2>
+      <p class="trio-sub">ous.kr · ize.kr · ive.kr — 세 접미사가 모여 언어의 완전한 그림을 그린다</p>
+      <div class="trio-grid">
+        <div class="trio-card">
+          <span class="trio-suffix" style="--trio-color:#f0bb44; --trio-shadow:rgba(212,154,20,.4);">-ous</span>
+          <span class="trio-role" style="--trio-color:#a87000;">Adjective · Fullness</span>
+          <p class="trio-desc">명사의 질로 충만함을 표현한다. "가득 찬, 소유한"</p>
+          <span class="trio-example" style="color:rgba(240,187,68,.5);">glorious · luminous · precious</span>
+        </div>
+        <div class="trio-card">
+          <span class="trio-suffix" style="--trio-color:#ff9a30; --trio-shadow:rgba(240,112,0,.4);">-ize</span>
+          <span class="trio-role" style="--trio-color:#c05000;">Verb · Action</span>
+          <p class="trio-desc">명사를 행동으로 변환한다. "만들다, 되게 하다"</p>
+          <span class="trio-example" style="color:rgba(255,154,48,.5);">realize · optimize · energize</span>
+        </div>
+        <div class="trio-card">
+          <span class="trio-suffix" style="--trio-color:#2aba70; --trio-shadow:rgba(22,150,82,.4);">-ive</span>
+          <span class="trio-role" style="--trio-color:#0c7240;">Adjective · Tendency</span>
+          <p class="trio-desc">동사의 경향을 형용사로 포착한다. "~하는 성질의"</p>
+          <span class="trio-example" style="color:rgba(42,186,112,.5);">creative · adaptive · decisive</span>
+        </div>
+      </div>
+    </section>
+
+    <!-- ORIGIN -->
+    <section class="origin-section fade-up">
+      <span class="origin-glyph">性</span>
+      <h2 class="origin-title">The Grammar of Character</h2>
+      <p class="origin-text">
+        언어는 세계를 세 가지 방식으로 포착한다. 사물이 무엇으로 <em>가득 찬지(-ous)</em>, 무엇을 <em>행동으로 만드는지(-ize)</em>, 그리고 어떤 방향으로 <em>기울어 있는지(-ive)</em>. 세 접미사는 각기 다른 각도에서 같은 현실을 비춘다.
+      </p>
+      <p class="origin-text">
+        <strong>ive.kr</strong>은 그 중 가장 인간적인 접미사를 탐구한다. 성질, 경향, 본성 — 우리가 무엇을 <em>하는지</em>가 아니라, 무엇을 향해 <em>기울어 있는지</em>. <em>creative</em>한 사람은 창조한다기보다, 창조를 향해 기울어 있다. 그것이 -ive의 문법이다.
+      </p>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section fade-up">
+      <p class="contact-label">// connect · collaborate</p>
+      <h2 class="contact-title">Something <em style="color:#f0b840;">creat·ive</em> in mind?</h2>
+      <p class="contact-sub">언어, 디자인, 또는 -ive한 모든 가능성에 대해 이야기해요.</p>
+      <a href="mailto:hello@ive.kr" class="contact-email">
+        <span style="opacity:.5;">🌿</span>
+        hello@ive.kr
+      </a>
+    </section>
+
+  </main>
+
+  <!-- ═══ FOOTER ═══ -->
+  <footer class="site-footer">
+    <span class="footer-copy">© 2026 ive.kr — All rights reserved.</span>
+    <span class="footer-copy" style="opacity:0.36;">
+      creative · innovative · adaptive · transformative
+    </span>
+  </footer>
+
+</div><!-- /.site-wrapper -->
+
+<script>
+(function () {
+  /* ─── Canvas Setup ─── */
+  const canvas = document.getElementById('ive-canvas');
+  const ctx    = canvas.getContext('2d');
+
+  function resize() {
+    canvas.width  = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener('resize', () => { resize(); rebuildAll(); });
+  resize();
+
+  /* ─── Palette ─── */
+  const GREEN  = 'rgba(22,150,82,';
+  const LIME   = 'rgba(100,212,152,';
+  const TEAL   = 'rgba(24,160,156,';
+  const AMBER  = 'rgba(212,148,24,';
+  const PEARL  = 'rgba(196,212,200,';
+
+  /* ─── Utility ─── */
+  const rand  = (a, b) => Math.random() * (b - a) + a;
+  const randI = (a, b) => Math.floor(rand(a, b));
+  const pick  = arr  => arr[randI(0, arr.length)];
+
+  /* ─── -ive word fragments that float ─── */
+  const IVE_WORDS = [
+    '-ive','creative','innovative','progressive','intuitive',
+    'expressive','adaptive','decisive','inclusive','transformative',
+    'responsive','supportive','constructive','active','effective',
+    'positive','attentive','reflective','collaborative','generative',
+    '-īvus','-if/-ive','tending to','having the quality','→ tendency'
+  ];
+
+  /* ══════════════════════════════════════════
+     CLASS 1 : VeinFlow — 잎맥 흐름선
+     수량: 28
+  ══════════════════════════════════════════ */
+  class VeinFlow {
+    constructor() { this.init(); }
+    init() {
+      /* organic curved path */
+      this.sx    = rand(-60, canvas.width  + 60);
+      this.sy    = rand(-60, canvas.height + 60);
+      this.cp1x  = rand(0, canvas.width);
+      this.cp1y  = rand(0, canvas.height);
+      this.cp2x  = rand(0, canvas.width);
+      this.cp2y  = rand(0, canvas.height);
+      this.ex    = rand(-60, canvas.width  + 60);
+      this.ey    = rand(-60, canvas.height + 60);
+      this.alpha = rand(0.025, 0.1);
+      this.width = rand(0.4, 1.4);
+      this.color = pick([GREEN, TEAL, LIME]);
+      this.life  = 0;
+      this.maxLife = randI(180, 420);
+      this.speed = rand(0.004, 0.012);
+      this.t     = 0; /* draw progress 0→1 */
+    }
+    update() {
+      this.life++;
+      this.t = Math.min(1, this.t + this.speed);
+      if (this.life > this.maxLife) this.init();
+    }
+    draw() {
+      const fi = Math.min(1, this.life / 50);
+      const fo = Math.min(1, (this.maxLife - this.life) / 50);
+      const a  = this.alpha * fi * fo;
+
+      /* draw partial bezier up to t */
+      ctx.save();
+      ctx.strokeStyle = this.color + a + ')';
+      ctx.lineWidth   = this.width;
+      ctx.beginPath();
+
+      /* subdivide bezier into segments up to this.t */
+      const steps = Math.ceil(this.t * 40);
+      for (let i = 0; i <= steps; i++) {
+        const tt = (i / 40);
+        const mt = 1 - tt;
+        const x  = mt*mt*mt*this.sx + 3*mt*mt*tt*this.cp1x
+                 + 3*mt*tt*tt*this.cp2x + tt*tt*tt*this.ex;
+        const y  = mt*mt*mt*this.sy + 3*mt*mt*tt*this.cp1y
+                 + 3*mt*tt*tt*this.cp2y + tt*tt*tt*this.ey;
+        i === 0 ? ctx.moveTo(x, y) : ctx.lineTo(x, y);
+      }
+      ctx.stroke();
+      ctx.restore();
+    }
+  }
+
+  /* ══════════════════════════════════════════
+     CLASS 2 : TendencyWord — 부유하는 -ive 단어
+     수량: 30
+  ══════════════════════════════════════════ */
+  class TendencyWord {
+    constructor() { this.init(); }
+    init() {
+      this.x     = rand(0, canvas.width);
+      this.y     = rand(0, canvas.height);
+      this.vx    = rand(-0.14, 0.14);
+      this.vy    = rand(-0.32, -0.06);
+      this.word  = pick(IVE_WORDS);
+      this.size  = rand(10, 20);
+      this.alpha = rand(0.04, 0.17);
+      this.decay = rand(0.0003, 0.001);
+      this.color = pick([GREEN, LIME, AMBER, TEAL]);
+    }
+    update() {
+      this.x     += this.vx;
+      this.y     += this.vy;
+      this.alpha -= this.decay;
+      if (this.alpha <= 0 || this.y < -30) this.init();
+    }
+    draw() {
+      ctx.font      = `italic ${this.size}px "Fraunces", Georgia, serif`;
+      ctx.fillStyle = this.color + this.alpha + ')';
+      ctx.fillText(this.word, this.x, this.y);
+    }
+  }
+
+  /* ══════════════════════════════════════════
+     CLASS 3 : NatureSpeck — 자연 빛 먼지 입자
+     수량: 58
+  ══════════════════════════════════════════ */
+  class NatureSpeck {
+    constructor() { this.init(); }
+    init() {
+      this.x     = rand(0, canvas.width);
+      this.y     = rand(0, canvas.height);
+      this.vx    = rand(-0.16, 0.16);
+      this.vy    = rand(-0.3, -0.05);
+      this.r     = rand(0.8, 2.4);
+      this.alpha = rand(0.07, 0.3);
+      this.decay = rand(0.0005, 0.0018);
+      this.color = pick([GREEN, LIME, AMBER, PEARL]);
+    }
+    update() {
+      this.x     += this.vx;
+      this.y     += this.vy;
+      this.alpha -= this.decay;
+      if (this.alpha <= 0 || this.y < -10) this.init();
+    }
+    draw() {
+      ctx.beginPath();
+      ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+      ctx.fillStyle = this.color + this.alpha + ')';
+      ctx.fill();
+    }
+  }
+
+  /* ══════════════════════════════════════════
+     CLASS 4 : GrowthRing — 성장 확산 링
+     수량: 12
+  ══════════════════════════════════════════ */
+  class GrowthRing {
+    constructor() { this.init(); }
+    init() {
+      this.x      = rand(canvas.width  * 0.08, canvas.width  * 0.92);
+      this.y      = rand(canvas.height * 0.08, canvas.height * 0.92);
+      this.r      = rand(8, 22);
+      this.maxR   = this.r + rand(50, 130);
+      this.alpha  = rand(0.05, 0.18);
+      this.expand = rand(0.16, 0.44);
+      this.color  = pick([GREEN, TEAL, AMBER]);
+      this.life   = 0;
+      this.maxLife = randI(140, 360);
+      /* occasional leaf shape */
+      this.isLeaf = Math.random() > 0.65;
+    }
+    update() {
+      this.r    += this.expand;
+      this.life++;
+      if (this.r > this.maxR || this.life > this.maxLife) this.init();
+    }
+    draw() {
+      const p = this.life / this.maxLife;
+      const a = this.alpha * Math.sin(p * Math.PI);
+
+      if (this.isLeaf) {
+        /* ellipse (leaf-like) */
+        ctx.save();
+        ctx.translate(this.x, this.y);
+        ctx.rotate(p * Math.PI * 0.5);
+        ctx.beginPath();
+        ctx.ellipse(0, 0, this.r, this.r * 0.55, 0, 0, Math.PI * 2);
+        ctx.strokeStyle = this.color + a + ')';
+        ctx.lineWidth   = 0.8;
+        ctx.stroke();
+        ctx.restore();
+      } else {
+        ctx.beginPath();
+        ctx.arc(this.x, this.y, this.r, 0, Math.PI * 2);
+        ctx.strokeStyle = this.color + a + ')';
+        ctx.lineWidth   = 0.8;
+        ctx.stroke();
+      }
+    }
+  }
+
+  /* ─── Pool Init ─── */
+  let veins, words, specks, rings;
+
+  function rebuildAll() {
+    veins  = Array.from({ length: 28 }, () => new VeinFlow());
+    words  = Array.from({ length: 30 }, () => new TendencyWord());
+    specks = Array.from({ length: 58 }, () => new NatureSpeck());
+    rings  = Array.from({ length: 12 }, () => new GrowthRing());
+  }
+  rebuildAll();
+
+  /* ─── Animation Loop ─── */
+  function loop() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+    veins.forEach (p => { p.update(); p.draw(); });
+    rings.forEach (p => { p.update(); p.draw(); });
+    specks.forEach(p => { p.update(); p.draw(); });
+    words.forEach (p => { p.update(); p.draw(); });
+    requestAnimationFrame(loop);
+  }
+  loop();
+
+  /* ─── Scroll Fade-up ─── */
+  const observer = new IntersectionObserver(
+    entries => entries.forEach(e => {
+      if (e.isIntersecting) {
+        e.target.classList.add('visible');
+        observer.unobserve(e.target);
+      }
+    }),
+    { threshold: 0.12 }
+  );
+  document.querySelectorAll('.fade-up').forEach(el => observer.observe(el));
+
+})();
+</script>
+
+</body>
+</html>
