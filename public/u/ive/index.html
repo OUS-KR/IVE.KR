@@ -1,0 +1,1192 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>‑ive | ive.kr – 영어 접미사 ‑ive의 모든 것</title>
+<meta name="description" content="‑ive: 성질·경향·능력을 나타내는 영어 접미사. active, creative, massive, sensitive… 5,000개 이상의 파생어를 탐구하세요."/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,300;0,400;0,600;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&family=Noto+Serif+KR:wght@400;600;700&display=swap" rel="stylesheet"/>
+<script src="https://cdn.tailwindcss.com"></script>
+<style>
+  :root {
+    --bg: #020308;
+    --cyan: #22d3ee;
+    --electric: #3b82f6;
+    --violet: #a78bfa;
+    --rose: #fb7185;
+    --lime: #a3e635;
+    --amber: #fbbf24;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: #e2e8f0;
+    font-family: 'Inter', 'Noto Serif KR', sans-serif;
+    overflow-x: hidden;
+  }
+  /* Background layers */
+  body::before {
+    content: '';
+    position: fixed; inset: 0; z-index: 0;
+    background:
+      radial-gradient(ellipse 80% 50% at 20% 20%, rgba(34,211,238,.07) 0%, transparent 60%),
+      radial-gradient(ellipse 60% 40% at 80% 80%, rgba(59,130,246,.08) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 60% at 50% 50%, rgba(167,139,250,.04) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  /* Top stripe */
+  .top-stripe {
+    position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999;
+    background: linear-gradient(90deg, var(--cyan), var(--electric), var(--violet), var(--rose), var(--lime), var(--cyan));
+    background-size: 300% 100%;
+    animation: stripe 4s linear infinite;
+  }
+  @keyframes stripe { 0%{background-position:0% 50%} 100%{background-position:300% 50%} }
+
+  /* Hex grid overlay */
+  .hex-overlay {
+    position: fixed; inset: 0; z-index: 0; opacity: .025; pointer-events: none;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0-4.7L52.5 48V20L28 5.5 3.5 20v28L28 61.3z' fill='%2322d3ee'/%3E%3C/svg%3E");
+  }
+
+  /* Particles canvas */
+  #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
+
+  section, header, footer { position: relative; z-index: 1; }
+
+  /* Glassmorphism card */
+  .glass {
+    background: rgba(255,255,255,.04);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,.08);
+    border-radius: 16px;
+  }
+  .glass-strong {
+    background: rgba(255,255,255,.07);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255,255,255,.12);
+    border-radius: 20px;
+  }
+
+  /* Neon glow text */
+  .neon-cyan { color: var(--cyan); text-shadow: 0 0 20px rgba(34,211,238,.6), 0 0 40px rgba(34,211,238,.3); }
+  .neon-electric { color: var(--electric); text-shadow: 0 0 20px rgba(59,130,246,.6); }
+  .neon-violet { color: var(--violet); text-shadow: 0 0 20px rgba(167,139,250,.6); }
+
+  /* Section reveal */
+  .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
+  .reveal.visible { opacity: 1; transform: none; }
+
+  /* Avatar ring */
+  .avatar-ring {
+    width: 120px; height: 120px;
+    border-radius: 50%;
+    padding: 3px;
+    background: conic-gradient(var(--cyan), var(--electric), var(--violet), var(--rose), var(--lime), var(--cyan));
+    animation: spin 6s linear infinite;
+    margin: 0 auto;
+  }
+  @keyframes spin { to { transform: rotate(360deg); } }
+  .avatar-inner {
+    width: 100%; height: 100%; border-radius: 50%; overflow: hidden;
+    background: var(--bg);
+    display: flex; align-items: center; justify-content: center;
+  }
+
+  /* Letter cards */
+  .letter-card {
+    width: 52px; height: 64px;
+    display: flex; align-items: center; justify-content: center;
+    font-family: 'Exo 2', sans-serif;
+    font-size: 2rem; font-weight: 900;
+    border-radius: 12px;
+    border: 2px solid rgba(34,211,238,.3);
+    background: rgba(34,211,238,.08);
+    color: var(--cyan);
+    text-shadow: 0 0 12px rgba(34,211,238,.8);
+    animation: letterPulse 3s ease-in-out infinite;
+  }
+  .letter-card:nth-child(2) { animation-delay: .4s; border-color: rgba(59,130,246,.3); background: rgba(59,130,246,.08); color: var(--electric); text-shadow: 0 0 12px rgba(59,130,246,.8); }
+  .letter-card:nth-child(3) { animation-delay: .8s; border-color: rgba(167,139,250,.3); background: rgba(167,139,250,.08); color: var(--violet); text-shadow: 0 0 12px rgba(167,139,250,.8); }
+  @keyframes letterPulse { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
+
+  /* Drive meter */
+  .drive-meter { display: flex; gap: 4px; flex-wrap: wrap; justify-content: center; }
+  .drive-seg {
+    width: 18px; height: 8px; border-radius: 4px;
+    background: rgba(255,255,255,.1);
+    transition: background .3s ease;
+  }
+  .drive-seg.lit { background: var(--cyan); box-shadow: 0 0 6px rgba(34,211,238,.7); }
+  .drive-seg.lit:nth-child(3n+2) { background: var(--electric); box-shadow: 0 0 6px rgba(59,130,246,.7); }
+  .drive-seg.lit:nth-child(3n) { background: var(--violet); box-shadow: 0 0 6px rgba(167,139,250,.7); }
+
+  /* KPI */
+  .kpi-card {
+    text-align: center; padding: 28px 20px;
+    border-radius: 16px;
+    border: 1px solid rgba(34,211,238,.2);
+    background: linear-gradient(135deg, rgba(34,211,238,.06), rgba(59,130,246,.04));
+  }
+
+  /* Social buttons */
+  .social-btn {
+    display: flex; align-items: center; gap: 12px;
+    padding: 14px 20px; border-radius: 14px;
+    background: rgba(255,255,255,.05);
+    border: 1px solid rgba(255,255,255,.1);
+    color: #e2e8f0; text-decoration: none;
+    transition: all .25s ease;
+    font-weight: 500;
+  }
+  .social-btn:hover { background: rgba(34,211,238,.12); border-color: rgba(34,211,238,.4); transform: translateX(6px); color: var(--cyan); }
+  .social-icon { width: 36px; height: 36px; border-radius: 10px; display: flex; align-items: center; justify-content: center; font-size: 1.1rem; flex-shrink: 0; }
+
+  /* Word pills */
+  .word-pill {
+    padding: 8px 18px; border-radius: 999px;
+    font-family: 'Exo 2', sans-serif; font-weight: 600; font-size: .875rem;
+    border: 1px solid rgba(34,211,238,.25);
+    background: rgba(34,211,238,.07);
+    color: var(--cyan);
+    transition: all .2s;
+    cursor: default;
+  }
+  .word-pill:hover { background: rgba(34,211,238,.18); transform: scale(1.06); box-shadow: 0 0 12px rgba(34,211,238,.3); }
+  .word-pill.v { border-color: rgba(59,130,246,.25); background: rgba(59,130,246,.07); color: var(--electric); }
+  .word-pill.v:hover { background: rgba(59,130,246,.18); box-shadow: 0 0 12px rgba(59,130,246,.3); }
+  .word-pill.p { border-color: rgba(167,139,250,.25); background: rgba(167,139,250,.07); color: var(--violet); }
+  .word-pill.p:hover { background: rgba(167,139,250,.18); box-shadow: 0 0 12px rgba(167,139,250,.3); }
+
+  /* Progress bars */
+  .prog-track { height: 8px; background: rgba(255,255,255,.08); border-radius: 999px; overflow: hidden; }
+  .prog-fill { height: 100%; border-radius: 999px; width: 0; transition: width 1.4s cubic-bezier(.4,0,.2,1); }
+
+  /* Accordion */
+  .acc-body { max-height: 0; overflow: hidden; transition: max-height .4s ease, padding .3s ease; }
+  .acc-body.open { max-height: 300px; }
+  .acc-arrow { transition: transform .3s ease; }
+  .acc-arrow.open { transform: rotate(180deg); }
+
+  /* Carousel */
+  .carousel-track { display: flex; transition: transform .5s cubic-bezier(.4,0,.2,1); }
+  .carousel-slide { min-width: 100%; position: relative; }
+  .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.25); transition: all .3s; cursor: pointer; }
+  .carousel-dot.active { background: var(--cyan); width: 24px; border-radius: 4px; box-shadow: 0 0 8px rgba(34,211,238,.6); }
+
+  /* Music player */
+  .vinyl {
+    width: 80px; height: 80px; border-radius: 50%;
+    background: conic-gradient(#111 0deg 30deg, #1e293b 30deg 60deg, #111 60deg 90deg, #1e293b 90deg 120deg, #111 120deg 150deg, #1e293b 150deg 180deg, #111 180deg 210deg, #1e293b 210deg 240deg, #111 240deg 270deg, #1e293b 270deg 300deg, #111 300deg 330deg, #1e293b 330deg 360deg);
+    position: relative; flex-shrink: 0;
+    border: 3px solid rgba(34,211,238,.3);
+  }
+  .vinyl::after { content: ''; position: absolute; inset: 30%; border-radius: 50%; background: var(--cyan); box-shadow: 0 0 10px rgba(34,211,238,.8); }
+  .vinyl.spinning { animation: vinylSpin 2s linear infinite; }
+  @keyframes vinylSpin { to { transform: rotate(360deg); } }
+  .music-prog-track { height: 4px; background: rgba(255,255,255,.1); border-radius: 2px; cursor: pointer; }
+  .music-prog-fill { height: 100%; border-radius: 2px; background: linear-gradient(90deg, var(--cyan), var(--electric)); transition: width .2s linear; }
+
+  /* Code block */
+  .code-block {
+    background: #0d1117; border: 1px solid rgba(34,211,238,.15);
+    border-radius: 12px; overflow-x: auto; padding: 20px;
+    font-family: 'Fira Code', 'Consolas', monospace; font-size: .8rem; line-height: 1.7;
+  }
+  .tk-kw { color: #ff7b72; } .tk-fn { color: #d2a8ff; } .tk-st { color: #a5d6ff; }
+  .tk-nm { color: #79c0ff; } .tk-cm { color: #8b949e; }
+
+  /* Timeline */
+  .tl-line { width: 2px; background: linear-gradient(180deg, var(--cyan), var(--electric), var(--violet), var(--rose), var(--lime)); border-radius: 2px; }
+  .tl-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid var(--cyan); background: var(--bg); box-shadow: 0 0 8px rgba(34,211,238,.6); flex-shrink: 0; }
+
+  /* Announcement */
+  .announce-bar {
+    background: linear-gradient(90deg, rgba(34,211,238,.12), rgba(59,130,246,.12), rgba(167,139,250,.12));
+    border: 1px solid rgba(34,211,238,.2);
+    border-radius: 14px; padding: 16px 24px;
+    display: flex; align-items: center; gap: 14px;
+  }
+  .announce-badge {
+    padding: 4px 12px; border-radius: 999px; font-size: .7rem; font-weight: 700;
+    background: var(--cyan); color: #020308; letter-spacing: .08em; white-space: nowrap; flex-shrink: 0;
+  }
+
+  /* Projects */
+  .project-card {
+    padding: 22px; border-radius: 14px;
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+    transition: all .25s ease;
+  }
+  .project-card:hover { background: rgba(34,211,238,.07); border-color: rgba(34,211,238,.3); transform: translateY(-4px); }
+  .status-badge { padding: 2px 10px; border-radius: 999px; font-size: .65rem; font-weight: 700; letter-spacing: .08em; }
+
+  /* Form inputs */
+  .form-input {
+    width: 100%; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
+    border-radius: 10px; padding: 12px 16px; color: #e2e8f0; font-size: .9rem;
+    transition: border-color .2s, box-shadow .2s;
+    outline: none;
+  }
+  .form-input:focus { border-color: rgba(34,211,238,.5); box-shadow: 0 0 0 3px rgba(34,211,238,.1); }
+  .form-input::placeholder { color: rgba(255,255,255,.25); }
+
+  /* Scroll-to-top */
+  #scrollTop {
+    position: fixed; bottom: 24px; right: 24px; z-index: 999;
+    width: 44px; height: 44px; border-radius: 50%;
+    background: linear-gradient(135deg, var(--cyan), var(--electric));
+    border: none; cursor: pointer; display: none; align-items: center; justify-content: center;
+    font-size: 1.2rem; color: #020308; box-shadow: 0 4px 16px rgba(34,211,238,.4);
+    transition: transform .2s, opacity .2s;
+  }
+  #scrollTop:hover { transform: scale(1.1) translateY(-2px); }
+
+  /* Drive showcase */
+  .drive-card {
+    padding: 16px; border-radius: 12px;
+    border: 1px solid rgba(34,211,238,.15);
+    background: rgba(34,211,238,.04);
+    text-align: center;
+    transition: all .25s;
+  }
+  .drive-card:hover { background: rgba(34,211,238,.1); border-color: rgba(34,211,238,.4); transform: translateY(-3px); }
+
+  /* Transformation arrow */
+  .transform-arrow {
+    display: flex; align-items: center; gap: 10px;
+    padding: 12px 16px; border-radius: 12px;
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
+  }
+
+  @media (max-width: 640px) {
+    .letter-card { width: 44px; height: 56px; font-size: 1.6rem; }
+    .kpi-card { padding: 20px 12px; }
+  }
+</style>
+</head>
+<body>
+
+<div class="top-stripe"></div>
+<div class="hex-overlay"></div>
+<canvas id="particles"></canvas>
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+
+<!-- ═══════════════════════════════════════════
+  1. HERO
+═══════════════════════════════════════════ -->
+<header class="min-h-screen flex flex-col items-center justify-center px-4 py-20 text-center">
+  <div class="max-w-2xl mx-auto w-full">
+
+    <!-- Avatar -->
+    <div class="avatar-ring mb-6">
+      <div class="avatar-inner">
+        <img src="https://api.dicebear.com/9.x/shapes/svg?seed=ive&backgroundColor=22d3ee,3b82f6,a78bfa&backgroundType=gradientLinear"
+             alt="ive.kr avatar" style="width:100%;height:100%;border-radius:50%;"/>
+      </div>
+    </div>
+
+    <!-- Title -->
+    <div class="mb-3">
+      <span style="font-family:'Exo 2',sans-serif;font-size:clamp(1rem,3vw,1.2rem);color:rgba(255,255,255,.5);letter-spacing:.25em;text-transform:uppercase;">English Suffix</span>
+    </div>
+    <h1 style="font-family:'Exo 2',sans-serif;font-size:clamp(4rem,12vw,7rem);font-weight:900;line-height:1;" class="neon-cyan mb-2">‑ive</h1>
+    <p style="font-size:clamp(1rem,3vw,1.3rem);color:rgba(255,255,255,.6);letter-spacing:.1em;" class="mb-6">ive.kr</p>
+
+    <!-- Core meaning block -->
+    <div class="glass-strong p-5 mb-8 text-left" style="border-color:rgba(34,211,238,.2);">
+      <p style="font-size:.7rem;color:var(--cyan);letter-spacing:.2em;font-weight:700;text-transform:uppercase;" class="mb-3">Core Meaning</p>
+      <div class="flex flex-col gap-2">
+        <div class="flex items-center gap-3">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--cyan);box-shadow:0 0 6px rgba(34,211,238,.8);flex-shrink:0;display:block;"></span>
+          <span style="font-size:.9rem;">성질·경향·능력을 나타내는 형용사 접미사</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--electric);box-shadow:0 0 6px rgba(59,130,246,.8);flex-shrink:0;display:block;"></span>
+          <span style="font-size:.9rem;">"~하는 경향이 있는 / ~할 능력이 있는"</span>
+        </div>
+        <div class="flex items-center gap-3">
+          <span style="width:8px;height:8px;border-radius:50%;background:var(--violet);box-shadow:0 0 6px rgba(167,139,250,.8);flex-shrink:0;display:block;"></span>
+          <span style="font-size:.9rem;">라틴어 ‑īvus / 프랑스어 ‑if 에서 유래</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Letter cards -->
+    <div class="flex justify-center gap-3 mb-8">
+      <div class="letter-card">i</div>
+      <div class="letter-card">v</div>
+      <div class="letter-card">e</div>
+    </div>
+
+    <!-- Drive meter -->
+    <p style="font-size:.7rem;color:rgba(255,255,255,.4);letter-spacing:.2em;text-transform:uppercase;margin-bottom:10px;">Drive Level</p>
+    <div class="drive-meter mb-2" id="driveMeter"></div>
+    <p style="font-size:.75rem;color:rgba(255,255,255,.35);">19 / 20</p>
+
+  </div>
+</header>
+
+<!-- ═══════════════════════════════════════════
+  2. KPI BOARD
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-4xl mx-auto">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.6rem;font-weight:700;text-align:center;margin-bottom:32px;" class="neon-cyan">‑ive by the Numbers</h2>
+    <div class="grid grid-cols-1 gap-6" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr));">
+      <div class="kpi-card">
+        <p class="neon-cyan" style="font-family:'Exo 2',sans-serif;font-size:2.4rem;font-weight:900;" id="kpi1">0</p>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.5);margin-top:4px;">‑ive 파생 어휘 수</p>
+      </div>
+      <div class="kpi-card" style="border-color:rgba(59,130,246,.2);background:linear-gradient(135deg,rgba(59,130,246,.06),rgba(167,139,250,.04));">
+        <p class="neon-electric" style="font-family:'Exo 2',sans-serif;font-size:2.4rem;font-weight:900;" id="kpi2">0</p>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.5);margin-top:4px;">년 라틴어 역사</p>
+      </div>
+      <div class="kpi-card" style="border-color:rgba(167,139,250,.2);background:linear-gradient(135deg,rgba(167,139,250,.06),rgba(251,113,133,.04));">
+        <p class="neon-violet" style="font-family:'Exo 2',sans-serif;font-size:2.4rem;font-weight:900;">∞</p>
+        <p style="font-size:.75rem;color:rgba(255,255,255,.5);margin-top:4px;">활동성 (Activity)</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  3. ANNOUNCEMENT
+═══════════════════════════════════════════ -->
+<section class="py-8 px-4 reveal">
+  <div class="max-w-2xl mx-auto">
+    <div class="announce-bar">
+      <span class="announce-badge">NEW</span>
+      <p style="font-size:.9rem;color:rgba(255,255,255,.8);">
+        🚀 <strong>Season 9 ON AIR</strong> — ‑ive 집중 어휘 100선, 매주 업데이트! 
+        <a href="https://ive.kr" style="color:var(--cyan);text-decoration:underline;margin-left:6px;">ive.kr 바로가기 →</a>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  4. SOCIAL LINKS
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-lg mx-auto">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:24px;" class="neon-electric">Follow ive.kr</h2>
+    <div class="flex flex-col gap-3">
+      <a href="https://instagram.com/ive.kr" class="social-btn" target="_blank" rel="noopener">
+        <div class="social-icon" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">📷</div>
+        <div>
+          <p style="font-size:.85rem;font-weight:600;">Instagram</p>
+          <p style="font-size:.75rem;color:rgba(255,255,255,.45);">@ive.kr</p>
+        </div>
+        <span style="margin-left:auto;font-size:.8rem;color:rgba(255,255,255,.3);">→</span>
+      </a>
+      <a href="https://youtube.com/@ive.kr" class="social-btn" target="_blank" rel="noopener">
+        <div class="social-icon" style="background:#ff0000;">▶</div>
+        <div>
+          <p style="font-size:.85rem;font-weight:600;">YouTube</p>
+          <p style="font-size:.75rem;color:rgba(255,255,255,.45);">@ive.kr</p>
+        </div>
+        <span style="margin-left:auto;font-size:.8rem;color:rgba(255,255,255,.3);">→</span>
+      </a>
+      <a href="https://x.com/ive_kr" class="social-btn" target="_blank" rel="noopener">
+        <div class="social-icon" style="background:#000;border:1px solid rgba(255,255,255,.2);">✕</div>
+        <div>
+          <p style="font-size:.85rem;font-weight:600;">X / Twitter</p>
+          <p style="font-size:.75rem;color:rgba(255,255,255,.45);">@ive_kr</p>
+        </div>
+        <span style="margin-left:auto;font-size:.8rem;color:rgba(255,255,255,.3);">→</span>
+      </a>
+      <a href="https://github.com/ive-kr" class="social-btn" target="_blank" rel="noopener">
+        <div class="social-icon" style="background:#24292f;">🐙</div>
+        <div>
+          <p style="font-size:.85rem;font-weight:600;">GitHub</p>
+          <p style="font-size:.75rem;color:rgba(255,255,255,.45);">ive-kr</p>
+        </div>
+        <span style="margin-left:auto;font-size:.8rem;color:rgba(255,255,255,.3);">→</span>
+      </a>
+      <a href="mailto:hello@ive.kr" class="social-btn">
+        <div class="social-icon" style="background:linear-gradient(135deg,var(--cyan),var(--electric));">✉</div>
+        <div>
+          <p style="font-size:.85rem;font-weight:600;">Email</p>
+          <p style="font-size:.75rem;color:rgba(255,255,255,.45);">hello@ive.kr</p>
+        </div>
+        <span style="margin-left:auto;font-size:.8rem;color:rgba(255,255,255,.3);">→</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  5. WORD EXAMPLES
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-2xl mx-auto text-center">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;margin-bottom:8px;" class="neon-cyan">‑ive Words in Action</h2>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:28px;">형용사·명사를 만드는 ‑ive 파생어 12선</p>
+    <div class="flex flex-wrap gap-3 justify-center">
+      <span class="word-pill">active</span>
+      <span class="word-pill v">creative</span>
+      <span class="word-pill p">massive</span>
+      <span class="word-pill">sensitive</span>
+      <span class="word-pill v">progressive</span>
+      <span class="word-pill p">native</span>
+      <span class="word-pill">exclusive</span>
+      <span class="word-pill v">objective</span>
+      <span class="word-pill p">positive</span>
+      <span class="word-pill">impressive</span>
+      <span class="word-pill v">attractive</span>
+      <span class="word-pill p">decisive</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  6. DRIVE SHOWCASE (Adjective Transformations)
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-2xl mx-auto">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:8px;" class="neon-electric">‑ive Transformation</h2>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.4);text-align:center;margin-bottom:28px;">어근 + ‑ive = 새로운 의미의 형용사</p>
+    <div class="flex flex-col gap-3">
+      <div class="transform-arrow">
+        <span style="color:var(--cyan);font-family:'Exo 2',sans-serif;font-weight:700;min-width:90px;">act</span>
+        <span style="color:rgba(255,255,255,.3);font-size:1.2rem;">→</span>
+        <span style="color:rgba(255,255,255,.5);font-size:.8rem;flex:1;">+ ‑ive</span>
+        <span style="color:var(--amber);font-family:'Exo 2',sans-serif;font-weight:700;">active</span>
+        <span style="font-size:.75rem;color:rgba(255,255,255,.3);margin-left:8px;">행동하는</span>
+      </div>
+      <div class="transform-arrow">
+        <span style="color:var(--cyan);font-family:'Exo 2',sans-serif;font-weight:700;min-width:90px;">creat(e)</span>
+        <span style="color:rgba(255,255,255,.3);font-size:1.2rem;">→</span>
+        <span style="color:rgba(255,255,255,.5);font-size:.8rem;flex:1;">+ ‑ive</span>
+        <span style="color:var(--amber);font-family:'Exo 2',sans-serif;font-weight:700;">creative</span>
+        <span style="font-size:.75rem;color:rgba(255,255,255,.3);margin-left:8px;">창의적인</span>
+      </div>
+      <div class="transform-arrow">
+        <span style="color:var(--cyan);font-family:'Exo 2',sans-serif;font-weight:700;min-width:90px;">progress</span>
+        <span style="color:rgba(255,255,255,.3);font-size:1.2rem;">→</span>
+        <span style="color:rgba(255,255,255,.5);font-size:.8rem;flex:1;">+ ‑ive</span>
+        <span style="color:var(--amber);font-family:'Exo 2',sans-serif;font-weight:700;">progressive</span>
+        <span style="font-size:.75rem;color:rgba(255,255,255,.3);margin-left:8px;">진보적인</span>
+      </div>
+      <div class="transform-arrow">
+        <span style="color:var(--cyan);font-family:'Exo 2',sans-serif;font-weight:700;min-width:90px;">sens(e)</span>
+        <span style="color:rgba(255,255,255,.3);font-size:1.2rem;">→</span>
+        <span style="color:rgba(255,255,255,.5);font-size:.8rem;flex:1;">+ ‑ive</span>
+        <span style="color:var(--amber);font-family:'Exo 2',sans-serif;font-weight:700;">sensitive</span>
+        <span style="font-size:.75rem;color:rgba(255,255,255,.3);margin-left:8px;">민감한</span>
+      </div>
+      <div class="transform-arrow">
+        <span style="color:var(--cyan);font-family:'Exo 2',sans-serif;font-weight:700;min-width:90px;">attract</span>
+        <span style="color:rgba(255,255,255,.3);font-size:1.2rem;">→</span>
+        <span style="color:rgba(255,255,255,.5);font-size:.8rem;flex:1;">+ ‑ive</span>
+        <span style="color:var(--amber);font-family:'Exo 2',sans-serif;font-weight:700;">attractive</span>
+        <span style="font-size:.75rem;color:rgba(255,255,255,.3);margin-left:8px;">매력적인</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  7. LINGUISTIC TRAITS
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-2xl mx-auto">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:28px;" class="neon-violet">Linguistic Traits</h2>
+    <div class="glass p-6 flex flex-col gap-6">
+      <div>
+        <div class="flex justify-between mb-2">
+          <span style="font-size:.85rem;font-weight:600;">형용사 형성력 (Word Formation)</span>
+          <span style="font-size:.85rem;color:var(--cyan);">99%</span>
+        </div>
+        <div class="prog-track"><div class="prog-fill" data-width="99%" style="background:linear-gradient(90deg,var(--cyan),var(--electric));"></div></div>
+      </div>
+      <div>
+        <div class="flex justify-between mb-2">
+          <span style="font-size:.85rem;font-weight:600;">일상·학술 사용 빈도 (Usage)</span>
+          <span style="font-size:.85rem;color:var(--electric);">97%</span>
+        </div>
+        <div class="prog-track"><div class="prog-fill" data-width="97%" style="background:linear-gradient(90deg,var(--electric),var(--violet));"></div></div>
+      </div>
+      <div>
+        <div class="flex justify-between mb-2">
+          <span style="font-size:.85rem;font-weight:600;">어휘 생산성 (Productivity)</span>
+          <span style="font-size:.85rem;color:var(--violet);">98%</span>
+        </div>
+        <div class="prog-track"><div class="prog-fill" data-width="98%" style="background:linear-gradient(90deg,var(--violet),var(--rose));"></div></div>
+      </div>
+      <div>
+        <div class="flex justify-between mb-2">
+          <span style="font-size:.85rem;font-weight:600;">역사적 지속성 (Historical Continuity)</span>
+          <span style="font-size:.85rem;color:var(--lime);">96%</span>
+        </div>
+        <div class="prog-track"><div class="prog-fill" data-width="96%" style="background:linear-gradient(90deg,var(--lime),var(--cyan));"></div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  8. SUFFIX ROLES
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-2xl mx-auto">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:28px;" class="neon-cyan">Suffix Roles</h2>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="glass p-5 text-center" style="border-color:rgba(34,211,238,.2);">
+        <div style="font-size:2rem;margin-bottom:8px;">⚡</div>
+        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:var(--cyan);margin-bottom:4px;">활동형 형용사</p>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.5);">active, creative, productive</p>
+      </div>
+      <div class="glass p-5 text-center" style="border-color:rgba(59,130,246,.2);">
+        <div style="font-size:2rem;margin-bottom:8px;">🔬</div>
+        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:var(--electric);margin-bottom:4px;">성질·상태 표현</p>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.5);">sensitive, massive, native</p>
+      </div>
+      <div class="glass p-5 text-center" style="border-color:rgba(167,139,250,.2);">
+        <div style="font-size:2rem;margin-bottom:8px;">🎯</div>
+        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:var(--violet);margin-bottom:4px;">명사 겸용</p>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.5);">native, detective, executive</p>
+      </div>
+      <div class="glass p-5 text-center" style="border-color:rgba(251,209,36,.2);">
+        <div style="font-size:2rem;margin-bottom:8px;">🔄</div>
+        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:var(--amber);margin-bottom:4px;">‑ive → ‑ivity</p>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.5);">activity, creativity, sensitivity</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  9. CODE BLOCK
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-2xl mx-auto">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:24px;" class="neon-electric">Suffix Anatomy</h2>
+    <div class="code-block">
+<span class="tk-kw">const</span> <span class="tk-fn">suffix</span> = {<br>
+&nbsp;&nbsp;<span class="tk-nm">symbol</span>:    <span class="tk-st">"‑ive"</span>,<br>
+&nbsp;&nbsp;<span class="tk-nm">variants</span>: [<span class="tk-st">"‑ative"</span>, <span class="tk-st">"‑itive"</span>, <span class="tk-st">"‑itive"</span>],<br>
+&nbsp;&nbsp;<span class="tk-nm">origin</span>:   <span class="tk-st">"Latin ‑īvus → Old French ‑if/‑ive"</span>,<br>
+&nbsp;&nbsp;<span class="tk-nm">meaning</span>: [<span class="tk-st">"having the quality of"</span>, <span class="tk-st">"tending to"</span>, <span class="tk-st">"capable of"</span>],<br>
+&nbsp;&nbsp;<span class="tk-nm">pos</span>:      <span class="tk-st">"adjective-forming (also noun)"</span>,<br>
+&nbsp;&nbsp;<span class="tk-nm">register</span>: <span class="tk-st">"general / academic / technical"</span>,<br>
+&nbsp;&nbsp;<span class="tk-nm">words</span>:    <span class="tk-nm">5000</span>,<br>
+&nbsp;&nbsp;<span class="tk-nm">nounForm</span>: <span class="tk-st">"‑ivity / ‑iveness"</span>,<br>
+&nbsp;&nbsp;<span class="tk-fn">form</span>:     <span class="tk-kw">root</span> =&gt; <span class="tk-kw">root</span> + <span class="tk-st">"ive"</span>,<br>
+};<br>
+<span class="tk-cm">// active, creative, massive, sensitive, progressive…</span>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  10. ETYMOLOGY TIMELINE
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-2xl mx-auto">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:32px;" class="neon-violet">Etymology Timeline</h2>
+    <div class="flex gap-6">
+      <div class="flex flex-col items-center" style="padding-top:8px;">
+        <div class="tl-dot"></div>
+        <div class="tl-line" style="flex:1;margin:4px 0;"></div>
+        <div class="tl-dot" style="border-color:var(--electric);box-shadow:0 0 8px rgba(59,130,246,.6);"></div>
+        <div class="tl-line" style="flex:1;margin:4px 0;"></div>
+        <div class="tl-dot" style="border-color:var(--violet);box-shadow:0 0 8px rgba(167,139,250,.6);"></div>
+        <div class="tl-line" style="flex:1;margin:4px 0;"></div>
+        <div class="tl-dot" style="border-color:var(--rose);box-shadow:0 0 8px rgba(251,113,133,.6);"></div>
+        <div class="tl-line" style="flex:1;margin:4px 0;"></div>
+        <div class="tl-dot" style="border-color:var(--lime);box-shadow:0 0 8px rgba(163,230,53,.6);"></div>
+      </div>
+      <div class="flex flex-col gap-8 flex-1">
+        <div class="glass p-4" style="border-color:rgba(34,211,238,.2);">
+          <p style="font-size:.7rem;color:var(--cyan);font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px;">Proto-Indo-European</p>
+          <p style="font-size:.9rem;font-weight:600;">*h₁ei- / *h₁oi-</p>
+          <p style="font-size:.8rem;color:rgba(255,255,255,.45);">움직임·동작의 어근에서 출발</p>
+        </div>
+        <div class="glass p-4" style="border-color:rgba(59,130,246,.2);">
+          <p style="font-size:.7rem;color:var(--electric);font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px;">Classical Latin (~200 BC)</p>
+          <p style="font-size:.9rem;font-weight:600;">‑īvus</p>
+          <p style="font-size:.8rem;color:rgba(255,255,255,.45);">actīvus, nātīvus, positivus 등 형성</p>
+        </div>
+        <div class="glass p-4" style="border-color:rgba(167,139,250,.2);">
+          <p style="font-size:.7rem;color:var(--violet);font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px;">Old French (~9–13c)</p>
+          <p style="font-size:.9rem;font-weight:600;">‑if (m.) / ‑ive (f.)</p>
+          <p style="font-size:.8rem;color:rgba(255,255,255,.45);">프랑스어에서 성별 형태 분화</p>
+        </div>
+        <div class="glass p-4" style="border-color:rgba(251,113,133,.2);">
+          <p style="font-size:.7rem;color:var(--rose);font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px;">Middle English (~14–15c)</p>
+          <p style="font-size:.9rem;font-weight:600;">‑ive 정착</p>
+          <p style="font-size:.8rem;color:rgba(255,255,255,.45);">Norman Conquest 후 대량 유입</p>
+        </div>
+        <div class="glass p-4" style="border-color:rgba(163,230,53,.2);">
+          <p style="font-size:.7rem;color:var(--lime);font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px;">Modern English (17c~)</p>
+          <p style="font-size:.9rem;font-weight:600;">‑ive 생산적 접미사</p>
+          <p style="font-size:.8rem;color:rgba(255,255,255,.45);">과학·기술 어휘에서 폭발적 확장 (creative, innovative…)</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  11. QUOTES
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-2xl mx-auto flex flex-col gap-6">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:8px;" class="neon-cyan">Lexical Wisdom</h2>
+    <div class="glass p-6" style="border-left:3px solid var(--cyan);">
+      <p style="font-size:1rem;font-style:italic;color:rgba(255,255,255,.8);line-height:1.7;">"To be creative is to be alive. The ‑ive suffix breathes action into every root it touches."</p>
+      <p style="font-size:.8rem;color:var(--cyan);margin-top:12px;font-weight:600;">— ive.kr</p>
+    </div>
+    <div class="glass p-6" style="border-left:3px solid var(--electric);">
+      <p style="font-size:1rem;font-style:italic;color:rgba(255,255,255,.8);line-height:1.7;">"Language is not static, it is creative. Every language has its ‑ive force."</p>
+      <p style="font-size:.8rem;color:var(--electric);margin-top:12px;font-weight:600;">— Noam Chomsky</p>
+    </div>
+    <div class="glass p-6" style="border-left:3px solid var(--violet);">
+      <p style="font-size:1rem;font-style:italic;color:rgba(255,255,255,.8);line-height:1.7;">"‑ive 하나로 명사는 살아 숨쉬는 형용사가 된다. act → active, create → creative."</p>
+      <p style="font-size:.8rem;color:var(--violet);margin-top:12px;font-weight:600;">— ive.kr 어원 노트</p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  12. FEATURED VIDEO
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-2xl mx-auto">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:24px;" class="neon-electric">Featured Video</h2>
+    <div class="glass overflow-hidden" style="border-color:rgba(34,211,238,.2);">
+      <div style="position:relative;padding-bottom:56.25%;height:0;overflow:hidden;">
+        <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" title="‑ive suffix lecture"
+          style="position:absolute;top:0;left:0;width:100%;height:100%;border:none;" allowfullscreen loading="lazy"></iframe>
+      </div>
+      <div class="p-4 flex items-center justify-between">
+        <div>
+          <p style="font-size:.9rem;font-weight:600;">‑ive 접미사 완전 정복 | ive.kr</p>
+          <p style="font-size:.75rem;color:rgba(255,255,255,.4);margin-top:2px;">active, creative, massive… 핵심 100단어</p>
+        </div>
+        <div class="text-right">
+          <p style="font-size:.8rem;color:var(--cyan);">62.4K views</p>
+          <p style="font-size:.75rem;color:rgba(255,255,255,.4);">10.2K likes</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  13. PLAYLIST
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-2xl mx-auto">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:24px;" class="neon-violet">Playlist</h2>
+    <div class="flex flex-col gap-4">
+      <a href="https://youtube.com/@ive.kr" target="_blank" rel="noopener" class="glass flex gap-4 p-4 items-center" style="text-decoration:none;border-color:rgba(34,211,238,.15);transition:all .25s;" onmouseover="this.style.borderColor='rgba(34,211,238,.4)'" onmouseout="this.style.borderColor='rgba(34,211,238,.15)'">
+        <img src="https://images.unsplash.com/photo-1457369804613-52c61a468e7d?w=120&h=68&fit=crop" alt="ep1" style="border-radius:8px;flex-shrink:0;width:120px;height:68px;object-fit:cover;"/>
+        <div style="flex:1;">
+          <p style="font-size:.8rem;color:var(--cyan);font-weight:700;margin-bottom:2px;">Ep.01</p>
+          <p style="font-size:.85rem;font-weight:600;color:rgba(255,255,255,.9);">active vs. passive — ‑ive의 두 얼굴</p>
+          <p style="font-size:.75rem;color:rgba(255,255,255,.4);margin-top:2px;">18:32 · 24.6K views</p>
+        </div>
+        <span style="color:rgba(255,255,255,.3);font-size:1.2rem;">▶</span>
+      </a>
+      <a href="https://youtube.com/@ive.kr" target="_blank" rel="noopener" class="glass flex gap-4 p-4 items-center" style="text-decoration:none;border-color:rgba(59,130,246,.15);transition:all .25s;" onmouseover="this.style.borderColor='rgba(59,130,246,.4)'" onmouseout="this.style.borderColor='rgba(59,130,246,.15)'">
+        <img src="https://images.unsplash.com/photo-1503676260728-1c00da094a0b?w=120&h=68&fit=crop" alt="ep2" style="border-radius:8px;flex-shrink:0;width:120px;height:68px;object-fit:cover;"/>
+        <div style="flex:1;">
+          <p style="font-size:.8rem;color:var(--electric);font-weight:700;margin-bottom:2px;">Ep.02</p>
+          <p style="font-size:.85rem;font-weight:600;color:rgba(255,255,255,.9);">creative / innovative — ‑ive 어원 심층</p>
+          <p style="font-size:.75rem;color:rgba(255,255,255,.4);margin-top:2px;">22:14 · 31.8K views</p>
+        </div>
+        <span style="color:rgba(255,255,255,.3);font-size:1.2rem;">▶</span>
+      </a>
+      <a href="https://youtube.com/@ive.kr" target="_blank" rel="noopener" class="glass flex gap-4 p-4 items-center" style="text-decoration:none;border-color:rgba(167,139,250,.15);transition:all .25s;" onmouseover="this.style.borderColor='rgba(167,139,250,.4)'" onmouseout="this.style.borderColor='rgba(167,139,250,.15)'">
+        <img src="https://images.unsplash.com/photo-1546074177-ffdda98d214f?w=120&h=68&fit=crop" alt="ep3" style="border-radius:8px;flex-shrink:0;width:120px;height:68px;object-fit:cover;"/>
+        <div style="flex:1;">
+          <p style="font-size:.8rem;color:var(--violet);font-weight:700;margin-bottom:2px;">Ep.03</p>
+          <p style="font-size:.85rem;font-weight:600;color:rgba(255,255,255,.9);">‑ive → ‑ivity 명사 변환 완전 정리</p>
+          <p style="font-size:.75rem;color:rgba(255,255,255,.4);margin-top:2px;">25:07 · 19.3K views</p>
+        </div>
+        <span style="color:rgba(255,255,255,.3);font-size:1.2rem;">▶</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  14. IMAGE CAROUSEL
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-2xl mx-auto">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:24px;" class="neon-cyan">Gallery</h2>
+    <div class="glass overflow-hidden" style="border-color:rgba(34,211,238,.2);">
+      <div style="position:relative;overflow:hidden;border-radius:16px;">
+        <div class="carousel-track" id="carouselTrack">
+          <div class="carousel-slide">
+            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=640&h=280&fit=crop" alt="slide1" style="width:100%;height:220px;object-fit:cover;"/>
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:12px 16px;background:linear-gradient(transparent,rgba(2,3,8,.85));">
+              <p style="font-size:.9rem;font-weight:600;color:var(--cyan);">Active Learning</p>
+              <p style="font-size:.75rem;color:rgba(255,255,255,.6);">‑ive 어휘로 능동적 학습</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="https://images.unsplash.com/photo-1481627834876-b7833e8f5570?w=640&h=280&fit=crop" alt="slide2" style="width:100%;height:220px;object-fit:cover;"/>
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:12px 16px;background:linear-gradient(transparent,rgba(2,3,8,.85));">
+              <p style="font-size:.9rem;font-weight:600;color:var(--electric);">Creative Expression</p>
+              <p style="font-size:.75rem;color:rgba(255,255,255,.6);">창의적 표현의 접미사</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="https://images.unsplash.com/photo-1498243691581-b145c3f54a5a?w=640&h=280&fit=crop" alt="slide3" style="width:100%;height:220px;object-fit:cover;"/>
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:12px 16px;background:linear-gradient(transparent,rgba(2,3,8,.85));">
+              <p style="font-size:.9rem;font-weight:600;color:var(--violet);">Progressive Mind</p>
+              <p style="font-size:.75rem;color:rgba(255,255,255,.6);">진보적 사고의 어원</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=640&h=280&fit=crop" alt="slide4" style="width:100%;height:220px;object-fit:cover;"/>
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:12px 16px;background:linear-gradient(transparent,rgba(2,3,8,.85));">
+              <p style="font-size:.9rem;font-weight:600;color:var(--rose);">Sensitive Approach</p>
+              <p style="font-size:.75rem;color:rgba(255,255,255,.6);">세심한 언어 감각</p>
+            </div>
+          </div>
+          <div class="carousel-slide">
+            <img src="https://images.unsplash.com/photo-1504711434969-e33886168f5c?w=640&h=280&fit=crop" alt="slide5" style="width:100%;height:220px;object-fit:cover;"/>
+            <div style="position:absolute;bottom:0;left:0;right:0;padding:12px 16px;background:linear-gradient(transparent,rgba(2,3,8,.85));">
+              <p style="font-size:.9rem;font-weight:600;color:var(--lime);">Decisive Action</p>
+              <p style="font-size:.75rem;color:rgba(255,255,255,.6);">결정적 어휘의 힘</p>
+            </div>
+          </div>
+        </div>
+        <button onclick="carouselMove(-1)" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.2);color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1rem;">‹</button>
+        <button onclick="carouselMove(1)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.5);border:1px solid rgba(255,255,255,.2);color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1rem;">›</button>
+      </div>
+      <div class="flex justify-center gap-2 p-4" id="carouselDots"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  15. SPOTLIGHT
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-2xl mx-auto">
+    <div style="position:relative;border-radius:20px;overflow:hidden;">
+      <img src="https://images.unsplash.com/photo-1518770660439-4636190af475?w=640&h=240&fit=crop" alt="spotlight" style="width:100%;height:200px;object-fit:cover;"/>
+      <div style="position:absolute;inset:0;background:linear-gradient(135deg,rgba(34,211,238,.6),rgba(59,130,246,.4));display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:24px;">
+        <p style="font-family:'Exo 2',sans-serif;font-size:clamp(1.2rem,4vw,1.8rem);font-weight:900;color:#fff;text-shadow:0 2px 10px rgba(0,0,0,.5);">Active. Creative. Decisive.</p>
+        <p style="font-size:.85rem;color:rgba(255,255,255,.8);margin-top:8px;">‑ive 하나로 완성되는 영어의 힘</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  16. MUSIC PLAYER
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-2xl mx-auto">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:24px;" class="neon-violet">ive.kr Soundtrack</h2>
+    <div class="glass p-6" style="border-color:rgba(34,211,238,.2);">
+      <div class="flex items-center gap-5 mb-5">
+        <div class="vinyl" id="vinyl"></div>
+        <div style="flex:1;">
+          <p style="font-family:'Exo 2',sans-serif;font-weight:700;font-size:1rem;color:var(--cyan);" id="trackTitle">Active Drive</p>
+          <p style="font-size:.8rem;color:rgba(255,255,255,.4);" id="trackArtist">ive.kr Beats</p>
+          <div style="margin-top:10px;">
+            <div class="flex justify-between mb-1" style="font-size:.75rem;color:rgba(255,255,255,.3);">
+              <span id="timeNow">0:00</span><span id="timeTot">3:42</span>
+            </div>
+            <div class="music-prog-track" id="musicTrack" onclick="seekMusic(event)">
+              <div class="music-prog-fill" id="musicFill" style="width:0%;"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="flex justify-center gap-6 mb-6">
+        <button onclick="musicPrev()" style="background:none;border:none;color:rgba(255,255,255,.5);font-size:1.4rem;cursor:pointer;" title="prev">⏮</button>
+        <button onclick="musicToggle()" id="playBtn" style="background:linear-gradient(135deg,var(--cyan),var(--electric));border:none;width:48px;height:48px;border-radius:50%;cursor:pointer;font-size:1.2rem;color:#020308;display:flex;align-items:center;justify-content:center;">▶</button>
+        <button onclick="musicNext()" style="background:none;border:none;color:rgba(255,255,255,.5);font-size:1.4rem;cursor:pointer;" title="next">⏭</button>
+      </div>
+      <div class="flex flex-col gap-2" id="trackList"></div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  17. PROJECTS
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-2xl mx-auto">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:28px;" class="neon-cyan">Projects</h2>
+    <div class="grid grid-cols-2 gap-4">
+      <div class="project-card">
+        <div class="flex items-center justify-between mb-3">
+          <span style="font-size:1.5rem;">📖</span>
+          <span class="status-badge" style="background:rgba(34,211,238,.15);color:var(--cyan);border:1px solid rgba(34,211,238,.3);">LIVE</span>
+        </div>
+        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:var(--cyan);margin-bottom:4px;">‑ive Dictionary</p>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.5);">5,000+ ‑ive 어휘 데이터베이스</p>
+      </div>
+      <div class="project-card">
+        <div class="flex items-center justify-between mb-3">
+          <span style="font-size:1.5rem;">🔬</span>
+          <span class="status-badge" style="background:rgba(59,130,246,.15);color:var(--electric);border:1px solid rgba(59,130,246,.3);">BETA</span>
+        </div>
+        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:var(--electric);margin-bottom:4px;">Activity Lab</p>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.5);">‑ive 어원 분석 인터랙티브 도구</p>
+      </div>
+      <div class="project-card">
+        <div class="flex items-center justify-between mb-3">
+          <span style="font-size:1.5rem;">🎮</span>
+          <span class="status-badge" style="background:rgba(167,139,250,.15);color:var(--violet);border:1px solid rgba(167,139,250,.3);">DEV</span>
+        </div>
+        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:var(--violet);margin-bottom:4px;">‑ive Quest</p>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.5);">게임형 어원 학습 앱</p>
+      </div>
+      <div class="project-card">
+        <div class="flex items-center justify-between mb-3">
+          <span style="font-size:1.5rem;">🤖</span>
+          <span class="status-badge" style="background:rgba(251,191,36,.15);color:var(--amber);border:1px solid rgba(251,191,36,.3);">SOON</span>
+        </div>
+        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:var(--amber);margin-bottom:4px;">‑ive AI Tutor</p>
+        <p style="font-size:.8rem;color:rgba(255,255,255,.5);">AI 기반 개인화 어휘 튜터</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  18. RECENT POSTS
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-2xl mx-auto">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:24px;" class="neon-electric">Recent Posts</h2>
+    <div class="flex flex-col gap-4">
+      <div class="glass p-5" style="border-color:rgba(34,211,238,.15);transition:all .25s;" onmouseover="this.style.borderColor='rgba(34,211,238,.4)'" onmouseout="this.style.borderColor='rgba(34,211,238,.15)'">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <span style="font-size:.7rem;color:var(--cyan);font-weight:700;letter-spacing:.1em;text-transform:uppercase;">Etymology</span>
+            <p style="font-weight:600;margin-top:4px;font-size:.95rem;">‑ive vs ‑ative vs ‑itive: 언제 어느 형태를 쓰나?</p>
+            <p style="font-size:.8rem;color:rgba(255,255,255,.4);margin-top:4px;">creative / sensitive / competitive 구분법 완전 정리</p>
+          </div>
+          <span style="font-size:.75rem;color:rgba(255,255,255,.3);white-space:nowrap;flex-shrink:0;">2025.12.20</span>
+        </div>
+      </div>
+      <div class="glass p-5" style="border-color:rgba(59,130,246,.15);transition:all .25s;" onmouseover="this.style.borderColor='rgba(59,130,246,.4)'" onmouseout="this.style.borderColor='rgba(59,130,246,.15)'">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <span style="font-size:.7rem;color:var(--electric);font-weight:700;letter-spacing:.1em;text-transform:uppercase;">Word Study</span>
+            <p style="font-weight:600;margin-top:4px;font-size:.95rem;">‑ive → ‑ivity 변환 규칙 10가지</p>
+            <p style="font-size:.8rem;color:rgba(255,255,255,.4);margin-top:4px;">activity, creativity, sensitivity… 명사 파생 패턴</p>
+          </div>
+          <span style="font-size:.75rem;color:rgba(255,255,255,.3);white-space:nowrap;flex-shrink:0;">2025.12.05</span>
+        </div>
+      </div>
+      <div class="glass p-5" style="border-color:rgba(167,139,250,.15);transition:all .25s;" onmouseover="this.style.borderColor='rgba(167,139,250,.4)'" onmouseout="this.style.borderColor='rgba(167,139,250,.15)'">
+        <div class="flex items-start justify-between gap-4">
+          <div>
+            <span style="font-size:.7rem;color:var(--violet);font-weight:700;letter-spacing:.1em;text-transform:uppercase;">Latin Roots</span>
+            <p style="font-weight:600;margin-top:4px;font-size:.95rem;">‑īvus 에서 ‑ive 까지: 라틴어 어원 심층 탐구</p>
+            <p style="font-size:.8rem;color:rgba(255,255,255,.4);margin-top:4px;">nātīvus → native, actīvus → active 2,000년의 여정</p>
+          </div>
+          <span style="font-size:.75rem;color:rgba(255,255,255,.3);white-space:nowrap;flex-shrink:0;">2025.11.22</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  19. FAQ
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-2xl mx-auto">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:24px;" class="neon-cyan">FAQ</h2>
+    <div class="flex flex-col gap-3">
+      <div class="glass overflow-hidden" style="border-color:rgba(34,211,238,.15);">
+        <button onclick="toggleAcc('acc1','arr1')" class="w-full flex items-center justify-between p-5 text-left" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,.9);">
+          <span style="font-size:.9rem;font-weight:600;">‑ive 접미사는 무엇인가요?</span>
+          <span class="acc-arrow" id="arr1" style="font-size:1rem;color:var(--cyan);">▼</span>
+        </button>
+        <div class="acc-body" id="acc1" style="padding:0 20px;">
+          <p style="font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7;padding-bottom:16px;">‑ive는 라틴어 ‑īvus에서 유래한 영어 접미사로, 명사·동사 어근에 붙어 "~하는 경향이 있는", "~할 능력이 있는", "~의 성질을 가진" 의미의 형용사를 만듭니다. active(능동적인), creative(창의적인), massive(거대한) 등 5,000개 이상의 단어를 형성합니다.</p>
+        </div>
+      </div>
+      <div class="glass overflow-hidden" style="border-color:rgba(59,130,246,.15);">
+        <button onclick="toggleAcc('acc2','arr2')" class="w-full flex items-center justify-between p-5 text-left" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,.9);">
+          <span style="font-size:.9rem;font-weight:600;">‑ive / ‑ative / ‑itive 는 어떻게 다른가요?</span>
+          <span class="acc-arrow" id="arr2" style="font-size:1rem;color:var(--electric);">▼</span>
+        </button>
+        <div class="acc-body" id="acc2" style="padding:0 20px;">
+          <p style="font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7;padding-bottom:16px;">‑ative는 주로 동사형 라틴어 어근(-are)에서, ‑itive는 동작·상태 어근(-ire/-ere)에서 파생됩니다. creative(creare), narrative(narrare)는 ‑ative, competitive(competere), sensitive(sentire)는 ‑itive 계열입니다. 기능은 동일하나 어근의 라틴어 변화형에 따라 형태가 결정됩니다.</p>
+        </div>
+      </div>
+      <div class="glass overflow-hidden" style="border-color:rgba(167,139,250,.15);">
+        <button onclick="toggleAcc('acc3','arr3')" class="w-full flex items-center justify-between p-5 text-left" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,.9);">
+          <span style="font-size:.9rem;font-weight:600;">ive.kr 에서는 어떤 콘텐츠를 제공하나요?</span>
+          <span class="acc-arrow" id="arr3" style="font-size:1rem;color:var(--violet);">▼</span>
+        </button>
+        <div class="acc-body" id="acc3" style="padding:0 20px;">
+          <p style="font-size:.85rem;color:rgba(255,255,255,.6);line-height:1.7;padding-bottom:16px;">ive.kr는 ‑ive 접미사와 관련된 어원 해설, 어휘 목록, 유튜브 강의, 인터랙티브 학습 도구를 제공합니다. active에서 zeitgeist까지, ‑ive 계열 단어의 라틴어·프랑스어 어원을 추적하고 현대 영어에서의 쓰임을 상세히 설명합니다.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  20. NEWSLETTER
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-lg mx-auto text-center">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;margin-bottom:8px;" class="neon-electric">Newsletter</h2>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.45);margin-bottom:24px;">매주 ‑ive 핵심 어휘 5선을 이메일로 받아보세요</p>
+    <div class="glass p-6" style="border-color:rgba(34,211,238,.2);">
+      <div class="flex gap-3 mb-3">
+        <input type="email" id="nlEmail" placeholder="your@email.com" class="form-input" style="flex:1;"/>
+        <button onclick="submitNewsletter()" style="padding:12px 20px;background:linear-gradient(135deg,var(--cyan),var(--electric));border:none;border-radius:10px;color:#020308;font-weight:700;cursor:pointer;white-space:nowrap;font-size:.85rem;">구독하기</button>
+      </div>
+      <p id="nlMsg" style="font-size:.8rem;min-height:20px;"></p>
+    </div>
+  </div>
+</section>
+
+<!-- ═══════════════════════════════════════════
+  21. CONTACT + FOOTER
+═══════════════════════════════════════════ -->
+<section class="py-16 px-4 reveal">
+  <div class="max-w-lg mx-auto">
+    <h2 style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;text-align:center;margin-bottom:24px;" class="neon-violet">Contact</h2>
+    <div class="glass p-6" style="border-color:rgba(167,139,250,.2);">
+      <div class="flex flex-col gap-4">
+        <div class="grid grid-cols-2 gap-4">
+          <div>
+            <label style="font-size:.75rem;color:rgba(255,255,255,.4);display:block;margin-bottom:6px;">이름 *</label>
+            <input type="text" id="ctName" placeholder="홍길동" class="form-input"/>
+          </div>
+          <div>
+            <label style="font-size:.75rem;color:rgba(255,255,255,.4);display:block;margin-bottom:6px;">이메일 *</label>
+            <input type="email" id="ctEmail" placeholder="your@email.com" class="form-input"/>
+          </div>
+        </div>
+        <div>
+          <label style="font-size:.75rem;color:rgba(255,255,255,.4);display:block;margin-bottom:6px;">주제</label>
+          <input type="text" id="ctTopic" placeholder="‑ive 어원 문의, 협업 제안 등" class="form-input"/>
+        </div>
+        <div>
+          <label style="font-size:.75rem;color:rgba(255,255,255,.4);display:block;margin-bottom:6px;">메시지 *</label>
+          <textarea id="ctMsg" placeholder="궁금한 점이나 제안사항을 자유롭게 작성해 주세요." class="form-input" rows="4" style="resize:vertical;"></textarea>
+        </div>
+        <button onclick="submitContact()" style="width:100%;padding:13px;background:linear-gradient(135deg,var(--violet),var(--electric));border:none;border-radius:10px;color:#fff;font-weight:700;cursor:pointer;font-size:.9rem;">메시지 보내기</button>
+        <p id="ctConfirm" style="font-size:.8rem;text-align:center;min-height:20px;"></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Footer -->
+<footer class="py-12 px-4 text-center" style="border-top:1px solid rgba(255,255,255,.06);">
+  <div class="max-w-2xl mx-auto">
+    <div class="flex flex-wrap justify-center gap-2 mb-6">
+      <span style="padding:4px 12px;border-radius:999px;font-size:.75rem;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.15);color:var(--cyan);">#suffix</span>
+      <span style="padding:4px 12px;border-radius:999px;font-size:.75rem;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);color:var(--electric);">#‑ive</span>
+      <span style="padding:4px 12px;border-radius:999px;font-size:.75rem;background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.15);color:var(--violet);">#‑ative</span>
+      <span style="padding:4px 12px;border-radius:999px;font-size:.75rem;background:rgba(251,113,133,.08);border:1px solid rgba(251,113,133,.15);color:var(--rose);">#영단어</span>
+      <span style="padding:4px 12px;border-radius:999px;font-size:.75rem;background:rgba(163,230,53,.08);border:1px solid rgba(163,230,53,.15);color:var(--lime);">#어원</span>
+      <span style="padding:4px 12px;border-radius:999px;font-size:.75rem;background:rgba(251,191,36,.08);border:1px solid rgba(251,191,36,.15);color:var(--amber);">#Latin</span>
+    </div>
+    <h3 style="font-family:'Exo 2',sans-serif;font-size:1.8rem;font-weight:900;margin-bottom:4px;" class="neon-cyan">ive.kr</h3>
+    <p style="font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:4px;">Active · Creative · Decisive · Progressive</p>
+    <p style="font-size:.8rem;color:rgba(255,255,255,.25);margin-bottom:16px;">‑ive 접미사의 모든 것 — 어원, 어휘, 학습</p>
+    <a href="https://ive.kr" style="color:var(--cyan);text-decoration:none;font-size:.85rem;font-weight:600;" target="_blank" rel="noopener">https://ive.kr</a>
+    <p style="font-size:.75rem;color:rgba(255,255,255,.2);margin-top:16px;">© 2025 ive.kr. All rights reserved.</p>
+  </div>
+</footer>
+
+<script>
+/* ─── Particles ─── */
+(function(){
+  const cvs = document.getElementById('particles');
+  const ctx = cvs.getContext('2d');
+  let W, H, pts = [];
+  function resize(){ W = cvs.width = innerWidth; H = cvs.height = innerHeight; }
+  resize(); window.addEventListener('resize', resize);
+  const cols = ['rgba(34,211,238,', 'rgba(59,130,246,', 'rgba(167,139,250,', 'rgba(163,230,53,'];
+  for(let i=0;i<60;i++) pts.push({
+    x: Math.random()*innerWidth, y: Math.random()*innerHeight,
+    vx:(Math.random()-.5)*.4, vy:(Math.random()-.5)*.4,
+    r: Math.random()*2+.5, c: cols[Math.floor(Math.random()*cols.length)],
+    a: Math.random()*.5+.1
+  });
+  function draw(){
+    ctx.clearRect(0,0,W,H);
+    pts.forEach(p=>{
+      ctx.beginPath(); ctx.arc(p.x,p.y,p.r,0,Math.PI*2);
+      ctx.fillStyle=p.c+p.a+')'; ctx.fill();
+      p.x+=p.vx; p.y+=p.vy;
+      if(p.x<0||p.x>W) p.vx*=-1;
+      if(p.y<0||p.y>H) p.vy*=-1;
+    });
+    requestAnimationFrame(draw);
+  }
+  draw();
+})();
+
+/* ─── Drive meter ─── */
+(function(){
+  const el = document.getElementById('driveMeter');
+  for(let i=0;i<20;i++){
+    const d = document.createElement('div');
+    d.className = 'drive-seg' + (i<19?' lit':'');
+    el.appendChild(d);
+  }
+})();
+
+/* ─── Count up ─── */
+function countUp(id, target, suffix, duration){
+  const el = document.getElementById(id); if(!el) return;
+  let start = 0, step = target/60, interval = duration/60;
+  let t = setInterval(()=>{
+    start = Math.min(start+step, target);
+    el.textContent = Math.floor(start).toLocaleString() + suffix;
+    if(start>=target) clearInterval(t);
+  }, interval);
+}
+window.addEventListener('load', ()=>{
+  setTimeout(()=>{ countUp('kpi1',5000,'+',1800); countUp('kpi2',2000,'년',1800); }, 400);
+});
+
+/* ─── Scroll reveal + progress bars ─── */
+const reveals = document.querySelectorAll('.reveal');
+const progFills = document.querySelectorAll('.prog-fill');
+const io = new IntersectionObserver((entries)=>{
+  entries.forEach(e=>{
+    if(e.isIntersecting){
+      e.target.classList.add('visible');
+      e.target.querySelectorAll('.prog-fill').forEach(f=>{
+        setTimeout(()=>{ f.style.width = f.dataset.width; }, 200);
+      });
+    }
+  });
+},{threshold:.15});
+reveals.forEach(r=>io.observe(r));
+
+/* ─── Accordion ─── */
+function toggleAcc(id, arrowId){
+  const body = document.getElementById(id);
+  const arrow = document.getElementById(arrowId);
+  const isOpen = body.classList.contains('open');
+  document.querySelectorAll('.acc-body').forEach(b=>{ b.classList.remove('open'); b.style.padding='0 20px'; });
+  document.querySelectorAll('.acc-arrow').forEach(a=>a.classList.remove('open'));
+  if(!isOpen){
+    body.classList.add('open');
+    body.style.padding='0 20px';
+    arrow.classList.add('open');
+  }
+}
+
+/* ─── Carousel ─── */
+let carIdx=0; const carTotal=5;
+function carouselMove(dir){
+  carIdx=(carIdx+dir+carTotal)%carTotal;
+  document.getElementById('carouselTrack').style.transform=`translateX(-${carIdx*100}%)`;
+  document.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===carIdx));
+}
+(function(){
+  const dc = document.getElementById('carouselDots');
+  for(let i=0;i<carTotal;i++){
+    const d=document.createElement('button');
+    d.className='carousel-dot'+(i===0?' active':'');
+    d.setAttribute('aria-label','slide '+(i+1));
+    d.onclick=()=>{ carIdx=i; document.getElementById('carouselTrack').style.transform=`translateX(-${i*100}%)`; document.querySelectorAll('.carousel-dot').forEach((dd,ii)=>dd.classList.toggle('active',ii===i)); };
+    dc.appendChild(d);
+  }
+  setInterval(()=>carouselMove(1), 5200);
+  document.addEventListener('keydown', e=>{ if(e.key==='ArrowLeft') carouselMove(-1); if(e.key==='ArrowRight') carouselMove(1); });
+  let tsx=0;
+  const tr=document.getElementById('carouselTrack');
+  tr.addEventListener('touchstart',e=>tsx=e.touches[0].clientX,{passive:true});
+  tr.addEventListener('touchend',e=>{ const dx=e.changedTouches[0].clientX-tsx; if(Math.abs(dx)>40) carouselMove(dx<0?1:-1); });
+})();
+
+/* ─── Music player ─── */
+const tracks=[
+  {title:'Active Drive', artist:'ive.kr Beats', dur:222},
+  {title:'Creative Flow', artist:'ive.kr Studio', dur:257},
+  {title:'Decisive Move', artist:'ive.kr Sound', dur:198}
+];
+let mTrack=0, mTime=0, mPlaying=false, mTimer=null;
+function fmt(s){ return Math.floor(s/60)+':'+(s%60<10?'0':'')+s%60; }
+function renderTrackList(){
+  const tl=document.getElementById('trackList'); tl.innerHTML='';
+  tracks.forEach((t,i)=>{
+    const div=document.createElement('div');
+    div.style.cssText=`display:flex;align-items:center;gap:12px;padding:10px 12px;border-radius:10px;cursor:pointer;transition:background .2s;background:${i===mTrack?'rgba(34,211,238,.08)':'transparent'};border:1px solid ${i===mTrack?'rgba(34,211,238,.25)':'transparent'};`;
+    div.innerHTML=`<span style="width:20px;text-align:center;font-size:.85rem;color:${i===mTrack?'var(--cyan)':'rgba(255,255,255,.3)'};">${i===mTrack&&mPlaying?'♪':(i+1)}</span><div style="flex:1;"><p style="font-size:.85rem;font-weight:600;color:${i===mTrack?'var(--cyan)':'rgba(255,255,255,.8)'};">${t.title}</p><p style="font-size:.75rem;color:rgba(255,255,255,.35);">${t.artist}</p></div><span style="font-size:.8rem;color:rgba(255,255,255,.3);">${fmt(t.dur)}</span>`;
+    div.onclick=()=>{ mTrack=i; mTime=0; mPlaying=true; updateMusic(); startMusicTimer(); };
+    tl.appendChild(div);
+  });
+}
+function updateMusic(){
+  const t=tracks[mTrack];
+  document.getElementById('trackTitle').textContent=t.title;
+  document.getElementById('trackArtist').textContent=t.artist;
+  document.getElementById('timeTot').textContent=fmt(t.dur);
+  document.getElementById('timeNow').textContent=fmt(mTime);
+  document.getElementById('musicFill').style.width=(mTime/t.dur*100)+'%';
+  document.getElementById('playBtn').textContent=mPlaying?'⏸':'▶';
+  const vinyl=document.getElementById('vinyl');
+  if(mPlaying) vinyl.classList.add('spinning'); else vinyl.classList.remove('spinning');
+  renderTrackList();
+}
+function startMusicTimer(){
+  clearInterval(mTimer);
+  if(!mPlaying) return;
+  mTimer=setInterval(()=>{
+    mTime++;
+    if(mTime>=tracks[mTrack].dur){ mTime=0; mTrack=(mTrack+1)%tracks.length; }
+    updateMusic();
+  },1000);
+}
+function musicToggle(){ mPlaying=!mPlaying; updateMusic(); startMusicTimer(); }
+function musicPrev(){ mTrack=(mTrack-1+tracks.length)%tracks.length; mTime=0; updateMusic(); if(mPlaying) startMusicTimer(); }
+function musicNext(){ mTrack=(mTrack+1)%tracks.length; mTime=0; updateMusic(); if(mPlaying) startMusicTimer(); }
+function seekMusic(e){ const rect=e.currentTarget.getBoundingClientRect(); mTime=Math.floor((e.clientX-rect.left)/rect.width*tracks[mTrack].dur); updateMusic(); }
+updateMusic();
+
+/* ─── Newsletter ─── */
+function submitNewsletter(){
+  const email=document.getElementById('nlEmail').value.trim();
+  const msg=document.getElementById('nlMsg');
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){
+    msg.style.color='var(--rose)'; msg.textContent='올바른 이메일 주소를 입력해 주세요.'; return;
+  }
+  msg.style.color='var(--lime)';
+  msg.textContent='✓ 구독 완료! 매주 ‑ive 어휘를 보내드릴게요.';
+  document.getElementById('nlEmail').value='';
+}
+
+/* ─── Contact ─── */
+function submitContact(){
+  const name=document.getElementById('ctName').value.trim();
+  const email=document.getElementById('ctEmail').value.trim();
+  const msg=document.getElementById('ctMsg').value.trim();
+  const conf=document.getElementById('ctConfirm');
+  if(!name||!email||!msg){ conf.style.color='var(--rose)'; conf.textContent='이름, 이메일, 메시지를 모두 입력해 주세요.'; return; }
+  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){ conf.style.color='var(--rose)'; conf.textContent='올바른 이메일 주소를 입력해 주세요.'; return; }
+  conf.style.color='var(--lime)';
+  conf.textContent='✓ 메시지가 전송되었습니다. 빠른 시일 내에 답변 드리겠습니다!';
+  ['ctName','ctEmail','ctTopic'].forEach(id=>document.getElementById(id).value='');
+  document.getElementById('ctMsg').value='';
+}
+
+/* ─── Scroll to top ─── */
+const stb = document.getElementById('scrollTop');
+window.addEventListener('scroll', ()=>{ stb.style.display = scrollY>400?'flex':'none'; });
+</script>
+</body>
+</html>
