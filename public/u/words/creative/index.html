@@ -159,7 +159,7 @@
 <div class="top-stripe"></div>
 <div class="hex-overlay"></div>
 <canvas id="particles"></canvas>
-<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
+<button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="맨 위로 스크롤">↑</button>
 
 <!-- 1. HERO -->
 <header class="min-h-screen flex flex-col items-center justify-center px-6 py-8 text-center">
@@ -684,7 +684,7 @@
 
 <script>
 (function(){const cvs=document.getElementById('particles'),ctx=cvs.getContext('2d');let W,H,pts=[];function resize(){W=cvs.width=innerWidth;H=cvs.height=innerHeight;}resize();window.addEventListener('resize',resize);const cols=['rgba(167,139,250,','rgba(59,130,246,','rgba(34,211,238,','rgba(163,230,53,'];for(let i=0;i<55;i++)pts.push({x:Math.random()*W,y:Math.random()*H,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*2+.5,c:cols[Math.floor(Math.random()*cols.length)],a:Math.random()*.45+.1});(function draw(){ctx.clearRect(0,0,W,H);pts.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.c+p.a+')';ctx.fill();p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;});requestAnimationFrame(draw);})();})();
-function countUp(id,target,suffix,duration){const el=document.getElementById(id);if(!el)return;let start=0,step=target/60,interval=duration/60;let t=setInterval(()=>{start=Math.min(start+step,target);el.textContent=Math.floor(start).toLocaleString()+suffix;if(start>=target)clearInterval(t);},interval);}
+function countUp(id,target,suffix,duration){const el=document.getElementById(id);if(!el)return;const startTime = performance.now();function update(now){const progress=Math.min((now-startTime)/duration,1);const eased=1-Math.pow(1-progress,3);el.textContent=Math.floor(eased*target).toLocaleString()+suffix;if(progress<1)requestAnimationFrame(update);}requestAnimationFrame(update);}
 window.addEventListener('load',()=>{setTimeout(()=>{countUp('kpi1',348,'',1600);countUp('kpi2',12,'+',1600);countUp('kpi3',1842,'위',1600);},400);});
 const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');e.target.querySelectorAll('.prog-fill').forEach(f=>{setTimeout(()=>{f.style.width=f.dataset.width;},200);});io.unobserve(e.target);}});},{threshold:.15});document.querySelectorAll('.reveal').forEach(r=>io.observe(r));
 function toggleAcc(id,arrowId){const body=document.getElementById(id),arrow=document.getElementById(arrowId),isOpen=body.classList.contains('open');document.querySelectorAll('.acc-body').forEach(b=>b.classList.remove('open'));document.querySelectorAll('.acc-arrow').forEach(a=>a.classList.remove('open'));if(!isOpen){body.classList.add('open');arrow.classList.add('open');}}
