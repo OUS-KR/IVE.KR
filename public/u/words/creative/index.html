@@ -70,10 +70,9 @@
 
   /* Avatar */
   .avatar-ring {
-    width: 110px; height: 110px; border-radius: 50%; padding: 3px;
-    background: conic-gradient(#a78bfa, #3b82f6, #22d3ee, #a3e635, #fbbf24, #fb7185, #a78bfa);
-    animation: spin 6s linear infinite;
-    position: relative;
+      width: 110px; height: 110px; border-radius: 50%; padding: 3px;
+      background: conic-gradient(#a78bfa, #3b82f6, #22d3ee, #a3e635, #fbbf24, #fb7185, #a78bfa);
+      position: relative;
   }
   @keyframes spin { to { transform: rotate(360deg); } }
   .avatar-inner {
@@ -155,7 +154,7 @@
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
 <!-- 1. HERO -->
-<header class="min-h-screen flex flex-col items-center justify-center px-6 py-12 text-center">
+<header class="min-h-screen flex flex-col items-center justify-center px-6 py-8 text-center">
   <div class="w-full max-w-[680px] mx-auto">
 
     <!-- Avatar: ‑ive suffix themed -->
@@ -209,7 +208,7 @@
 </header>
 
 <!-- 2. KPI BOARD -->
-<section class="pt-2 pb-10 px-6 reveal">
+<section class="pb-8 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
     <h2 class="neon-violet text-center mb-6" style="font-family:'Exo 2',sans-serif;font-size:1.5rem;font-weight:700;">creative by the Numbers</h2>
     <div class="grid grid-cols-2 gap-4">
