@@ -4,6 +4,10 @@
 /@:user         /u/:user                        301
 /!*             /u/esfp/links/:splat            301
 
+## Words
+/u/Words        /u/words                        301
+/u/Words/*      /u/words/:splat                 301
+
 # Person
 /person/*       /p/:splat                       301
 
