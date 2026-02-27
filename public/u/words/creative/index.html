@@ -50,8 +50,6 @@
   }
   #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
   section, header, footer { position: relative; z-index: 1; }
-
-  /* ── Reusable ── */
   .glass {
     background: rgba(255,255,255,.04);
     backdrop-filter: blur(12px);
@@ -67,11 +65,8 @@
   .neon-violet { color: #a78bfa; text-shadow: 0 0 20px rgba(167,139,250,.6), 0 0 40px rgba(167,139,250,.3); }
   .neon-electric { color: #3b82f6; text-shadow: 0 0 20px rgba(59,130,246,.6); }
   .neon-cyan { color: #22d3ee; text-shadow: 0 0 20px rgba(34,211,238,.6); }
-
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
   .reveal.visible { opacity: 1; transform: none; }
-
-  /* ── Avatar ── */
   .avatar-ring {
     width: 130px; height: 130px; border-radius: 50%; padding: 3px;
     background: conic-gradient(#a78bfa, #3b82f6, #22d3ee, #a3e635, #fbbf24, #fb7185, #a78bfa);
@@ -82,8 +77,6 @@
     width: 100%; height: 100%; border-radius: 50%; overflow: hidden;
     background: #020308; display: flex; align-items: center; justify-content: center;
   }
-
-  /* ── Letter cards ── */
   .letter-card {
     width: 48px; height: 62px;
     display: flex; align-items: center; justify-content: center;
@@ -92,31 +85,19 @@
     animation: letterPulse 3s ease-in-out infinite;
   }
   @keyframes letterPulse { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-
-  /* ── Drive meter ── */
   .drive-meter { display: flex; gap: 4px; flex-wrap: wrap; justify-content: center; }
-  .drive-seg {
-    width: 18px; height: 8px; border-radius: 4px; background: rgba(255,255,255,.1);
-  }
+  .drive-seg { width: 18px; height: 8px; border-radius: 4px; background: rgba(255,255,255,.1); }
   .drive-seg.lit { background: #a78bfa; box-shadow: 0 0 6px rgba(167,139,250,.7); }
   .drive-seg.lit:nth-child(3n+2) { background: #3b82f6; box-shadow: 0 0 6px rgba(59,130,246,.7); }
   .drive-seg.lit:nth-child(3n) { background: #22d3ee; box-shadow: 0 0 6px rgba(34,211,238,.7); }
-
-  /* ── Progress bars ── */
   .prog-track { height: 8px; background: rgba(255,255,255,.08); border-radius: 999px; overflow: hidden; }
   .prog-fill { height: 100%; border-radius: 999px; width: 0; transition: width 1.4s cubic-bezier(.4,0,.2,1); }
-
-  /* ── Accordion ── */
   .acc-body { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
   .acc-body.open { max-height: 400px; }
   .acc-arrow { transition: transform .3s ease; }
   .acc-arrow.open { transform: rotate(180deg); }
-
-  /* ── Timeline ── */
   .tl-line { width: 2px; background: linear-gradient(180deg, #a78bfa, #3b82f6, #22d3ee, #a3e635, #fbbf24); border-radius: 2px; }
   .tl-dot { width: 14px; height: 14px; border-radius: 50%; border: 2px solid #a78bfa; background: #020308; box-shadow: 0 0 8px rgba(167,139,250,.6); flex-shrink: 0; }
-
-  /* ── Code block ── */
   .code-block {
     background: #0d1117; border: 1px solid rgba(167,139,250,.15);
     border-radius: 12px; overflow-x: auto; padding: 20px 24px;
@@ -124,22 +105,16 @@
   }
   .tk-kw { color: #ff7b72; } .tk-fn { color: #d2a8ff; } .tk-st { color: #a5d6ff; }
   .tk-nm { color: #79c0ff; } .tk-cm { color: #8b949e; }
-
-  /* ── Word pills ── */
   .word-pill {
     display: inline-block; padding: 8px 18px; border-radius: 999px;
     font-family: 'Exo 2', sans-serif; font-weight: 600; font-size: .875rem;
     transition: all .2s; cursor: default;
   }
   .word-pill:hover { transform: scale(1.06); }
-
-  /* ── Carousel ── */
   .carousel-track { display: flex; transition: transform .5s cubic-bezier(.4,0,.2,1); }
   .carousel-slide { min-width: 100%; position: relative; }
   .carousel-dot { width: 8px; height: 8px; border-radius: 50%; background: rgba(255,255,255,.25); transition: all .3s; cursor: pointer; border: none; }
   .carousel-dot.active { background: #a78bfa; width: 24px; border-radius: 4px; box-shadow: 0 0 8px rgba(167,139,250,.6); }
-
-  /* ── Social buttons ── */
   .social-btn {
     display: flex; align-items: center; gap: 12px;
     padding: 14px 20px; border-radius: 14px;
@@ -147,8 +122,6 @@
     color: #e2e8f0; text-decoration: none; transition: all .25s ease; font-weight: 500;
   }
   .social-btn:hover { background: rgba(167,139,250,.12); border-color: rgba(167,139,250,.4); transform: translateX(6px); color: #a78bfa; }
-
-  /* ── Form ── */
   .form-input {
     width: 100%; background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
     border-radius: 10px; padding: 12px 16px; color: #e2e8f0; font-size: .9rem;
@@ -156,8 +129,6 @@
   }
   .form-input:focus { border-color: rgba(167,139,250,.5); box-shadow: 0 0 0 3px rgba(167,139,250,.1); }
   .form-input::placeholder { color: rgba(255,255,255,.25); }
-
-  /* ── Scroll top ── */
   #scrollTop {
     position: fixed; bottom: 24px; right: 24px; z-index: 999;
     width: 44px; height: 44px; border-radius: 50%;
@@ -167,16 +138,12 @@
     transition: transform .2s;
   }
   #scrollTop:hover { transform: scale(1.1) translateY(-2px); }
-
-  /* ── Phonetic button ── */
   .phonetic-btn {
     background: rgba(167,139,250,.1); border: 1px solid rgba(167,139,250,.3);
     border-radius: 999px; padding: 6px 16px; color: #a78bfa;
     cursor: pointer; font-size: .8rem; font-weight: 600; transition: all .2s;
   }
   .phonetic-btn:hover { background: rgba(167,139,250,.2); transform: scale(1.05); }
-
-  /* ── Responsive letter cards ── */
   @media (max-width: 480px) {
     .letter-card { width: 36px; height: 48px; font-size: 1.2rem; }
   }
@@ -189,41 +156,24 @@
 <canvas id="particles"></canvas>
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑</button>
 
-<!-- ═══════════════════════════════════════════
-  WRAPPER — 모든 콘텐츠의 최대폭·중앙정렬 통일
-═══════════════════════════════════════════ -->
-
 <!-- 1. HERO -->
-<header class="min-h-screen flex flex-col items-center justify-center px-6 py-24 text-center">
+<header class="min-h-screen flex flex-col items-center justify-center px-6 py-16 text-center">
   <div class="w-full max-w-[680px] mx-auto">
-
-    <!-- Avatar -->
-    <div class="avatar-ring mx-auto mb-8">
+    <div class="avatar-ring mx-auto mb-6">
       <div class="avatar-inner">
-        <img src="https://api.dicebear.com/9.x/shapes/svg?seed=creative&backgroundColor=a78bfa,3b82f6,22d3ee&backgroundType=gradientLinear"
-             alt="creative avatar" class="w-full h-full rounded-full"/>
+        <img src="https://api.dicebear.com/9.x/shapes/svg?seed=creative&backgroundColor=a78bfa,3b82f6,22d3ee&backgroundType=gradientLinear" alt="creative avatar" class="w-full h-full rounded-full"/>
       </div>
     </div>
-
-    <!-- Label -->
-    <p class="mb-3 text-xs tracking-[.25em] uppercase" style="color:rgba(255,255,255,.45);font-family:'Exo 2',sans-serif;">‑ive Suffix Word</p>
-
-    <!-- Title -->
-    <h1 class="neon-violet mb-3" style="font-family:'Exo 2',sans-serif;font-size:clamp(3.5rem,10vw,6.5rem);font-weight:900;line-height:1;">creative</h1>
-
-    <!-- Phonetic -->
-    <p class="mb-6" style="font-size:clamp(.95rem,2.5vw,1.15rem);color:rgba(255,255,255,.5);letter-spacing:.08em;">/ kriˈeɪ.tɪv /</p>
-
-    <!-- TTS Buttons -->
-    <div class="flex justify-center gap-3 mb-8">
+    <p class="mb-2 text-xs tracking-[.25em] uppercase" style="color:rgba(255,255,255,.45);font-family:'Exo 2',sans-serif;">‑ive Suffix Word</p>
+    <h1 class="neon-violet mb-2" style="font-family:'Exo 2',sans-serif;font-size:clamp(3.5rem,10vw,6.5rem);font-weight:900;line-height:1;">creative</h1>
+    <p class="mb-5" style="font-size:clamp(.95rem,2.5vw,1.15rem);color:rgba(255,255,255,.5);letter-spacing:.08em;">/ kriˈeɪ.tɪv /</p>
+    <div class="flex justify-center gap-3 mb-6">
       <button class="phonetic-btn" onclick="speak('creative')">🔊 US</button>
       <button class="phonetic-btn" onclick="speak('creative','en-GB')" style="border-color:rgba(59,130,246,.3);color:#3b82f6;background:rgba(59,130,246,.1);">🔊 UK</button>
     </div>
-
-    <!-- Definition Box -->
-    <div class="glass-strong p-6 mb-10 text-left" style="border-color:rgba(167,139,250,.2);">
-      <p class="mb-4" style="font-size:.7rem;color:#a78bfa;letter-spacing:.2em;font-weight:700;text-transform:uppercase;">Definition</p>
-      <div class="flex flex-col gap-3">
+    <div class="glass-strong p-6 mb-8 text-left" style="border-color:rgba(167,139,250,.2);">
+      <p class="mb-3" style="font-size:.7rem;color:#a78bfa;letter-spacing:.2em;font-weight:700;text-transform:uppercase;">Definition</p>
+      <div class="flex flex-col gap-2.5">
         <div class="flex items-start gap-3">
           <span class="mt-1.5 shrink-0 block w-2 h-2 rounded-full" style="background:#a78bfa;box-shadow:0 0 6px rgba(167,139,250,.8);"></span>
           <span class="text-sm leading-relaxed"><strong style="color:#a78bfa;">adj.</strong> 창의적인, 창조적인 — 새로운 것을 만들어내는 능력이 있는</span>
@@ -238,9 +188,7 @@
         </div>
       </div>
     </div>
-
-    <!-- Letter Cards -->
-    <div class="flex justify-center gap-2 mb-10">
+    <div class="flex justify-center gap-2 mb-8">
       <div class="letter-card" style="border:2px solid rgba(167,139,250,.3);background:rgba(167,139,250,.08);color:#a78bfa;text-shadow:0 0 12px rgba(167,139,250,.8);animation-delay:0s;">c</div>
       <div class="letter-card" style="border:2px solid rgba(167,139,250,.25);background:rgba(167,139,250,.06);color:#a78bfa;text-shadow:0 0 10px rgba(167,139,250,.6);animation-delay:.15s;">r</div>
       <div class="letter-card" style="border:2px solid rgba(59,130,246,.3);background:rgba(59,130,246,.08);color:#3b82f6;text-shadow:0 0 12px rgba(59,130,246,.8);animation-delay:.3s;">e</div>
@@ -250,35 +198,29 @@
       <div class="letter-card" style="border:2px solid rgba(251,191,36,.3);background:rgba(251,191,36,.08);color:#fbbf24;text-shadow:0 0 12px rgba(251,191,36,.8);animation-delay:.9s;">v</div>
       <div class="letter-card" style="border:2px solid rgba(251,113,133,.3);background:rgba(251,113,133,.08);color:#fb7185;text-shadow:0 0 12px rgba(251,113,133,.8);animation-delay:1.05s;">e</div>
     </div>
-
-    <!-- Drive Meter -->
-    <p class="mb-2.5" style="font-size:.7rem;color:rgba(255,255,255,.4);letter-spacing:.2em;text-transform:uppercase;">Creativity Level</p>
+    <p class="mb-2" style="font-size:.7rem;color:rgba(255,255,255,.4);letter-spacing:.2em;text-transform:uppercase;">Creativity Level</p>
     <div class="drive-meter mb-2" id="driveMeter"></div>
     <p style="font-size:.75rem;color:rgba(255,255,255,.35);">18 / 20</p>
   </div>
 </header>
 
 <!-- 2. KPI BOARD -->
-<section class="py-20 px-6 reveal">
+<section class="pt-4 pb-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
-    <h2 class="neon-violet text-center mb-10" style="font-family:'Exo 2',sans-serif;font-size:1.6rem;font-weight:700;">creative by the Numbers</h2>
+    <h2 class="neon-violet text-center mb-8" style="font-family:'Exo 2',sans-serif;font-size:1.6rem;font-weight:700;">creative by the Numbers</h2>
     <div class="grid grid-cols-2 gap-4">
-      <!-- Card 1 -->
       <div class="rounded-2xl p-7 text-center" style="border:1px solid rgba(167,139,250,.2);background:linear-gradient(135deg,rgba(167,139,250,.06),rgba(59,130,246,.04));">
         <p class="neon-violet" style="font-family:'Exo 2',sans-serif;font-size:2.6rem;font-weight:900;line-height:1.1;" id="kpi1">0</p>
         <p class="mt-2 whitespace-nowrap" style="font-size:.8rem;color:rgba(255,255,255,.5);">년 어원 역사</p>
       </div>
-      <!-- Card 2 -->
       <div class="rounded-2xl p-7 text-center" style="border:1px solid rgba(59,130,246,.2);background:linear-gradient(135deg,rgba(59,130,246,.06),rgba(34,211,238,.04));">
         <p class="neon-electric" style="font-family:'Exo 2',sans-serif;font-size:2.6rem;font-weight:900;line-height:1.1;" id="kpi2">0</p>
         <p class="mt-2 whitespace-nowrap" style="font-size:.8rem;color:rgba(255,255,255,.5);">파생어 수</p>
       </div>
-      <!-- Card 3 -->
       <div class="rounded-2xl p-7 text-center" style="border:1px solid rgba(34,211,238,.2);background:linear-gradient(135deg,rgba(34,211,238,.06),rgba(163,230,53,.04));">
         <p class="neon-cyan" style="font-family:'Exo 2',sans-serif;font-size:2.6rem;font-weight:900;line-height:1.1;" id="kpi3">0</p>
         <p class="mt-2 whitespace-nowrap" style="font-size:.8rem;color:rgba(255,255,255,.5);">COCA 빈도 순위</p>
       </div>
-      <!-- Card 4 -->
       <div class="rounded-2xl p-7 text-center" style="border:1px solid rgba(251,191,36,.2);background:linear-gradient(135deg,rgba(251,191,36,.06),rgba(251,113,133,.04));">
         <p style="font-family:'Exo 2',sans-serif;font-size:2.6rem;font-weight:900;line-height:1.1;color:#fbbf24;text-shadow:0 0 20px rgba(251,191,36,.6);">∞</p>
         <p class="mt-2 whitespace-nowrap" style="font-size:.8rem;color:rgba(255,255,255,.5);">창의적 가능성</p>
@@ -288,13 +230,11 @@
 </section>
 
 <!-- 3. MORPHOLOGICAL ANATOMY -->
-<section class="py-20 px-6 reveal">
+<section class="py-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
-    <h2 class="neon-electric text-center mb-10" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Morphological Anatomy</h2>
+    <h2 class="neon-electric text-center mb-8" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Morphological Anatomy</h2>
     <div class="glass-strong p-8" style="border-color:rgba(59,130,246,.2);">
-
-      <!-- Visual formula -->
-      <div class="flex items-center justify-center gap-3 sm:gap-5 mb-10 flex-wrap">
+      <div class="flex items-center justify-center gap-3 sm:gap-5 mb-8 flex-wrap">
         <div class="text-center">
           <div class="px-5 py-3.5 rounded-xl" style="border:2px solid rgba(167,139,250,.4);background:rgba(167,139,250,.1);font-family:'Exo 2',sans-serif;font-size:1.3rem;font-weight:900;color:#a78bfa;text-shadow:0 0 12px rgba(167,139,250,.6);">creat‑</div>
           <p class="mt-2" style="font-size:.7rem;color:rgba(255,255,255,.4);">Root (어근)</p>
@@ -310,8 +250,6 @@
           <p class="mt-2" style="font-size:.7rem;color:rgba(255,255,255,.4);">Adjective (형용사)</p>
         </div>
       </div>
-
-      <!-- Detail rows -->
       <div class="flex flex-col gap-3">
         <div class="flex items-center gap-4 p-4 rounded-xl" style="background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.08);">
           <span style="color:#a78bfa;font-family:'Exo 2',sans-serif;font-weight:700;min-width:90px;">creat‑</span>
@@ -331,9 +269,9 @@
 </section>
 
 <!-- 4. CODE BLOCK -->
-<section class="py-20 px-6 reveal">
+<section class="py-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
-    <h2 class="neon-violet text-center mb-8" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Word Data</h2>
+    <h2 class="neon-violet text-center mb-6" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Word Data</h2>
     <div class="code-block">
 <span class="tk-kw">const</span> <span class="tk-fn">creative</span> = {<br>
 &nbsp;&nbsp;<span class="tk-nm">word</span>:&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class="tk-st">"creative"</span>,<br>
@@ -355,11 +293,10 @@
 </section>
 
 <!-- 5. ETYMOLOGY TIMELINE -->
-<section class="py-20 px-6 reveal">
+<section class="py-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
-    <h2 class="neon-cyan text-center mb-10" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Etymology Timeline</h2>
+    <h2 class="neon-cyan text-center mb-8" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Etymology Timeline</h2>
     <div class="flex gap-6">
-      <!-- Dots & line -->
       <div class="flex flex-col items-center pt-2 shrink-0">
         <div class="tl-dot"></div>
         <div class="tl-line flex-1 my-1"></div>
@@ -373,8 +310,7 @@
         <div class="tl-line flex-1 my-1"></div>
         <div class="tl-dot" style="border-color:#fbbf24;box-shadow:0 0 8px rgba(251,191,36,.6);"></div>
       </div>
-      <!-- Cards -->
-      <div class="flex flex-col gap-6 flex-1 min-w-0">
+      <div class="flex flex-col gap-5 flex-1 min-w-0">
         <div class="glass p-5" style="border-color:rgba(167,139,250,.2);">
           <p style="font-size:.7rem;color:#a78bfa;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px;">Proto-Indo-European</p>
           <p class="font-semibold">*ḱer- / *ḱreh₁-</p>
@@ -398,12 +334,12 @@
         <div class="glass p-5" style="border-color:rgba(163,230,53,.2);">
           <p style="font-size:.7rem;color:#a3e635;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px;">20th Century~</p>
           <p class="font-semibold">creative 대중화 · 명사 용법 확장</p>
-          <p class="mt-1" style="font-size:.8rem;color:rgba(255,255,255,.45);">광고·예술·비즈니스 분야에서 "creative director", "creative class" 등 폭발적 확장</p>
+          <p class="mt-1" style="font-size:.8rem;color:rgba(255,255,255,.45);">광고·예술·비즈니스 분야에서 폭발적 확장</p>
         </div>
         <div class="glass p-5" style="border-color:rgba(251,191,36,.2);">
           <p style="font-size:.7rem;color:#fbbf24;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:4px;">21st Century</p>
           <p class="font-semibold">creative economy · AI 시대의 창의성</p>
-          <p class="mt-1" style="font-size:.8rem;color:rgba(255,255,255,.45);">creative industry, creative AI, creative coding — 디지털 시대의 핵심 키워드</p>
+          <p class="mt-1" style="font-size:.8rem;color:rgba(255,255,255,.45);">creative industry, creative AI — 디지털 시대의 핵심 키워드</p>
         </div>
       </div>
     </div>
@@ -411,10 +347,10 @@
 </section>
 
 <!-- 6. LINGUISTIC PROFILE -->
-<section class="py-20 px-6 reveal">
+<section class="py-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
-    <h2 class="neon-violet text-center mb-10" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Linguistic Profile</h2>
-    <div class="glass p-8 flex flex-col gap-7">
+    <h2 class="neon-violet text-center mb-8" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Linguistic Profile</h2>
+    <div class="glass p-7 flex flex-col gap-5">
       <div>
         <div class="flex justify-between mb-2">
           <span class="text-sm font-semibold">일상 사용 빈도 (Everyday Usage)</span>
@@ -455,11 +391,11 @@
 </section>
 
 <!-- 7. WORD FAMILY -->
-<section class="py-20 px-6 reveal">
+<section class="py-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto text-center">
     <h2 class="neon-electric mb-2" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Word Family</h2>
-    <p class="mb-8" style="font-size:.85rem;color:rgba(255,255,255,.4);">creat‑ 어근에서 파생된 단어들</p>
-    <div class="flex flex-wrap gap-3 justify-center">
+    <p class="mb-6" style="font-size:.85rem;color:rgba(255,255,255,.4);">creat‑ 어근에서 파생된 단어들</p>
+    <div class="flex flex-wrap gap-2.5 justify-center">
       <span class="word-pill" style="border:1px solid rgba(167,139,250,.3);background:rgba(167,139,250,.08);color:#a78bfa;">create</span>
       <span class="word-pill" style="border:1px solid rgba(167,139,250,.5);background:rgba(167,139,250,.18);color:#a78bfa;box-shadow:0 0 14px rgba(167,139,250,.25);font-size:.95rem;">creative ✦</span>
       <span class="word-pill" style="border:1px solid rgba(59,130,246,.3);background:rgba(59,130,246,.08);color:#3b82f6;">creativity</span>
@@ -477,31 +413,31 @@
 </section>
 
 <!-- 8. DERIVATIVE MAP -->
-<section class="py-20 px-6 reveal">
+<section class="py-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
-    <h2 class="neon-cyan text-center mb-10" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Derivative Map</h2>
+    <h2 class="neon-cyan text-center mb-8" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Derivative Map</h2>
     <div class="grid grid-cols-2 gap-4">
-      <div class="glass p-6 text-center" style="border-color:rgba(167,139,250,.2);">
-        <div class="text-3xl mb-3">🎨</div>
-        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:#a78bfa;margin-bottom:4px;">creative</p>
+      <div class="glass p-5 text-center" style="border-color:rgba(167,139,250,.2);">
+        <div class="text-3xl mb-2">🎨</div>
+        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:#a78bfa;margin-bottom:3px;">creative</p>
         <p style="font-size:.8rem;color:rgba(255,255,255,.5);">adj. 창의적인</p>
         <p class="mt-1" style="font-size:.7rem;color:rgba(255,255,255,.3);">creative thinking, mind</p>
       </div>
-      <div class="glass p-6 text-center" style="border-color:rgba(59,130,246,.2);">
-        <div class="text-3xl mb-3">💡</div>
-        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:#3b82f6;margin-bottom:4px;">creativity</p>
+      <div class="glass p-5 text-center" style="border-color:rgba(59,130,246,.2);">
+        <div class="text-3xl mb-2">💡</div>
+        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:#3b82f6;margin-bottom:3px;">creativity</p>
         <p style="font-size:.8rem;color:rgba(255,255,255,.5);">n. 창의성</p>
         <p class="mt-1" style="font-size:.7rem;color:rgba(255,255,255,.3);">‑ive → ‑ivity 변환</p>
       </div>
-      <div class="glass p-6 text-center" style="border-color:rgba(34,211,238,.2);">
-        <div class="text-3xl mb-3">✨</div>
-        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:#22d3ee;margin-bottom:4px;">creatively</p>
+      <div class="glass p-5 text-center" style="border-color:rgba(34,211,238,.2);">
+        <div class="text-3xl mb-2">✨</div>
+        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:#22d3ee;margin-bottom:3px;">creatively</p>
         <p style="font-size:.8rem;color:rgba(255,255,255,.5);">adv. 창의적으로</p>
         <p class="mt-1" style="font-size:.7rem;color:rgba(255,255,255,.3);">‑ive → ‑ively 변환</p>
       </div>
-      <div class="glass p-6 text-center" style="border-color:rgba(251,113,133,.2);">
-        <div class="text-3xl mb-3">🚫</div>
-        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:#fb7185;margin-bottom:4px;">uncreative</p>
+      <div class="glass p-5 text-center" style="border-color:rgba(251,113,133,.2);">
+        <div class="text-3xl mb-2">🚫</div>
+        <p style="font-family:'Exo 2',sans-serif;font-weight:700;color:#fb7185;margin-bottom:3px;">uncreative</p>
         <p style="font-size:.8rem;color:rgba(255,255,255,.5);">adj. 창의적이지 않은</p>
         <p class="mt-1" style="font-size:.7rem;color:rgba(255,255,255,.3);">un‑ + creative 부정</p>
       </div>
@@ -510,11 +446,11 @@
 </section>
 
 <!-- 9. COLLOCATIONS -->
-<section class="py-20 px-6 reveal">
+<section class="py-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
     <h2 class="neon-violet text-center mb-2" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Top Collocations</h2>
-    <p class="text-center mb-10" style="font-size:.85rem;color:rgba(255,255,255,.4);">creative와 가장 자주 결합하는 표현 6선</p>
-    <div class="flex flex-col gap-3">
+    <p class="text-center mb-8" style="font-size:.85rem;color:rgba(255,255,255,.4);">creative와 가장 자주 결합하는 표현 6선</p>
+    <div class="flex flex-col gap-2.5">
       <div class="flex items-center gap-4 p-4 rounded-xl" style="background:rgba(255,255,255,.04);border:1px solid rgba(167,139,250,.15);">
         <span style="color:#a78bfa;font-family:'Exo 2',sans-serif;font-weight:700;min-width:140px;">creative thinking</span>
         <span class="text-sm flex-1" style="color:rgba(255,255,255,.5);">창의적 사고</span>
@@ -550,34 +486,34 @@
 </section>
 
 <!-- 10. EXAMPLE SENTENCES -->
-<section class="py-20 px-6 reveal">
+<section class="py-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
-    <h2 class="neon-electric text-center mb-10" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Example Sentences</h2>
-    <div class="flex flex-col gap-5">
+    <h2 class="neon-electric text-center mb-8" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Example Sentences</h2>
+    <div class="flex flex-col gap-4">
       <div class="glass p-6" style="border-left:3px solid #a78bfa;">
         <p class="leading-relaxed" style="color:rgba(255,255,255,.85);">She has a remarkably <strong style="color:#a78bfa;">creative</strong> mind that sees connections others miss.</p>
-        <p class="mt-3" style="font-size:.8rem;color:rgba(255,255,255,.4);">그녀는 다른 사람들이 놓치는 연결고리를 보는 놀라울 정도로 <em>창의적인</em> 사고를 가지고 있다.</p>
+        <p class="mt-2" style="font-size:.8rem;color:rgba(255,255,255,.4);">그녀는 다른 사람들이 놓치는 연결고리를 보는 놀라울 정도로 <em>창의적인</em> 사고를 가지고 있다.</p>
       </div>
       <div class="glass p-6" style="border-left:3px solid #3b82f6;">
         <p class="leading-relaxed" style="color:rgba(255,255,255,.85);">The team's <strong style="color:#3b82f6;">creative</strong> approach to problem-solving saved the project from failure.</p>
-        <p class="mt-3" style="font-size:.8rem;color:rgba(255,255,255,.4);">팀의 <em>창의적인</em> 문제 해결 접근법이 프로젝트를 실패에서 구했다.</p>
+        <p class="mt-2" style="font-size:.8rem;color:rgba(255,255,255,.4);">팀의 <em>창의적인</em> 문제 해결 접근법이 프로젝트를 실패에서 구했다.</p>
       </div>
       <div class="glass p-6" style="border-left:3px solid #22d3ee;">
         <p class="leading-relaxed" style="color:rgba(255,255,255,.85);">As a <strong style="color:#22d3ee;">creative</strong>, he spent years developing his unique visual style.</p>
-        <p class="mt-3" style="font-size:.8rem;color:rgba(255,255,255,.4);"><em>크리에이터</em>로서 그는 자신만의 독특한 비주얼 스타일을 개발하는 데 수년을 보냈다. <span style="color:rgba(255,255,255,.25);">(명사 용법)</span></p>
+        <p class="mt-2" style="font-size:.8rem;color:rgba(255,255,255,.4);"><em>크리에이터</em>로서 그는 자신만의 독특한 비주얼 스타일을 개발하는 데 수년을 보냈다. <span style="color:rgba(255,255,255,.25);">(명사 용법)</span></p>
       </div>
       <div class="glass p-6" style="border-left:3px solid #a3e635;">
         <p class="leading-relaxed" style="color:rgba(255,255,255,.85);"><strong style="color:#a3e635;">Creative</strong> writing workshops help students find their authentic voice.</p>
-        <p class="mt-3" style="font-size:.8rem;color:rgba(255,255,255,.4);"><em>창작</em> 글쓰기 워크숍은 학생들이 자신만의 진정한 목소리를 찾도록 돕는다.</p>
+        <p class="mt-2" style="font-size:.8rem;color:rgba(255,255,255,.4);"><em>창작</em> 글쓰기 워크숍은 학생들이 자신만의 진정한 목소리를 찾도록 돕는다.</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- 11. IMAGE CAROUSEL -->
-<section class="py-20 px-6 reveal">
+<section class="py-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
-    <h2 class="neon-violet text-center mb-10" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Creative in Action</h2>
+    <h2 class="neon-violet text-center mb-8" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Creative in Action</h2>
     <div class="glass overflow-hidden" style="border-color:rgba(167,139,250,.2);">
       <div style="position:relative;overflow:hidden;border-radius:16px;">
         <div class="carousel-track" id="carouselTrack">
@@ -613,54 +549,54 @@
         <button onclick="carouselMove(-1)" style="position:absolute;left:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.2);color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1rem;line-height:1;">‹</button>
         <button onclick="carouselMove(1)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:rgba(0,0,0,.55);border:1px solid rgba(255,255,255,.2);color:#fff;width:36px;height:36px;border-radius:50%;cursor:pointer;font-size:1rem;line-height:1;">›</button>
       </div>
-      <div class="flex justify-center gap-2 py-4" id="carouselDots"></div>
+      <div class="flex justify-center gap-2 py-3" id="carouselDots"></div>
     </div>
   </div>
 </section>
 
 <!-- 12. QUOTES -->
-<section class="py-20 px-6 reveal">
+<section class="py-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
-    <h2 class="neon-cyan text-center mb-10" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Quotes on Creativity</h2>
-    <div class="flex flex-col gap-5">
+    <h2 class="neon-cyan text-center mb-8" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Quotes on Creativity</h2>
+    <div class="flex flex-col gap-4">
       <div class="glass p-6" style="border-left:3px solid #a78bfa;">
         <p class="italic leading-relaxed" style="color:rgba(255,255,255,.8);">"Creativity is intelligence having fun."</p>
-        <p class="mt-3 font-semibold" style="font-size:.8rem;color:#a78bfa;">— Attributed to Albert Einstein</p>
+        <p class="mt-2 font-semibold" style="font-size:.8rem;color:#a78bfa;">— Attributed to Albert Einstein</p>
       </div>
       <div class="glass p-6" style="border-left:3px solid #3b82f6;">
         <p class="italic leading-relaxed" style="color:rgba(255,255,255,.8);">"The chief enemy of creativity is good sense."</p>
-        <p class="mt-3 font-semibold" style="font-size:.8rem;color:#3b82f6;">— Pablo Picasso</p>
+        <p class="mt-2 font-semibold" style="font-size:.8rem;color:#3b82f6;">— Pablo Picasso</p>
       </div>
       <div class="glass p-6" style="border-left:3px solid #22d3ee;">
         <p class="italic leading-relaxed" style="color:rgba(255,255,255,.8);">"Creative: creat(e) + ‑ive — 만들어내는 힘을 가진. 라틴어 creāre에서 시작된 이 단어는 인류 문명의 핵심 동력을 표현한다."</p>
-        <p class="mt-3 font-semibold" style="font-size:.8rem;color:#22d3ee;">— ive.kr 어원 노트</p>
+        <p class="mt-2 font-semibold" style="font-size:.8rem;color:#22d3ee;">— ive.kr 어원 노트</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- 13. SPOTLIGHT BANNER -->
-<section class="py-20 px-6 reveal">
+<section class="py-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
     <div class="relative rounded-2xl overflow-hidden">
-      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&h=280&fit=crop" alt="spotlight" style="width:100%;height:240px;object-fit:cover;display:block;filter:brightness(.65);"/>
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=700&h=280&fit=crop" alt="spotlight" style="width:100%;height:220px;object-fit:cover;display:block;filter:brightness(.65);"/>
       <div class="absolute inset-0 flex flex-col items-center justify-center text-center p-8" style="background:linear-gradient(135deg,rgba(167,139,250,.6),rgba(59,130,246,.4));">
         <p class="mb-2" style="font-family:'Exo 2',sans-serif;font-size:clamp(.9rem,2.5vw,1.2rem);font-weight:700;color:rgba(255,255,255,.7);letter-spacing:.15em;text-transform:uppercase;">creat(e) + ‑ive</p>
         <p style="font-family:'Exo 2',sans-serif;font-size:clamp(2rem,6vw,3.5rem);font-weight:900;color:#fff;text-shadow:0 2px 20px rgba(0,0,0,.5);">creative</p>
-        <p class="mt-3" style="font-size:.9rem;color:rgba(255,255,255,.85);max-width:420px;line-height:1.6;">만들어내는 성질이 있는 — 새로운 것을 상상하고 실현하는 힘</p>
+        <p class="mt-2" style="font-size:.9rem;color:rgba(255,255,255,.85);max-width:420px;line-height:1.6;">만들어내는 성질이 있는 — 새로운 것을 상상하고 실현하는 힘</p>
       </div>
     </div>
   </div>
 </section>
 
 <!-- 14. SYNONYMS & ANTONYMS -->
-<section class="py-20 px-6 reveal">
+<section class="py-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
-    <h2 class="neon-electric text-center mb-10" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Synonyms & Antonyms</h2>
-    <div class="grid grid-cols-1 sm:grid-cols-2 gap-5">
+    <h2 class="neon-electric text-center mb-8" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Synonyms & Antonyms</h2>
+    <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
       <div class="glass p-6" style="border-color:rgba(163,230,53,.2);">
-        <p class="mb-4" style="font-size:.7rem;color:#a3e635;font-weight:700;letter-spacing:.2em;text-transform:uppercase;">≈ Synonyms (유의어)</p>
-        <div class="flex flex-col gap-2.5">
+        <p class="mb-3" style="font-size:.7rem;color:#a3e635;font-weight:700;letter-spacing:.2em;text-transform:uppercase;">≈ Synonyms (유의어)</p>
+        <div class="flex flex-col gap-2">
           <div class="flex items-center gap-2.5">
             <span class="shrink-0 block w-1.5 h-1.5 rounded-full" style="background:#a3e635;"></span>
             <span class="text-sm"><strong style="color:#a3e635;">imaginative</strong> — 상상력이 풍부한</span>
@@ -684,8 +620,8 @@
         </div>
       </div>
       <div class="glass p-6" style="border-color:rgba(251,113,133,.2);">
-        <p class="mb-4" style="font-size:.7rem;color:#fb7185;font-weight:700;letter-spacing:.2em;text-transform:uppercase;">≠ Antonyms (반의어)</p>
-        <div class="flex flex-col gap-2.5">
+        <p class="mb-3" style="font-size:.7rem;color:#fb7185;font-weight:700;letter-spacing:.2em;text-transform:uppercase;">≠ Antonyms (반의어)</p>
+        <div class="flex flex-col gap-2">
           <div class="flex items-center gap-2.5">
             <span class="shrink-0 block w-1.5 h-1.5 rounded-full" style="background:#fb7185;"></span>
             <span class="text-sm"><strong style="color:#fb7185;">uncreative</strong> — 창의적이지 않은</span>
@@ -713,11 +649,11 @@
 </section>
 
 <!-- 15. RELATED ‑IVE WORDS -->
-<section class="py-20 px-6 reveal">
+<section class="py-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
     <h2 class="neon-violet text-center mb-2" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Related ‑ive Words</h2>
-    <p class="text-center mb-10" style="font-size:.85rem;color:rgba(255,255,255,.4);">creative와 의미적으로 관련된 ‑ive 어휘</p>
-    <div class="flex flex-col gap-3">
+    <p class="text-center mb-8" style="font-size:.85rem;color:rgba(255,255,255,.4);">creative와 의미적으로 관련된 ‑ive 어휘</p>
+    <div class="flex flex-col gap-2.5">
       <div class="flex items-center gap-4 p-4 rounded-xl transition-all duration-200" style="background:rgba(255,255,255,.04);border:1px solid rgba(167,139,250,.15);" onmouseover="this.style.borderColor='rgba(167,139,250,.4)';this.style.background='rgba(167,139,250,.07)'" onmouseout="this.style.borderColor='rgba(167,139,250,.15)';this.style.background='rgba(255,255,255,.04)'">
         <span style="color:#a78bfa;font-family:'Exo 2',sans-serif;font-weight:700;min-width:120px;">innovative</span>
         <span class="text-sm flex-1" style="color:rgba(255,255,255,.6);">혁신적인 — innov(are) + ‑ative</span>
@@ -743,10 +679,10 @@
 </section>
 
 <!-- 16. FAQ -->
-<section class="py-20 px-6 reveal">
+<section class="py-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
-    <h2 class="neon-cyan text-center mb-10" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">FAQ</h2>
-    <div class="flex flex-col gap-3">
+    <h2 class="neon-cyan text-center mb-8" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">FAQ</h2>
+    <div class="flex flex-col gap-2.5">
       <div class="glass overflow-hidden" style="border-color:rgba(167,139,250,.15);">
         <button onclick="toggleAcc('acc1','arr1')" class="w-full flex items-center justify-between p-5 text-left" style="background:none;border:none;cursor:pointer;color:rgba(255,255,255,.9);">
           <span class="text-sm font-semibold pr-4">creative는 형용사인가요, 명사인가요?</span>
@@ -771,7 +707,7 @@
           <span class="acc-arrow shrink-0" id="arr3" style="font-size:1rem;color:#22d3ee;">▼</span>
         </button>
         <div class="acc-body px-5" id="acc3">
-          <p class="pb-5 leading-relaxed" style="font-size:.85rem;color:rgba(255,255,255,.6);">둘 다 문법적으로 맞지만, creativity가 압도적으로 더 많이 사용됩니다. ‑ive 형용사가 ‑ivity로 명사화되는 것은 라틴어 어형 변화 패턴(‑īvitās)을 따른 것입니다. creativeness는 영어 고유 접미사 ‑ness를 사용한 형태로, 문어체에서 드물게 쓰입니다.</p>
+          <p class="pb-5 leading-relaxed" style="font-size:.85rem;color:rgba(255,255,255,.6);">둘 다 문법적으로 맞지만, creativity가 압도적으로 더 많이 사용됩니다. ‑ive 형용사가 ‑ivity로 명사화되는 것은 라틴어 어형 변화 패턴(‑īvitās)을 따른 것입니다.</p>
         </div>
       </div>
       <div class="glass overflow-hidden" style="border-color:rgba(163,230,53,.15);">
@@ -780,7 +716,7 @@
           <span class="acc-arrow shrink-0" id="arr4" style="font-size:1rem;color:#a3e635;">▼</span>
         </button>
         <div class="acc-body px-5" id="acc4">
-          <p class="pb-5 leading-relaxed" style="font-size:.85rem;color:rgba(255,255,255,.6);">OED 기준 1678년, Ralph Cudworth의 《The True Intellectual System of the Universe》에서 "creative power"라는 표현으로 최초 기록됩니다. 이후 19세기에 예술·문학 분야에서 인간의 독창적 능력을 표현하는 단어로 자리잡았습니다.</p>
+          <p class="pb-5 leading-relaxed" style="font-size:.85rem;color:rgba(255,255,255,.6);">OED 기준 1678년, Ralph Cudworth의 《The True Intellectual System of the Universe》에서 "creative power"라는 표현으로 최초 기록됩니다.</p>
         </div>
       </div>
     </div>
@@ -788,12 +724,12 @@
 </section>
 
 <!-- 17. SOCIAL LINKS -->
-<section class="py-20 px-6 reveal">
+<section class="py-12 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto">
-    <h2 class="neon-electric text-center mb-10" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Explore More on ive.kr</h2>
-    <div class="flex flex-col gap-3">
+    <h2 class="neon-electric text-center mb-8" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Explore More on ive.kr</h2>
+    <div class="flex flex-col gap-2.5">
       <a href="https://ive.kr" class="social-btn" target="_blank" rel="noopener">
-        <div class="social-icon shrink-0 w-9 h-9 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#a78bfa,#3b82f6);">🌐</div>
+        <div class="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#a78bfa,#3b82f6);">🌐</div>
         <div class="flex-1 min-w-0">
           <p class="text-sm font-semibold">ive.kr</p>
           <p style="font-size:.75rem;color:rgba(255,255,255,.45);">‑ive 접미사의 모든 것</p>
@@ -801,7 +737,7 @@
         <span class="shrink-0" style="font-size:.8rem;color:rgba(255,255,255,.3);">→</span>
       </a>
       <a href="https://instagram.com/ive.kr" class="social-btn" target="_blank" rel="noopener">
-        <div class="social-icon shrink-0 w-9 h-9 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">📷</div>
+        <div class="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);">📷</div>
         <div class="flex-1 min-w-0">
           <p class="text-sm font-semibold">Instagram</p>
           <p style="font-size:.75rem;color:rgba(255,255,255,.45);">@ive.kr</p>
@@ -809,7 +745,7 @@
         <span class="shrink-0" style="font-size:.8rem;color:rgba(255,255,255,.3);">→</span>
       </a>
       <a href="https://youtube.com/@ive.kr" class="social-btn" target="_blank" rel="noopener">
-        <div class="social-icon shrink-0 w-9 h-9 rounded-lg flex items-center justify-center" style="background:#ff0000;">▶</div>
+        <div class="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center" style="background:#ff0000;">▶</div>
         <div class="flex-1 min-w-0">
           <p class="text-sm font-semibold">YouTube</p>
           <p style="font-size:.75rem;color:rgba(255,255,255,.45);">@ive.kr</p>
@@ -817,7 +753,7 @@
         <span class="shrink-0" style="font-size:.8rem;color:rgba(255,255,255,.3);">→</span>
       </a>
       <a href="https://x.com/ive_kr" class="social-btn" target="_blank" rel="noopener">
-        <div class="social-icon shrink-0 w-9 h-9 rounded-lg flex items-center justify-center" style="background:#000;border:1px solid rgba(255,255,255,.2);">✕</div>
+        <div class="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center" style="background:#000;border:1px solid rgba(255,255,255,.2);">✕</div>
         <div class="flex-1 min-w-0">
           <p class="text-sm font-semibold">X / Twitter</p>
           <p style="font-size:.75rem;color:rgba(255,255,255,.45);">@ive_kr</p>
@@ -825,7 +761,7 @@
         <span class="shrink-0" style="font-size:.8rem;color:rgba(255,255,255,.3);">→</span>
       </a>
       <a href="mailto:hello@ive.kr" class="social-btn">
-        <div class="social-icon shrink-0 w-9 h-9 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#a78bfa,#3b82f6);">✉</div>
+        <div class="shrink-0 w-9 h-9 rounded-lg flex items-center justify-center" style="background:linear-gradient(135deg,#a78bfa,#3b82f6);">✉</div>
         <div class="flex-1 min-w-0">
           <p class="text-sm font-semibold">Email</p>
           <p style="font-size:.75rem;color:rgba(255,255,255,.45);">hello@ive.kr</p>
@@ -837,10 +773,10 @@
 </section>
 
 <!-- 18. NEWSLETTER -->
-<section class="py-20 px-6 reveal">
+<section class="pt-8 pb-14 px-6 reveal">
   <div class="w-full max-w-[680px] mx-auto text-center">
     <h2 class="neon-violet mb-2" style="font-family:'Exo 2',sans-serif;font-size:1.4rem;font-weight:700;">Newsletter</h2>
-    <p class="mb-8" style="font-size:.85rem;color:rgba(255,255,255,.45);">매주 ‑ive 핵심 어휘 해설을 이메일로 받아보세요</p>
+    <p class="mb-6" style="font-size:.85rem;color:rgba(255,255,255,.45);">매주 ‑ive 핵심 어휘 해설을 이메일로 받아보세요</p>
     <div class="glass p-6" style="border-color:rgba(167,139,250,.2);">
       <div class="flex gap-3 mb-3">
         <input type="email" id="nlEmail" placeholder="your@email.com" class="form-input" style="flex:1;"/>
@@ -852,9 +788,9 @@
 </section>
 
 <!-- FOOTER -->
-<footer class="py-14 px-6 text-center" style="border-top:1px solid rgba(255,255,255,.06);">
+<footer class="py-10 px-6 text-center" style="border-top:1px solid rgba(255,255,255,.06);">
   <div class="w-full max-w-[680px] mx-auto">
-    <div class="flex flex-wrap justify-center gap-2 mb-8">
+    <div class="flex flex-wrap justify-center gap-2 mb-6">
       <span style="padding:4px 12px;border-radius:999px;font-size:.75rem;background:rgba(167,139,250,.08);border:1px solid rgba(167,139,250,.15);color:#a78bfa;">#creative</span>
       <span style="padding:4px 12px;border-radius:999px;font-size:.75rem;background:rgba(59,130,246,.08);border:1px solid rgba(59,130,246,.15);color:#3b82f6;">#‑ive</span>
       <span style="padding:4px 12px;border-radius:999px;font-size:.75rem;background:rgba(34,211,238,.08);border:1px solid rgba(34,211,238,.15);color:#22d3ee;">#creativity</span>
@@ -864,56 +800,23 @@
     </div>
     <h3 class="neon-violet mb-1" style="font-family:'Exo 2',sans-serif;font-size:1.8rem;font-weight:900;">creative</h3>
     <p style="font-size:.85rem;color:rgba(255,255,255,.4);margin-bottom:4px;">creat(e) + ‑ive — 만들어내는 힘을 가진</p>
-    <p style="font-size:.8rem;color:rgba(255,255,255,.25);margin-bottom:20px;">‑ive 접미사 어휘 시리즈 — ive.kr</p>
+    <p style="font-size:.8rem;color:rgba(255,255,255,.25);margin-bottom:16px;">‑ive 접미사 어휘 시리즈 — ive.kr</p>
     <a href="https://ive.kr" style="color:#a78bfa;text-decoration:none;font-size:.85rem;font-weight:600;" target="_blank" rel="noopener">https://ive.kr</a>
-    <p class="mt-5" style="font-size:.75rem;color:rgba(255,255,255,.2);">© 2025 ive.kr. All rights reserved.</p>
+    <p class="mt-4" style="font-size:.75rem;color:rgba(255,255,255,.2);">© 2025 ive.kr. All rights reserved.</p>
   </div>
 </footer>
 
-<!-- ═══════════════════════════════════════════
-  SCRIPTS
-═══════════════════════════════════════════ -->
 <script>
-/* ─── Particles ─── */
-(function(){
-  const cvs=document.getElementById('particles'),ctx=cvs.getContext('2d');
-  let W,H,pts=[];
-  function resize(){W=cvs.width=innerWidth;H=cvs.height=innerHeight;}
-  resize();window.addEventListener('resize',resize);
-  const cols=['rgba(167,139,250,','rgba(59,130,246,','rgba(34,211,238,','rgba(163,230,53,'];
-  for(let i=0;i<55;i++)pts.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*2+.5,c:cols[Math.floor(Math.random()*cols.length)],a:Math.random()*.45+.1});
-  (function draw(){ctx.clearRect(0,0,W,H);pts.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.c+p.a+')';ctx.fill();p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;});requestAnimationFrame(draw);})();
-})();
-
-/* ─── Drive meter ─── */
+(function(){const cvs=document.getElementById('particles'),ctx=cvs.getContext('2d');let W,H,pts=[];function resize(){W=cvs.width=innerWidth;H=cvs.height=innerHeight;}resize();window.addEventListener('resize',resize);const cols=['rgba(167,139,250,','rgba(59,130,246,','rgba(34,211,238,','rgba(163,230,53,'];for(let i=0;i<55;i++)pts.push({x:Math.random()*innerWidth,y:Math.random()*innerHeight,vx:(Math.random()-.5)*.35,vy:(Math.random()-.5)*.35,r:Math.random()*2+.5,c:cols[Math.floor(Math.random()*cols.length)],a:Math.random()*.45+.1});(function draw(){ctx.clearRect(0,0,W,H);pts.forEach(p=>{ctx.beginPath();ctx.arc(p.x,p.y,p.r,0,Math.PI*2);ctx.fillStyle=p.c+p.a+')';ctx.fill();p.x+=p.vx;p.y+=p.vy;if(p.x<0||p.x>W)p.vx*=-1;if(p.y<0||p.y>H)p.vy*=-1;});requestAnimationFrame(draw);})();})();
 (function(){const el=document.getElementById('driveMeter');for(let i=0;i<20;i++){const d=document.createElement('div');d.className='drive-seg'+(i<18?' lit':'');el.appendChild(d);}})();
-
-/* ─── Count up ─── */
 function countUp(id,target,suffix,duration){const el=document.getElementById(id);if(!el)return;let start=0,step=target/60,interval=duration/60;let t=setInterval(()=>{start=Math.min(start+step,target);el.textContent=Math.floor(start).toLocaleString()+suffix;if(start>=target)clearInterval(t);},interval);}
 window.addEventListener('load',()=>{setTimeout(()=>{countUp('kpi1',348,'',1600);countUp('kpi2',12,'+',1600);countUp('kpi3',1842,'위',1600);},400);});
-
-/* ─── Scroll reveal + progress ─── */
-const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');e.target.querySelectorAll('.prog-fill').forEach(f=>{setTimeout(()=>{f.style.width=f.dataset.width;},200);});}});},{threshold:.15});
-document.querySelectorAll('.reveal').forEach(r=>io.observe(r));
-
-/* ─── Accordion ─── */
+const io=new IntersectionObserver(entries=>{entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');e.target.querySelectorAll('.prog-fill').forEach(f=>{setTimeout(()=>{f.style.width=f.dataset.width;},200);});}});},{threshold:.15});document.querySelectorAll('.reveal').forEach(r=>io.observe(r));
 function toggleAcc(id,arrowId){const body=document.getElementById(id),arrow=document.getElementById(arrowId),isOpen=body.classList.contains('open');document.querySelectorAll('.acc-body').forEach(b=>b.classList.remove('open'));document.querySelectorAll('.acc-arrow').forEach(a=>a.classList.remove('open'));if(!isOpen){body.classList.add('open');arrow.classList.add('open');}}
-
-/* ─── Carousel ─── */
-let carIdx=0;const carTotal=4;
-function carouselMove(dir){carIdx=(carIdx+dir+carTotal)%carTotal;document.getElementById('carouselTrack').style.transform=`translateX(-${carIdx*100}%)`;document.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===carIdx));}
-(function(){const dc=document.getElementById('carouselDots');for(let i=0;i<carTotal;i++){const d=document.createElement('button');d.className='carousel-dot'+(i===0?' active':'');d.setAttribute('aria-label','slide '+(i+1));d.onclick=()=>{carIdx=i;document.getElementById('carouselTrack').style.transform=`translateX(-${i*100}%)`;document.querySelectorAll('.carousel-dot').forEach((dd,ii)=>dd.classList.toggle('active',ii===i));};dc.appendChild(d);}
-setInterval(()=>carouselMove(1),5500);
-document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')carouselMove(-1);if(e.key==='ArrowRight')carouselMove(1);});
-let tsx=0;const tr=document.getElementById('carouselTrack');tr.addEventListener('touchstart',e=>tsx=e.touches[0].clientX,{passive:true});tr.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tsx;if(Math.abs(dx)>40)carouselMove(dx<0?1:-1);});})();
-
-/* ─── TTS ─── */
+let carIdx=0;const carTotal=4;function carouselMove(dir){carIdx=(carIdx+dir+carTotal)%carTotal;document.getElementById('carouselTrack').style.transform=`translateX(-${carIdx*100}%)`;document.querySelectorAll('.carousel-dot').forEach((d,i)=>d.classList.toggle('active',i===carIdx));}
+(function(){const dc=document.getElementById('carouselDots');for(let i=0;i<carTotal;i++){const d=document.createElement('button');d.className='carousel-dot'+(i===0?' active':'');d.setAttribute('aria-label','slide '+(i+1));d.onclick=()=>{carIdx=i;document.getElementById('carouselTrack').style.transform=`translateX(-${i*100}%)`;document.querySelectorAll('.carousel-dot').forEach((dd,ii)=>dd.classList.toggle('active',ii===i));};dc.appendChild(d);}setInterval(()=>carouselMove(1),5500);document.addEventListener('keydown',e=>{if(e.key==='ArrowLeft')carouselMove(-1);if(e.key==='ArrowRight')carouselMove(1);});let tsx=0;const tr=document.getElementById('carouselTrack');tr.addEventListener('touchstart',e=>tsx=e.touches[0].clientX,{passive:true});tr.addEventListener('touchend',e=>{const dx=e.changedTouches[0].clientX-tsx;if(Math.abs(dx)>40)carouselMove(dx<0?1:-1);});})();
 function speak(word,lang='en-US'){if('speechSynthesis'in window){const u=new SpeechSynthesisUtterance(word);u.lang=lang;u.rate=.85;speechSynthesis.cancel();speechSynthesis.speak(u);}}
-
-/* ─── Newsletter ─── */
 function submitNewsletter(){const email=document.getElementById('nlEmail').value.trim(),msg=document.getElementById('nlMsg');if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)){msg.style.color='#fb7185';msg.textContent='올바른 이메일 주소를 입력해 주세요.';return;}msg.style.color='#a3e635';msg.textContent='✓ 구독 완료! 매주 ‑ive 어휘를 보내드릴게요.';document.getElementById('nlEmail').value='';}
-
-/* ─── Scroll to top ─── */
 const stb=document.getElementById('scrollTop');window.addEventListener('scroll',()=>{stb.style.display=scrollY>400?'flex':'none';});
 </script>
 </body>
