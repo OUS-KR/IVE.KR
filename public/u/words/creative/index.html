@@ -47,7 +47,7 @@
       "name": "creative는 형용사인가요, 명사인가요?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "둘 다 가능합니다. 원래 형용사('She is creative.')로 사용되지만, 20세기부터 명사로도 널리 쓰입니다. 'the creatives in our team'처럼 창작자를 지칭하거나, 광고 업계에서 'the creative'(광고 소재)를 의미합니다."
+        "text": "둘 다 가능합니다. 원래 형용사('She is creative.')로 사용되지만, 20세기부터 명사로도 널리 쓰입니다."
       }
     },
     {
@@ -111,7 +111,7 @@
     html { scroll-behavior: auto; }
     *, *::before, *::after { animation-duration: 0.01ms !important; animation-iteration-count: 1 !important; transition-duration: 0.01ms !important; }
   }
-  body { background: var(--c-bg, #020308); color: #e2e8f0; font-family: 'Inter', 'Noto Serif KR', sans-serif; overflow-x: hidden; }
+  body { background: #020308; color: #e2e8f0; font-family: 'Inter', 'Noto Serif KR', sans-serif; overflow-x: hidden; }
   body::before {
     content: ''; position: fixed; inset: 0; z-index: 0; pointer-events: none;
     background:
@@ -120,7 +120,7 @@
       radial-gradient(ellipse 50% 60% at 50% 50%, rgba(34,211,238,.04) 0%, transparent 70%);
   }
 
-  /* ===== UTILITY FONT / COLORS ===== */
+  /* ===== UTILITY ===== */
   .font-head { font-family: 'Exo 2', sans-serif; }
   .c-violet { color: #a78bfa; }
   .c-electric { color: #3b82f6; }
@@ -145,7 +145,7 @@
   .bg-amber-s { background: rgba(251,191,36,.08); }
   .bg-rose-s { background: rgba(251,113,133,.08); }
 
-  /* ===== DECORATIVE LAYERS ===== */
+  /* ===== DECORATIVE ===== */
   .top-stripe {
     position: fixed; top: 0; left: 0; right: 0; height: 3px; z-index: 9999;
     background: linear-gradient(90deg, #a78bfa, #3b82f6, #22d3ee, #a3e635, #fbbf24, #a78bfa);
@@ -157,7 +157,7 @@
     background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='56' height='100'%3E%3Cpath d='M28 66L0 50V16L28 0l28 16v34L28 66zm0-4.7L52.5 48V20L28 5.5 3.5 20v28L28 61.3z' fill='%23a78bfa'/%3E%3C/svg%3E");
   }
   #particles { position: fixed; inset: 0; z-index: 0; pointer-events: none; }
-  section, header, footer, nav { position: relative; z-index: 1; }
+  section, header, footer { position: relative; z-index: 1; }
 
   /* ===== GLASS ===== */
   .glass {
@@ -169,12 +169,12 @@
     border: 1px solid rgba(255,255,255,.12); border-radius: 20px;
   }
 
-  /* ===== NEON TEXT ===== */
+  /* ===== NEON ===== */
   .neon-violet { color: #a78bfa; text-shadow: 0 0 20px rgba(167,139,250,.6), 0 0 40px rgba(167,139,250,.3); }
   .neon-electric { color: #3b82f6; text-shadow: 0 0 20px rgba(59,130,246,.6); }
   .neon-cyan { color: #22d3ee; text-shadow: 0 0 20px rgba(34,211,238,.6); }
 
-  /* ===== REVEAL ANIMATION ===== */
+  /* ===== REVEAL ===== */
   .reveal { opacity: 0; transform: translateY(30px); transition: opacity .7s ease, transform .7s ease; }
   .reveal.visible { opacity: 1; transform: none; }
 
@@ -199,28 +199,6 @@
     box-shadow: 0 0 8px rgba(167,139,250,.6);
   }
 
-  /* ===== LETTER CARDS ===== */
-  .letter-card {
-    width: 48px; height: 62px;
-    display: flex; align-items: center; justify-content: center;
-    font-size: 1.7rem; font-weight: 900; border-radius: 12px;
-    border-width: 2px; border-style: solid;
-    animation: letterPulse 3s ease-in-out infinite;
-  }
-  @keyframes letterPulse { 0%,100%{transform:translateY(0)} 50%{transform:translateY(-6px)} }
-  .lc-violet { border-color: rgba(167,139,250,.3); background: rgba(167,139,250,.08); color: #a78bfa; text-shadow: 0 0 12px rgba(167,139,250,.8); }
-  .lc-violet-dim { border-color: rgba(167,139,250,.25); background: rgba(167,139,250,.06); color: #a78bfa; text-shadow: 0 0 10px rgba(167,139,250,.6); }
-  .lc-electric { border-color: rgba(59,130,246,.3); background: rgba(59,130,246,.08); color: #3b82f6; text-shadow: 0 0 12px rgba(59,130,246,.8); }
-  .lc-electric-dim { border-color: rgba(59,130,246,.25); background: rgba(59,130,246,.06); color: #3b82f6; text-shadow: 0 0 10px rgba(59,130,246,.6); }
-  .lc-cyan { border-color: rgba(34,211,238,.3); background: rgba(34,211,238,.08); color: #22d3ee; text-shadow: 0 0 12px rgba(34,211,238,.8); }
-  .lc-lime { border-color: rgba(163,230,53,.3); background: rgba(163,230,53,.08); color: #a3e635; text-shadow: 0 0 12px rgba(163,230,53,.8); }
-  .lc-amber { border-color: rgba(251,191,36,.3); background: rgba(251,191,36,.08); color: #fbbf24; text-shadow: 0 0 12px rgba(251,191,36,.8); }
-  .lc-rose { border-color: rgba(251,113,133,.3); background: rgba(251,113,133,.08); color: #fb7185; text-shadow: 0 0 12px rgba(251,113,133,.8); }
-
-  /* ===== PROGRESS BARS ===== */
-  .prog-track { height: 8px; background: rgba(255,255,255,.08); border-radius: 999px; overflow: hidden; }
-  .prog-fill { height: 100%; border-radius: 999px; width: 0; transition: width 1.4s cubic-bezier(.4,0,.2,1); }
-
   /* ===== ACCORDION ===== */
   .acc-body { max-height: 0; overflow: hidden; transition: max-height .4s ease; }
   .acc-body.open { max-height: 400px; }
@@ -239,14 +217,35 @@
   .tl-dot-lime { border-color: #a3e635; box-shadow: 0 0 8px rgba(163,230,53,.6); }
   .tl-dot-amber { border-color: #fbbf24; box-shadow: 0 0 8px rgba(251,191,36,.6); }
 
-  /* ===== CODE BLOCK ===== */
-  .code-block {
-    background: #0d1117; border: 1px solid rgba(167,139,250,.15);
-    border-radius: 12px; overflow-x: auto; padding: 20px 24px;
-    font-family: 'Fira Code', 'Consolas', monospace; font-size: .8rem; line-height: 1.7;
+  /* ===== SHARED COMPONENTS ===== */
+  .sec-heading { font-size: 1.35rem; font-weight: 700; text-align: center; margin-bottom: 1.25rem; }
+  .sec-sub { font-size: .82rem; text-align: center; margin-bottom: 1.25rem; }
+  .info-row {
+    display: flex; align-items: center; gap: 1rem;
+    padding: .875rem; border-radius: .75rem;
+    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
   }
-  .tk-kw { color: #ff7b72; } .tk-fn { color: #d2a8ff; } .tk-st { color: #a5d6ff; }
-  .tk-nm { color: #79c0ff; } .tk-cm { color: #8b949e; }
+  .info-row-interactive { transition: background .2s, border-color .2s; }
+  .info-row-interactive:hover, .info-row-interactive:focus-within { background: rgba(167,139,250,.07); border-color: rgba(167,139,250,.4); }
+  .colloc-row { border-color: transparent; }
+  .row-label { font-weight: 700; min-width: 85px; }
+  .row-label-lg { min-width: 135px; font-size: .9rem; }
+  .star-badge { font-size: .68rem; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
+  .dot { width: .5rem; height: .5rem; border-radius: 50%; flex-shrink: 0; margin-top: .375rem; }
+  .dot-sm { width: .375rem; height: .375rem; margin-top: 0; }
+  .glow-violet { background: #a78bfa; box-shadow: 0 0 6px rgba(167,139,250,.8); }
+  .glow-electric { background: #3b82f6; box-shadow: 0 0 6px rgba(59,130,246,.8); }
+  .glow-cyan { background: #22d3ee; box-shadow: 0 0 6px rgba(34,211,238,.8); }
+  .bl-violet { border-left: 3px solid #a78bfa; }
+  .bl-electric { border-left: 3px solid #3b82f6; }
+  .bl-cyan { border-left: 3px solid #22d3ee; }
+  .bl-lime { border-left: 3px solid #a3e635; }
+  .gb-violet { border-color: rgba(167,139,250,.2); }
+  .gb-electric { border-color: rgba(59,130,246,.2); }
+  .gb-cyan { border-color: rgba(34,211,238,.2); }
+  .gb-lime { border-color: rgba(163,230,53,.2); }
+  .gb-amber { border-color: rgba(251,191,36,.2); }
+  .gb-rose { border-color: rgba(251,113,133,.2); }
 
   /* ===== WORD PILLS ===== */
   .word-pill {
@@ -257,58 +256,11 @@
   .word-pill:hover, .word-pill:focus-visible { transform: scale(1.06); }
   .wp-current { border-color: rgba(167,139,250,.5); background: rgba(167,139,250,.18); color: #a78bfa; box-shadow: 0 0 14px rgba(167,139,250,.25); font-size: .95rem; }
 
-  /* ===== ROWS (collocation, morpheme, related) ===== */
-  .info-row {
-    display: flex; align-items: center; gap: 1rem;
-    padding: .875rem; border-radius: .75rem;
-    background: rgba(255,255,255,.04); border: 1px solid rgba(255,255,255,.08);
-  }
-  .info-row-interactive { transition: background .2s, border-color .2s; }
-  .info-row-interactive:hover, .info-row-interactive:focus-within {
-    background: rgba(167,139,250,.07); border-color: rgba(167,139,250,.4);
-  }
-  .colloc-row { border-color: transparent; }
-  .row-label { font-weight: 700; min-width: 85px; }
-  .row-label-lg { min-width: 135px; font-size: .9rem; }
-  .star-badge {
-    font-size: .68rem; padding: 2px 8px; border-radius: 999px;
-    white-space: nowrap;
-  }
-
-  /* ===== SOCIAL BUTTONS ===== */
-  .social-btn {
-    display: flex; align-items: center; gap: 12px;
-    padding: 14px 20px; border-radius: 14px;
-    background: rgba(255,255,255,.05); border: 1px solid rgba(255,255,255,.1);
-    color: #e2e8f0; text-decoration: none; transition: all .25s ease; font-weight: 500;
-  }
-  .social-btn:hover, .social-btn:focus-visible { background: rgba(167,139,250,.12); border-color: rgba(167,139,250,.4); transform: translateX(6px); color: #a78bfa; }
+  /* ===== SOCIAL (kept only footer link) ===== */
   .social-icon { flex-shrink: 0; width: 2.25rem; height: 2.25rem; border-radius: .5rem; display: flex; align-items: center; justify-content: center; }
 
-  /* ===== DOT INDICATOR ===== */
-  .dot { width: .5rem; height: .5rem; border-radius: 50%; flex-shrink: 0; margin-top: .375rem; }
-  .dot-sm { width: .375rem; height: .375rem; margin-top: 0; }
-  .glow-violet { background: #a78bfa; box-shadow: 0 0 6px rgba(167,139,250,.8); }
-  .glow-electric { background: #3b82f6; box-shadow: 0 0 6px rgba(59,130,246,.8); }
-  .glow-cyan { background: #22d3ee; box-shadow: 0 0 6px rgba(34,211,238,.8); }
-
-  /* ===== SECTION HEADING ===== */
-  .sec-heading { font-size: 1.35rem; font-weight: 700; text-align: center; margin-bottom: 1.5rem; }
-  .sec-sub { font-size: .82rem; text-align: center; margin-bottom: 1.5rem; }
-
-  /* ===== BORDER-LEFT QUOTE ===== */
-  .bl-violet { border-left: 3px solid #a78bfa; }
-  .bl-electric { border-left: 3px solid #3b82f6; }
-  .bl-cyan { border-left: 3px solid #22d3ee; }
-  .bl-lime { border-left: 3px solid #a3e635; }
-
-  /* ===== GLASS BORDER COLORS ===== */
-  .gb-violet { border-color: rgba(167,139,250,.2); }
-  .gb-electric { border-color: rgba(59,130,246,.2); }
-  .gb-cyan { border-color: rgba(34,211,238,.2); }
-  .gb-lime { border-color: rgba(163,230,53,.2); }
-  .gb-amber { border-color: rgba(251,191,36,.2); }
-  .gb-rose { border-color: rgba(251,113,133,.2); }
+  /* ===== TAG PILL ===== */
+  .tag-pill { padding: 3px 10px; border-radius: 999px; font-size: .72rem; border-width: 1px; border-style: solid; }
 
   /* ===== SCROLL TOP ===== */
   #scrollTop {
@@ -326,9 +278,6 @@
   #scrollTop:hover { transform: scale(1.1) translateY(-2px); }
   #scrollTop:focus-visible { outline: 2px solid #fbbf24; outline-offset: 3px; }
 
-  /* ===== FOCUS VISIBLE GLOBAL ===== */
-  a:focus-visible, button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; border-radius: 8px; }
-
   /* ===== SKIP LINK ===== */
   .skip-link {
     position: absolute; top: -100%; left: 50%; transform: translateX(-50%);
@@ -337,13 +286,8 @@
   }
   .skip-link:focus { top: 0; }
 
-  /* ===== TAG PILL (footer) ===== */
-  .tag-pill { padding: 3px 10px; border-radius: 999px; font-size: .72rem; border-width: 1px; border-style: solid; }
-
-  /* ===== RESPONSIVE ===== */
-  @media (max-width: 480px) {
-    .letter-card { width: 36px; height: 48px; font-size: 1.2rem; }
-  }
+  /* ===== FOCUS GLOBAL ===== */
+  a:focus-visible, button:focus-visible { outline: 2px solid #a78bfa; outline-offset: 2px; border-radius: 8px; }
 </style>
 </head>
 <body>
@@ -356,25 +300,12 @@
 <canvas id="particles" aria-hidden="true"></canvas>
 <button id="scrollTop" onclick="window.scrollTo({top:0,behavior:'smooth'})" aria-label="페이지 상단으로 이동">↑</button>
 
-<!-- BREADCRUMB NAV -->
-<nav aria-label="사이트 경로" class="relative z-1 pt-6 px-6">
-  <ol class="flex items-center gap-1.5 justify-center text-xs c-muted3 font-head">
-    <li><a href="https://ive.kr" class="hover:text-white transition-colors">홈</a></li>
-    <li aria-hidden="true">›</li>
-    <li><a href="https://ive.kr/words" class="hover:text-white transition-colors">‑ive 어휘</a></li>
-    <li aria-hidden="true">›</li>
-    <li aria-current="page" class="c-violet">creative</li>
-  </ol>
-</nav>
-
-<!-- MAIN CONTENT -->
 <main id="main-content">
 
-<!-- 1. HERO -->
-<header class="flex flex-col items-center justify-center px-6 pt-12 pb-6 text-center">
+<!-- HERO -->
+<header class="flex flex-col items-center justify-center px-6 pt-16 pb-4 text-center">
   <div class="w-full max-w-[680px] mx-auto">
 
-    <!-- Avatar -->
     <div class="avatar-ring mx-auto mb-5" role="img" aria-label="‑ive 접미사 아바타: creat + ive">
       <div class="avatar-inner">
         <span class="font-head c-violet" style="font-size:.5rem;letter-spacing:.18em;text-transform:uppercase;font-weight:600;">SUFFIX</span>
@@ -388,7 +319,7 @@
     <h1 class="neon-violet mb-2 font-head" style="font-size:clamp(3.5rem,10vw,6.5rem);font-weight:900;line-height:1;">creative</h1>
     <p class="mb-5 c-muted" style="font-size:clamp(.95rem,2.5vw,1.15rem);letter-spacing:.08em;">/ kriˈeɪ.tɪv /</p>
 
-    <div class="glass-strong p-6 mb-7 text-left gb-violet">
+    <div class="glass-strong p-6 text-left gb-violet">
       <h2 class="mb-3 c-violet font-head" style="font-size:.7rem;letter-spacing:.2em;font-weight:700;text-transform:uppercase;">Definition</h2>
       <dl class="flex flex-col gap-2.5">
         <div class="flex items-start gap-3">
@@ -405,22 +336,11 @@
         </div>
       </dl>
     </div>
-
-    <div class="flex justify-center gap-2 mb-6" role="img" aria-label="creative 철자 카드: c, r, e, a, t, i, v, e">
-      <span class="letter-card lc-violet font-head" style="animation-delay:0s" aria-hidden="true">c</span>
-      <span class="letter-card lc-violet-dim font-head" style="animation-delay:.15s" aria-hidden="true">r</span>
-      <span class="letter-card lc-electric font-head" style="animation-delay:.3s" aria-hidden="true">e</span>
-      <span class="letter-card lc-electric-dim font-head" style="animation-delay:.45s" aria-hidden="true">a</span>
-      <span class="letter-card lc-cyan font-head" style="animation-delay:.6s" aria-hidden="true">t</span>
-      <span class="letter-card lc-lime font-head" style="animation-delay:.75s" aria-hidden="true">i</span>
-      <span class="letter-card lc-amber font-head" style="animation-delay:.9s" aria-hidden="true">v</span>
-      <span class="letter-card lc-rose font-head" style="animation-delay:1.05s" aria-hidden="true">e</span>
-    </div>
   </div>
 </header>
 
-<!-- 2. MORPHOLOGICAL ANATOMY -->
-<section class="py-10 px-6 reveal" aria-labelledby="heading-morphology">
+<!-- MORPHOLOGICAL ANATOMY -->
+<section class="py-5 px-6 reveal" aria-labelledby="heading-morphology">
   <div class="w-full max-w-[680px] mx-auto">
     <h2 id="heading-morphology" class="neon-electric sec-heading font-head">Morphological Anatomy</h2>
     <div class="glass-strong p-7 gb-electric">
@@ -458,31 +378,8 @@
   </div>
 </section>
 
-<!-- 3. CODE BLOCK -->
-<section class="py-10 px-6 reveal" aria-labelledby="heading-data">
-  <div class="w-full max-w-[680px] mx-auto">
-    <h2 id="heading-data" class="neon-violet sec-heading font-head">Word Data</h2>
-    <figure>
-      <pre class="code-block" role="presentation" aria-label="creative 단어 데이터 코드 블록"><code><span class="tk-kw">const</span> <span class="tk-fn">creative</span> = {
-  <span class="tk-nm">word</span>:         <span class="tk-st">"creative"</span>,
-  <span class="tk-nm">phonetic</span>:     <span class="tk-st">"/kriˈeɪ.tɪv/"</span>,
-  <span class="tk-nm">root</span>:         <span class="tk-st">"Latin creāre (to make, to bring forth)"</span>,
-  <span class="tk-nm">suffix</span>:       <span class="tk-st">"‑ive (having the quality of)"</span>,
-  <span class="tk-nm">pos</span>:          [<span class="tk-st">"adjective"</span>, <span class="tk-st">"noun"</span>],
-  <span class="tk-nm">meaning</span>:      <span class="tk-st">"involving imagination and original ideas"</span>,
-  <span class="tk-nm">firstUsed</span>:    <span class="tk-nm">1678</span>,
-  <span class="tk-nm">frequency</span>:    <span class="tk-st">"top 2,000 (COCA)"</span>,
-  <span class="tk-nm">derivatives</span>:  [<span class="tk-st">"creativity"</span>, <span class="tk-st">"creatively"</span>, <span class="tk-st">"creativeness"</span>],
-  <span class="tk-nm">collocations</span>: [<span class="tk-st">"creative thinking"</span>, <span class="tk-st">"creative writing"</span>,
-                   <span class="tk-st">"creative director"</span>, <span class="tk-st">"creative process"</span>],
-};
-<span class="tk-cm">// "Creativity is intelligence having fun."</span></code></pre>
-    </figure>
-  </div>
-</section>
-
-<!-- 4. ETYMOLOGY TIMELINE -->
-<section class="py-10 px-6 reveal" aria-labelledby="heading-timeline">
+<!-- ETYMOLOGY TIMELINE -->
+<section class="py-5 px-6 reveal" aria-labelledby="heading-timeline">
   <div class="w-full max-w-[680px] mx-auto">
     <h2 id="heading-timeline" class="neon-cyan sec-heading font-head">Etymology Timeline</h2>
     <div class="flex gap-5">
@@ -499,7 +396,7 @@
         <div class="tl-line flex-1 my-1"></div>
         <div class="tl-dot tl-dot-amber"></div>
       </div>
-      <ol class="flex flex-col gap-4 flex-1 min-w-0 list-none p-0">
+      <ol class="flex flex-col gap-3 flex-1 min-w-0 list-none p-0">
         <li class="glass p-4 gb-violet">
           <p class="c-violet font-head" style="font-size:.68rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;margin-bottom:3px;">Proto-Indo-European</p>
           <p class="font-semibold text-sm">*ḱer- / *ḱreh₁-</p>
@@ -535,39 +432,10 @@
   </div>
 </section>
 
-<!-- 5. LINGUISTIC PROFILE -->
-<section class="py-10 px-6 reveal" aria-labelledby="heading-profile">
-  <div class="w-full max-w-[680px] mx-auto">
-    <h2 id="heading-profile" class="neon-violet sec-heading font-head">Linguistic Profile</h2>
-    <div class="glass p-6 flex flex-col gap-4" role="list" aria-label="creative 언어 프로필 통계">
-      <div role="listitem">
-        <div class="flex justify-between mb-1.5"><span class="text-sm font-semibold">일상 사용 빈도</span><span class="text-sm c-violet" aria-label="96%">96%</span></div>
-        <div class="prog-track" role="progressbar" aria-valuenow="96" aria-valuemin="0" aria-valuemax="100" aria-label="일상 사용 빈도 96%"><div class="prog-fill" data-width="96%" style="background:linear-gradient(90deg,#a78bfa,#3b82f6);"></div></div>
-      </div>
-      <div role="listitem">
-        <div class="flex justify-between mb-1.5"><span class="text-sm font-semibold">학술·전문 빈도</span><span class="text-sm c-electric" aria-label="94%">94%</span></div>
-        <div class="prog-track" role="progressbar" aria-valuenow="94" aria-valuemin="0" aria-valuemax="100" aria-label="학술·전문 빈도 94%"><div class="prog-fill" data-width="94%" style="background:linear-gradient(90deg,#3b82f6,#22d3ee);"></div></div>
-      </div>
-      <div role="listitem">
-        <div class="flex justify-between mb-1.5"><span class="text-sm font-semibold">연어 결합력</span><span class="text-sm c-cyan" aria-label="98%">98%</span></div>
-        <div class="prog-track" role="progressbar" aria-valuenow="98" aria-valuemin="0" aria-valuemax="100" aria-label="연어 결합력 98%"><div class="prog-fill" data-width="98%" style="background:linear-gradient(90deg,#22d3ee,#a3e635);"></div></div>
-      </div>
-      <div role="listitem">
-        <div class="flex justify-between mb-1.5"><span class="text-sm font-semibold">긍정 감성 스코어</span><span class="text-sm c-lime" aria-label="97%">97%</span></div>
-        <div class="prog-track" role="progressbar" aria-valuenow="97" aria-valuemin="0" aria-valuemax="100" aria-label="긍정 감성 스코어 97%"><div class="prog-fill" data-width="97%" style="background:linear-gradient(90deg,#a3e635,#fbbf24);"></div></div>
-      </div>
-      <div role="listitem">
-        <div class="flex justify-between mb-1.5"><span class="text-sm font-semibold">파생 생산성</span><span class="text-sm c-amber" aria-label="92%">92%</span></div>
-        <div class="prog-track" role="progressbar" aria-valuenow="92" aria-valuemin="0" aria-valuemax="100" aria-label="파생 생산성 92%"><div class="prog-fill" data-width="92%" style="background:linear-gradient(90deg,#fbbf24,#fb7185);"></div></div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- 6. WORD FAMILY -->
-<section class="py-10 px-6 reveal" aria-labelledby="heading-family">
+<!-- WORD FAMILY -->
+<section class="py-5 px-6 reveal" aria-labelledby="heading-family">
   <div class="w-full max-w-[680px] mx-auto text-center">
-    <h2 id="heading-family" class="neon-electric mb-1.5 font-head" style="font-size:1.35rem;font-weight:700;">Word Family</h2>
+    <h2 id="heading-family" class="neon-electric mb-1 font-head" style="font-size:1.35rem;font-weight:700;">Word Family</h2>
     <p class="sec-sub c-muted2">creat‑ 어근에서 파생된 단어들</p>
     <div class="flex flex-wrap gap-2 justify-center" role="list" aria-label="creat- 어근 파생어 목록">
       <span class="word-pill font-head bg-violet-s c-violet" style="border-color:rgba(167,139,250,.3);" role="listitem">create</span>
@@ -586,8 +454,8 @@
   </div>
 </section>
 
-<!-- 7. DERIVATIVE MAP -->
-<section class="py-10 px-6 reveal" aria-labelledby="heading-derivatives">
+<!-- DERIVATIVE MAP -->
+<section class="py-5 px-6 reveal" aria-labelledby="heading-derivatives">
   <div class="w-full max-w-[680px] mx-auto">
     <h2 id="heading-derivatives" class="neon-cyan sec-heading font-head">Derivative Map</h2>
     <div class="grid grid-cols-2 gap-3">
@@ -619,8 +487,8 @@
   </div>
 </section>
 
-<!-- 8. COLLOCATIONS -->
-<section class="py-10 px-6 reveal" aria-labelledby="heading-collocations">
+<!-- COLLOCATIONS -->
+<section class="py-5 px-6 reveal" aria-labelledby="heading-collocations">
   <div class="w-full max-w-[680px] mx-auto">
     <h2 id="heading-collocations" class="neon-violet font-head" style="font-size:1.35rem;font-weight:700;text-align:center;margin-bottom:.375rem;">Top Collocations</h2>
     <p class="sec-sub c-muted2">creative와 가장 자주 결합하는 표현 6선</p>
@@ -659,8 +527,8 @@
   </div>
 </section>
 
-<!-- 9. EXAMPLE SENTENCES -->
-<section class="py-10 px-6 reveal" aria-labelledby="heading-examples">
+<!-- EXAMPLE SENTENCES -->
+<section class="py-5 px-6 reveal" aria-labelledby="heading-examples">
   <div class="w-full max-w-[680px] mx-auto">
     <h2 id="heading-examples" class="neon-electric sec-heading font-head">Example Sentences</h2>
     <div class="flex flex-col gap-3">
@@ -684,19 +552,19 @@
   </div>
 </section>
 
-<!-- 10. SYNONYMS & ANTONYMS -->
-<section class="py-10 px-6 reveal" aria-labelledby="heading-syn-ant">
+<!-- SYNONYMS & ANTONYMS -->
+<section class="py-5 px-6 reveal" aria-labelledby="heading-syn-ant">
   <div class="w-full max-w-[680px] mx-auto">
     <h2 id="heading-syn-ant" class="neon-electric sec-heading font-head">Synonyms &amp; Antonyms</h2>
     <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
       <div class="glass p-5 gb-lime">
         <h3 class="mb-3 c-lime" style="font-size:.68rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;">≈ Synonyms</h3>
         <ul class="flex flex-col gap-1.5 list-none p-0">
-          <li class="flex items-center gap-2"><span class="dot-sm glow-cyan" style="background:#a3e635;box-shadow:0 0 4px rgba(163,230,53,.6);" aria-hidden="true"></span><span class="text-sm"><strong class="c-lime">imaginative</strong> — 상상력이 풍부한</span></li>
-          <li class="flex items-center gap-2"><span class="dot-sm glow-cyan" style="background:#a3e635;box-shadow:0 0 4px rgba(163,230,53,.6);" aria-hidden="true"></span><span class="text-sm"><strong class="c-lime">innovative</strong> — 혁신적인</span></li>
-          <li class="flex items-center gap-2"><span class="dot-sm glow-cyan" style="background:#a3e635;box-shadow:0 0 4px rgba(163,230,53,.6);" aria-hidden="true"></span><span class="text-sm"><strong class="c-lime">inventive</strong> — 발명적인</span></li>
-          <li class="flex items-center gap-2"><span class="dot-sm glow-cyan" style="background:#a3e635;box-shadow:0 0 4px rgba(163,230,53,.6);" aria-hidden="true"></span><span class="text-sm"><strong class="c-lime">original</strong> — 독창적인</span></li>
-          <li class="flex items-center gap-2"><span class="dot-sm glow-cyan" style="background:#a3e635;box-shadow:0 0 4px rgba(163,230,53,.6);" aria-hidden="true"></span><span class="text-sm"><strong class="c-lime">resourceful</strong> — 재치 있는</span></li>
+          <li class="flex items-center gap-2"><span class="dot-sm" style="background:#a3e635;box-shadow:0 0 4px rgba(163,230,53,.6);" aria-hidden="true"></span><span class="text-sm"><strong class="c-lime">imaginative</strong> — 상상력이 풍부한</span></li>
+          <li class="flex items-center gap-2"><span class="dot-sm" style="background:#a3e635;box-shadow:0 0 4px rgba(163,230,53,.6);" aria-hidden="true"></span><span class="text-sm"><strong class="c-lime">innovative</strong> — 혁신적인</span></li>
+          <li class="flex items-center gap-2"><span class="dot-sm" style="background:#a3e635;box-shadow:0 0 4px rgba(163,230,53,.6);" aria-hidden="true"></span><span class="text-sm"><strong class="c-lime">inventive</strong> — 발명적인</span></li>
+          <li class="flex items-center gap-2"><span class="dot-sm" style="background:#a3e635;box-shadow:0 0 4px rgba(163,230,53,.6);" aria-hidden="true"></span><span class="text-sm"><strong class="c-lime">original</strong> — 독창적인</span></li>
+          <li class="flex items-center gap-2"><span class="dot-sm" style="background:#a3e635;box-shadow:0 0 4px rgba(163,230,53,.6);" aria-hidden="true"></span><span class="text-sm"><strong class="c-lime">resourceful</strong> — 재치 있는</span></li>
         </ul>
       </div>
       <div class="glass p-5 gb-rose">
@@ -713,8 +581,8 @@
   </div>
 </section>
 
-<!-- 11. RELATED ‑IVE WORDS -->
-<section class="py-10 px-6 reveal" aria-labelledby="heading-related">
+<!-- RELATED ‑IVE WORDS -->
+<section class="py-5 px-6 reveal" aria-labelledby="heading-related">
   <div class="w-full max-w-[680px] mx-auto">
     <h2 id="heading-related" class="neon-violet font-head" style="font-size:1.35rem;font-weight:700;text-align:center;margin-bottom:.375rem;">Related ‑ive Words</h2>
     <p class="sec-sub c-muted2">creative와 의미적으로 관련된 ‑ive 어휘</p>
@@ -743,8 +611,8 @@
   </div>
 </section>
 
-<!-- 12. QUOTES -->
-<section class="py-10 px-6 reveal" aria-labelledby="heading-quotes">
+<!-- QUOTES -->
+<section class="py-5 px-6 reveal" aria-labelledby="heading-quotes">
   <div class="w-full max-w-[680px] mx-auto">
     <h2 id="heading-quotes" class="neon-cyan sec-heading font-head">Quotes on Creativity</h2>
     <div class="flex flex-col gap-3">
@@ -764,12 +632,12 @@
   </div>
 </section>
 
-<!-- 13. FAQ -->
-<section class="py-10 px-6 reveal" aria-labelledby="heading-faq">
+<!-- FAQ -->
+<section class="py-5 px-6 reveal" aria-labelledby="heading-faq">
   <div class="w-full max-w-[680px] mx-auto">
     <h2 id="heading-faq" class="neon-cyan sec-heading font-head">FAQ</h2>
     <div class="flex flex-col gap-2" role="region" aria-label="자주 묻는 질문">
-      <div class="glass overflow-hidden gb-violet" id="faq-0">
+      <div class="glass overflow-hidden gb-violet">
         <button class="acc-trigger c-text3" aria-expanded="false" aria-controls="acc-panel-0" id="acc-btn-0">
           <span class="text-sm font-semibold pr-4">creative는 형용사인가요, 명사인가요?</span>
           <span class="acc-arrow shrink-0 c-violet" style="font-size:1rem;" aria-hidden="true">▼</span>
@@ -778,7 +646,7 @@
           <p class="pb-4 leading-relaxed c-body" style="font-size:.82rem;">둘 다 가능합니다. 원래 형용사("She is creative.")로 사용되지만, 20세기부터 명사로도 널리 쓰입니다. "the creatives in our team"처럼 창작자를 지칭하거나, 광고 업계에서 "the creative"(광고 소재)를 의미합니다.</p>
         </div>
       </div>
-      <div class="glass overflow-hidden" style="border-color:rgba(59,130,246,.15);" id="faq-1">
+      <div class="glass overflow-hidden" style="border-color:rgba(59,130,246,.15);">
         <button class="acc-trigger c-text3" aria-expanded="false" aria-controls="acc-panel-1" id="acc-btn-1">
           <span class="text-sm font-semibold pr-4">creative와 innovative의 차이는?</span>
           <span class="acc-arrow shrink-0 c-electric" style="font-size:1rem;" aria-hidden="true">▼</span>
@@ -787,7 +655,7 @@
           <p class="pb-4 leading-relaxed c-body" style="font-size:.82rem;">creative는 "무에서 유를 만들어내는 능력"에 초점, innovative는 "기존의 것을 새로운 방식으로 개선하는 능력"을 강조합니다.</p>
         </div>
       </div>
-      <div class="glass overflow-hidden" style="border-color:rgba(34,211,238,.15);" id="faq-2">
+      <div class="glass overflow-hidden" style="border-color:rgba(34,211,238,.15);">
         <button class="acc-trigger c-text3" aria-expanded="false" aria-controls="acc-panel-2" id="acc-btn-2">
           <span class="text-sm font-semibold pr-4">creative의 명사형은 creativity vs creativeness?</span>
           <span class="acc-arrow shrink-0 c-cyan" style="font-size:1rem;" aria-hidden="true">▼</span>
@@ -796,7 +664,7 @@
           <p class="pb-4 leading-relaxed c-body" style="font-size:.82rem;">둘 다 맞지만 creativity가 압도적으로 많이 사용됩니다. ‑ive → ‑ivity는 라틴어 패턴(‑īvitās)을 따른 것입니다.</p>
         </div>
       </div>
-      <div class="glass overflow-hidden" style="border-color:rgba(163,230,53,.15);" id="faq-3">
+      <div class="glass overflow-hidden" style="border-color:rgba(163,230,53,.15);">
         <button class="acc-trigger c-text3" aria-expanded="false" aria-controls="acc-panel-3" id="acc-btn-3">
           <span class="text-sm font-semibold pr-4">creative는 언제 처음 영어에 등장했나요?</span>
           <span class="acc-arrow shrink-0 c-lime" style="font-size:1rem;" aria-hidden="true">▼</span>
@@ -809,44 +677,10 @@
   </div>
 </section>
 
-<!-- 14. SOCIAL LINKS -->
-<section class="py-10 px-6 reveal" aria-labelledby="heading-social">
-  <div class="w-full max-w-[680px] mx-auto">
-    <h2 id="heading-social" class="neon-electric sec-heading font-head">Follow ive.kr</h2>
-    <nav aria-label="소셜 미디어 링크" class="flex flex-col gap-2">
-      <a href="https://instagram.com/ive.kr" class="social-btn" target="_blank" rel="noopener noreferrer">
-        <div class="social-icon" style="background:linear-gradient(135deg,#f09433,#e6683c,#dc2743,#cc2366,#bc1888);" aria-hidden="true">📷</div>
-        <div class="flex-1 min-w-0"><p class="text-sm font-semibold">Instagram</p><p class="c-body2" style="font-size:.72rem;">@ive.kr</p></div>
-        <span class="shrink-0 c-muted3" style="font-size:.8rem;" aria-hidden="true">→</span>
-      </a>
-      <a href="https://youtube.com/@ive.kr" class="social-btn" target="_blank" rel="noopener noreferrer">
-        <div class="social-icon" style="background:#ff0000;" aria-hidden="true">▶</div>
-        <div class="flex-1 min-w-0"><p class="text-sm font-semibold">YouTube</p><p class="c-body2" style="font-size:.72rem;">@ive.kr</p></div>
-        <span class="shrink-0 c-muted3" style="font-size:.8rem;" aria-hidden="true">→</span>
-      </a>
-      <a href="https://x.com/ive_kr" class="social-btn" target="_blank" rel="noopener noreferrer">
-        <div class="social-icon" style="background:#000;border:1px solid rgba(255,255,255,.2);" aria-hidden="true">✕</div>
-        <div class="flex-1 min-w-0"><p class="text-sm font-semibold">X / Twitter</p><p class="c-body2" style="font-size:.72rem;">@ive_kr</p></div>
-        <span class="shrink-0 c-muted3" style="font-size:.8rem;" aria-hidden="true">→</span>
-      </a>
-      <a href="https://github.com/ive-kr" class="social-btn" target="_blank" rel="noopener noreferrer">
-        <div class="social-icon" style="background:#24292f;" aria-hidden="true">🐙</div>
-        <div class="flex-1 min-w-0"><p class="text-sm font-semibold">GitHub</p><p class="c-body2" style="font-size:.72rem;">ive-kr</p></div>
-        <span class="shrink-0 c-muted3" style="font-size:.8rem;" aria-hidden="true">→</span>
-      </a>
-      <a href="mailto:hello@ive.kr" class="social-btn">
-        <div class="social-icon" style="background:linear-gradient(135deg,#a78bfa,#3b82f6);" aria-hidden="true">✉</div>
-        <div class="flex-1 min-w-0"><p class="text-sm font-semibold">Email</p><p class="c-body2" style="font-size:.72rem;">hello@ive.kr</p></div>
-        <span class="shrink-0 c-muted3" style="font-size:.8rem;" aria-hidden="true">→</span>
-      </a>
-    </nav>
-  </div>
-</section>
-
 </main>
 
 <!-- FOOTER -->
-<footer class="py-10 px-6 text-center" style="border-top:1px solid rgba(255,255,255,.06);" role="contentinfo">
+<footer class="py-8 px-6 text-center" style="border-top:1px solid rgba(255,255,255,.06);" role="contentinfo">
   <div class="w-full max-w-[680px] mx-auto">
     <div class="flex flex-wrap justify-center gap-2 mb-5" aria-label="관련 태그">
       <span class="tag-pill bg-violet-s c-violet" style="border-color:rgba(167,139,250,.15);">#creative</span>
@@ -864,7 +698,7 @@
 </footer>
 
 <script>
-/* ===== Particles (canvas) ===== */
+/* ===== Particles ===== */
 (function(){
   const cvs = document.getElementById('particles');
   if (!cvs) return;
@@ -872,13 +706,12 @@
   let W, H;
   const pts = [];
   const COLS = ['167,139,250','59,130,246','34,211,238','163,230,53'];
-  const COUNT = 55;
 
   function resize() { W = cvs.width = innerWidth; H = cvs.height = innerHeight; }
   resize();
   window.addEventListener('resize', resize, { passive: true });
 
-  for (let i = 0; i < COUNT; i++) {
+  for (let i = 0; i < 55; i++) {
     pts.push({
       x: Math.random() * W, y: Math.random() * H,
       vx: (Math.random() - .5) * .35, vy: (Math.random() - .5) * .35,
@@ -888,7 +721,6 @@
     });
   }
 
-  /* respect reduced-motion */
   const mq = matchMedia('(prefers-reduced-motion: reduce)');
   let paused = mq.matches;
   mq.addEventListener('change', () => { paused = mq.matches; if (!paused) draw(); });
@@ -910,28 +742,21 @@
   draw();
 })();
 
-/* ===== Reveal on scroll (IntersectionObserver) ===== */
+/* ===== Reveal ===== */
 const io = new IntersectionObserver(entries => {
   for (const e of entries) {
-    if (e.isIntersecting) {
-      e.target.classList.add('visible');
-      for (const f of e.target.querySelectorAll('.prog-fill')) {
-        setTimeout(() => { f.style.width = f.dataset.width; }, 200);
-      }
-      io.unobserve(e.target);
-    }
+    if (e.isIntersecting) { e.target.classList.add('visible'); io.unobserve(e.target); }
   }
 }, { threshold: .15 });
 document.querySelectorAll('.reveal').forEach(r => io.observe(r));
 
-/* ===== Accordion (FAQ) ===== */
+/* ===== Accordion ===== */
 document.querySelectorAll('.acc-trigger').forEach(btn => {
   btn.addEventListener('click', () => {
     const panel = document.getElementById(btn.getAttribute('aria-controls'));
     const arrow = btn.querySelector('.acc-arrow');
     const isOpen = panel.classList.contains('open');
 
-    /* close all */
     document.querySelectorAll('.acc-body').forEach(b => b.classList.remove('open'));
     document.querySelectorAll('.acc-trigger').forEach(b => {
       b.setAttribute('aria-expanded', 'false');
@@ -939,7 +764,6 @@ document.querySelectorAll('.acc-trigger').forEach(btn => {
       if (a) a.classList.remove('open');
     });
 
-    /* toggle current */
     if (!isOpen) {
       panel.classList.add('open');
       arrow.classList.add('open');
@@ -948,15 +772,12 @@ document.querySelectorAll('.acc-trigger').forEach(btn => {
   });
 });
 
-/* ===== Scroll-to-top button ===== */
+/* ===== Scroll-to-top ===== */
 const stb = document.getElementById('scrollTop');
 let ticking = false;
 window.addEventListener('scroll', () => {
   if (!ticking) {
-    requestAnimationFrame(() => {
-      stb.classList.toggle('show', scrollY > 400);
-      ticking = false;
-    });
+    requestAnimationFrame(() => { stb.classList.toggle('show', scrollY > 400); ticking = false; });
     ticking = true;
   }
 }, { passive: true });
