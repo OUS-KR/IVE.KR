@@ -219,7 +219,6 @@
   .colloc-row { border-color: transparent; }
   .row-label { font-weight: 700; min-width: 85px; }
   .row-label-lg { min-width: 135px; font-size: .9rem; }
-  .star-badge { font-size: .68rem; padding: 2px 8px; border-radius: 999px; white-space: nowrap; }
   .dot { width: .5rem; height: .5rem; border-radius: 50%; flex-shrink: 0; margin-top: .375rem; }
   .dot-sm { width: .375rem; height: .375rem; margin-top: 0; }
   .glow-violet { background: #a78bfa; box-shadow: 0 0 6px rgba(167,139,250,.8); }
@@ -247,6 +246,17 @@
 
   /* ===== TAG PILL ===== */
   .tag-pill { padding: 3px 10px; border-radius: 999px; font-size: .72rem; border-width: 1px; border-style: solid; }
+
+  /* ===== SOURCE LINK ===== */
+  .source-link {
+    display: inline-flex; align-items: center; gap: .35rem;
+    font-size: .72rem; padding: 4px 12px; border-radius: 999px;
+    background: rgba(167,139,250,.06); border: 1px solid rgba(167,139,250,.15);
+    color: rgba(255,255,255,.4); text-decoration: none; transition: all .2s;
+  }
+  .source-link:hover, .source-link:focus-visible {
+    background: rgba(167,139,250,.12); border-color: rgba(167,139,250,.3); color: #a78bfa;
+  }
 
   /* ===== SCROLL TOP ===== */
   #scrollTop {
@@ -479,39 +489,39 @@
 <section class="py-5 px-6 reveal" aria-labelledby="heading-collocations">
   <div class="w-full max-w-[680px] mx-auto">
     <h2 id="heading-collocations" class="neon-violet sec-heading font-head">Top Collocations</h2>
-    <p class="sec-sub c-muted2">creative와 가장 자주 결합하는 표현 6선</p>
+    <p class="sec-sub c-muted2">creative와 가장 자주 결합하는 표현들</p>
     <ul class="flex flex-col gap-2 list-none p-0" role="list">
       <li class="info-row colloc-row" style="border-color:rgba(167,139,250,.15);">
         <span class="row-label-lg c-violet font-head">creative thinking</span>
         <span class="text-sm flex-1 c-muted">창의적 사고</span>
-        <span class="star-badge bg-violet-s c-violet">★★★</span>
       </li>
       <li class="info-row colloc-row" style="border-color:rgba(59,130,246,.15);">
         <span class="row-label-lg c-electric font-head">creative writing</span>
         <span class="text-sm flex-1 c-muted">창작 글쓰기</span>
-        <span class="star-badge bg-electric-s c-electric">★★★</span>
       </li>
       <li class="info-row colloc-row" style="border-color:rgba(34,211,238,.15);">
         <span class="row-label-lg c-cyan font-head">creative director</span>
         <span class="text-sm flex-1 c-muted">크리에이티브 디렉터</span>
-        <span class="star-badge bg-cyan-s c-cyan">★★★</span>
       </li>
       <li class="info-row colloc-row" style="border-color:rgba(163,230,53,.15);">
         <span class="row-label-lg c-lime font-head">creative process</span>
         <span class="text-sm flex-1 c-muted">창작 과정</span>
-        <span class="star-badge bg-lime-s c-lime">★★☆</span>
       </li>
       <li class="info-row colloc-row" style="border-color:rgba(251,191,36,.15);">
         <span class="row-label-lg c-amber font-head">creative industry</span>
         <span class="text-sm flex-1 c-muted">창조 산업</span>
-        <span class="star-badge bg-amber-s c-amber">★★☆</span>
       </li>
       <li class="info-row colloc-row" style="border-color:rgba(251,113,133,.15);">
         <span class="row-label-lg c-rose font-head">creative freedom</span>
         <span class="text-sm flex-1 c-muted">창작의 자유</span>
-        <span class="star-badge bg-rose-s c-rose">★★☆</span>
       </li>
     </ul>
+    <p class="text-center mt-4">
+      <a href="https://www.english-corpora.org/coca/" target="_blank" rel="noopener noreferrer" class="source-link">
+        <span>출처: COCA (Corpus of Contemporary American English)</span>
+        <span aria-hidden="true">↗</span>
+      </a>
+    </p>
   </div>
 </section>
 
@@ -616,8 +626,12 @@
         <footer class="mt-2 font-semibold c-electric" style="font-size:.78rem;">— Pablo Picasso</footer>
       </blockquote>
       <blockquote class="glass p-5 bl-cyan">
-        <p class="italic leading-relaxed text-sm c-text2">"Creative: creat(e) + ‑ive — 만들어내는 힘을 가진. 라틴어 creāre에서 시작된 이 단어는 인류 문명의 핵심 동력을 표현한다."</p>
-        <footer class="mt-2 font-semibold c-cyan" style="font-size:.78rem;">— ive.kr 어원 노트</footer>
+        <p class="italic leading-relaxed text-sm c-text2" lang="en">"Creativity is just connecting things."</p>
+        <footer class="mt-2 font-semibold c-cyan" style="font-size:.78rem;">— Steve Jobs, <cite><a href="https://www.wired.com/story/the-next-insanely-great-thing/" target="_blank" rel="noopener noreferrer" class="c-cyan hover:text-white transition-colors" style="text-decoration:underline;text-underline-offset:3px;">Wired</a></cite> (1996)</footer>
+      </blockquote>
+      <blockquote class="glass p-5 bl-lime">
+        <p class="italic leading-relaxed text-sm c-text2" lang="en">"You can't use up creativity. The more you use, the more you have."</p>
+        <footer class="mt-2 font-semibold c-lime" style="font-size:.78rem;">— Maya Angelou, <cite>Conversations with Maya Angelou</cite> (1982)</footer>
       </blockquote>
     </div>
   </div>
